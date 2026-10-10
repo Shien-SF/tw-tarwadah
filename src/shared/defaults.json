@@ -1,0 +1,518 @@
+{
+  "hero": {
+    "title": {
+      "ar": "الصمت أبلغ حين يترك التصميم أثره بلا شرح.",
+      "en": "Silence speaks louder when design refuses to explain itself."
+    },
+    "note": {
+      "ar": "صُممت لتشعر بالخفة — وهذا ما يجعلها حقيقية.",
+      "en": "Designed to feel nothing — and that’s what makes it real."
+    },
+    "accent_text": {
+      "ar": "وضوح خارج المألوف",
+      "en": "Distortion in clarity"
+    },
+    "description": {
+      "ar": "في عالم يمتلئ بالضجيج، صار الهدوء اختيارًا.",
+      "en": "In a world full of noise, silence became a choice."
+    },
+    "cta_label": {
+      "ar": "اشترِ الآن",
+      "en": "Buy Now"
+    },
+    "cta_target": "buy-now",
+    "scroll_label": {
+      "ar": "[مرّر للأسفل]",
+      "en": "[Scroll]"
+    },
+    "video": "https://framerusercontent.com/assets/iY1BCP5FyWY82MDYFCryWcgyBc.mp4",
+    "poster": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780"
+  },
+  "product-strip": {
+    "title": {
+      "ar": "سماعة MORAE",
+      "en": "MORAE Headphone"
+    },
+    "detail_label": {
+      "ar": "المزيد من التفاصيل",
+      "en": "More Details"
+    },
+    "cta_label": {
+      "ar": "أضف إلى السلة",
+      "en": "ADD TO CART"
+    },
+    "target": "buy-now",
+    "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435",
+    "price": {
+      "ar": "259.00 $",
+      "en": "$259.00"
+    },
+    "colors": {
+      "ar": "برتقالي · رمادي · أسود",
+      "en": "Orange · Gray · Black"
+    }
+  },
+  "highlights": {
+    "eyebrow": {
+      "ar": "تفاصيل التصميم",
+      "en": "Highlights"
+    },
+    "title": {
+      "ar": "زجاج شفاف. لون جريء. تجربة نقية.",
+      "en": "Transparent glass. Bold color. Pure experience."
+    },
+    "description": {
+      "ar": "تفاصيل مدروسة تعكس دقة MORAE ووضوح خاماتها وتصميمها المتقن.",
+      "en": "Focused details that showcase MORAE’s precision, material clarity, and intentional design."
+    },
+    "caption": {
+      "ar": "® بلا حدود. نصل إلى العالم.",
+      "en": "® No office. Global reach."
+    },
+    "items": [
+      {
+        "title": {
+          "ar": "جمال الوضوح",
+          "en": "The Beauty of Clarity"
+        },
+        "image": "https://framerusercontent.com/images/kFgORTWUAzRCUNIBJjiNILHS7s.jpg"
+      },
+      {
+        "title": {
+          "ar": "هيكل صوتي شفاف",
+          "en": "Transparent Acoustic Shell"
+        },
+        "image": "https://framerusercontent.com/images/bQHk75CFuU7vzdqEYEPLLU8uZF4.png?width=1728&height=2304"
+      },
+      {
+        "title": {
+          "ar": "وسائد ذاكرة فائقة النعومة",
+          "en": "Ultra-Soft Memory Foam"
+        },
+        "image": "https://framerusercontent.com/images/mcKpc36B3h8aeq2KyDwvu86o.jpg?width=1024&height=1024"
+      }
+    ]
+  },
+  "sound": {
+    "eyebrow": {
+      "ar": "صوت MORAE",
+      "en": "MORAE Sound"
+    },
+    "text": {
+      "ar": "الصوت لا يُسمع فقط — بل يسري داخلك.\nيتنفس، يتوهج، ويصبح جزءًا منك.",
+      "en": "Sound is not just heard — it moves through you.\nIt breathes, it glows, it becomes part of who you are."
+    }
+  },
+  "gallery": {
+    "label": {
+      "ar": "تفاصيل MORAE",
+      "en": "MORAE in detail"
+    },
+    "images": [
+      {
+        "image": "https://framerusercontent.com/images/h9ZyECjIhhyZcA59c8A3K9x7A.jpg?width=1024&height=802",
+        "alt": {
+          "ar": "سماعة MORAE البرتقالية أثناء الاستخدام",
+          "en": "MORAE orange headphones in use"
+        }
+      },
+      {
+        "image": "https://framerusercontent.com/images/x2KHSYfCpMyTYFyni7NlmZazE.jpg",
+        "alt": {
+          "ar": "سماعة MORAE أثناء الاستخدام",
+          "en": "MORAE headphones in use"
+        }
+      },
+      {
+        "image": "https://framerusercontent.com/images/2kUSCbhbaJO8whXSrqk7sZ0tQ.png",
+        "alt": {
+          "ar": "التصميم الصوتي لسماعة MORAE",
+          "en": "MORAE acoustic design"
+        }
+      }
+    ]
+  },
+  "features": {
+    "label": {
+      "ar": "المميزات التقنية",
+      "en": "Technical features"
+    },
+    "intro_image": "https://framerusercontent.com/images/qXyUnAMXZ6gpVZyxlFzA79Ts7Fg.jpg",
+    "items": [
+      {
+        "title": {
+          "ar": "إلغاء الضوضاء النشط الاحترافي",
+          "en": "Active Noise Cancellation Pro"
+        },
+        "description": {
+          "ar": "هدوء يتشكل بانسيابية. يحجب الفوضى ويبقي السكينة حيث تريدها.",
+          "en": "Silence shaped, not forced. Blocks chaos, keeps the calm exactly where it belongs."
+        },
+        "image": "https://framerusercontent.com/images/ysr5pLyAsJmusgUtVIPaoDYiU.png"
+      },
+      {
+        "title": {
+          "ar": "وضع الوعي بالمحيط",
+          "en": "Transparent Awareness Mode"
+        },
+        "description": {
+          "ar": "حين يحتاج الهدوء إلى انتباه. اسمع العالم يمتزج برفق مع صوتك.",
+          "en": "When silence needs awareness. Hear the world blend softly with your sound."
+        },
+        "image": "https://framerusercontent.com/images/ROVwzYkZf83wY75USKEtSQXEjw.png"
+      },
+      {
+        "title": {
+          "ar": "بطارية تدوم 40 ساعة",
+          "en": "40-Hour Extended Battery Life"
+        },
+        "description": {
+          "ar": "طاقة ترافقك طويلًا، حتى تنسى أنها تحتاج إلى شحن.",
+          "en": "Time bends quietly. Power that lasts long enough to forget it’s there."
+        },
+        "image": "https://framerusercontent.com/images/nuNEJifFnfrW8rI99vw7E5dgxk.png"
+      },
+      {
+        "title": {
+          "ar": "تحكم باللمس بكل سهولة",
+          "en": "Intuitive Touch Controls"
+        },
+        "description": {
+          "ar": "بلا أزرار. إيماءات طبيعية، سلسة ودقيقة.",
+          "en": "No buttons. Just gestures. Smooth, natural, and quietly precise."
+        },
+        "image": "https://framerusercontent.com/images/qs3ficn1Ew7erAlmaFD2ApqAlUw.png"
+      },
+      {
+        "title": {
+          "ar": "توازن صوتي ذكي متكيف",
+          "en": "Adaptive Smart Sound Balance"
+        },
+        "description": {
+          "ar": "لكل مكان نبرته. تتعلم السماعة وتتكيّف لتبقى على انسجام معك.",
+          "en": "Every space has a tone. It learns and adjusts — always in tune with you."
+        },
+        "image": "https://framerusercontent.com/images/fMOCySHVgrqpuBciWRpDtoiYwRY.jpg"
+      }
+    ]
+  },
+  "video": {
+    "title": {
+      "ar": "لحظات تصنع الفرق",
+      "en": "Moments That Matter"
+    },
+    "video": "https://framerusercontent.com/assets/h3iJyoJz4JVnXDvfJto7HyGi68.mp4",
+    "poster": "https://framerusercontent.com/images/qXyUnAMXZ6gpVZyxlFzA79Ts7Fg.jpg",
+    "play_label": {
+      "ar": "تشغيل الفيديو",
+      "en": "Play film"
+    },
+    "pause_label": {
+      "ar": "إيقاف الفيديو",
+      "en": "Pause film"
+    }
+  },
+  "testimonials": {
+    "eyebrow": {
+      "ar": "آراء العملاء",
+      "en": "Testimonials"
+    },
+    "title": {
+      "ar": "اسمعها ممن ينصتون بعمق.",
+      "en": "Hear it from those who listen deeply."
+    },
+    "caption": {
+      "ar": "/ صُنعت بدقة. تُشحن حول العالم.",
+      "en": "/ Precision built. Ships globally."
+    },
+    "items": [
+      {
+        "quote": {
+          "ar": "كأن العالم تعلّم أخيرًا كيف يهمس.",
+          "en": "It feels like the world finally learned to whisper."
+        },
+        "author": {
+          "ar": "نواه باتيل",
+          "en": "Noah Patel"
+        }
+      },
+      {
+        "quote": {
+          "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
+          "en": "Every note sounds personal, like it knows who’s listening."
+        },
+        "author": {
+          "ar": "أميرة كولينز",
+          "en": "Amira Collins"
+        }
+      },
+      {
+        "quote": {
+          "ar": "توقفت عن تفقد البطارية. تبدو وكأنها لا تنفد.",
+          "en": "I stopped checking the battery. It just never seems to die."
+        },
+        "author": {
+          "ar": "لوكاس ماير",
+          "en": "Lucas Meyer"
+        }
+      },
+      {
+        "quote": {
+          "ar": "التحكم باللمس طبيعي، كأن السماعة تقرأ أفكارك.",
+          "en": "Touch feels natural — almost like the headphones read your mind."
+        },
+        "author": {
+          "ar": "إيلينا روسي",
+          "en": "Elena Rossi"
+        }
+      },
+      {
+        "quote": {
+          "ar": "إلغاء الضوضاء لطيف لدرجة أنك تنسى أنه يعمل.",
+          "en": "Noise cancellation so gentle, you forget it’s working."
+        },
+        "author": {
+          "ar": "ديفيد كيم",
+          "en": "David Kim"
+        }
+      },
+      {
+        "quote": {
+          "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
+          "en": "Every note sounds personal, like it knows who’s listening."
+        },
+        "author": {
+          "ar": "ديفيد كيم",
+          "en": "David Kim"
+        }
+      },
+      {
+        "quote": {
+          "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
+          "en": "Every note sounds personal, like it knows who’s listening."
+        },
+        "author": {
+          "ar": "ديفيد كيم",
+          "en": "David Kim"
+        }
+      },
+      {
+        "quote": {
+          "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
+          "en": "Every note sounds personal, like it knows who’s listening."
+        },
+        "author": {
+          "ar": "ديفيد كيم",
+          "en": "David Kim"
+        }
+      },
+      {
+        "quote": {
+          "ar": "لا تدرك كم من الضجيج تحمله حتى يختفي.",
+          "en": "You don’t realize how much chaos you carry until it takes it away."
+        },
+        "author": {
+          "ar": "نواه ألفاريز",
+          "en": "Noah Alvarez"
+        }
+      },
+      {
+        "quote": {
+          "ar": "كل لمسة وكل وقفة، كأنها تفهم كيف أتحرك وأستمع.",
+          "en": "Every touch, every pause — like it understands how I move and listen."
+        },
+        "author": {
+          "ar": "مارا ينسن",
+          "en": "Mara Jensen"
+        }
+      },
+      {
+        "quote": {
+          "ar": "التصميم لا يطلب الانتباه، لكنه يملك اللحظة بهدوء.",
+          "en": "The design doesn’t ask for attention, but it quietly owns the moment."
+        },
+        "author": {
+          "ar": "دانيال كروغر",
+          "en": "Daniel Krüger"
+        }
+      },
+      {
+        "quote": {
+          "ar": "ليس أعلى، بل أوضح. ذكّرني لماذا أحب الموسيقى.",
+          "en": "Not louder. Just clearer. It reminded me why I love music."
+        },
+        "author": {
+          "ar": "آيا ناكامورا",
+          "en": "Aya Nakamura"
+        }
+      },
+      {
+        "quote": {
+          "ar": "هناك جمال في أن تتوارى السماعة وتترك الصوت وحده حاضرًا.",
+          "en": "There’s something beautiful about how it disappears and lets the sound exist."
+        },
+        "author": {
+          "ar": "إيثان موراليس",
+          "en": "Ethan Morales"
+        }
+      },
+      {
+        "quote": {
+          "ar": "لكل صوت مساحة ليتنفس، كأن العالم يتوقف من أجل الموسيقى.",
+          "en": "Every sound has space to breathe — it’s like the world pauses just for the music."
+        },
+        "author": {
+          "ar": "لينا هوفمان",
+          "en": "Lena Hoffmann"
+        }
+      }
+    ]
+  },
+  "buy-now": {
+    "title": {
+      "ar": "سماعة MORAE",
+      "en": "MORAE Headphone"
+    },
+    "description": {
+      "ar": "هدوء لاسلكي بمعنى جديد.",
+      "en": "The wireless calm redefined."
+    },
+    "specs_label": {
+      "ar": "المواصفات التقنية",
+      "en": "Technical Specs"
+    },
+    "specs": [
+      {
+        "text": {
+          "ar": "بطارية تدوم 40 ساعة",
+          "en": "40-Hour Battery Life"
+        }
+      },
+      {
+        "text": {
+          "ar": "إلغاء الضوضاء النشط 2.0",
+          "en": "Active Noise Cancellation 2.0"
+        }
+      },
+      {
+        "text": {
+          "ar": "توازن صوتي متكيف",
+          "en": "Adaptive Sound Balance"
+        }
+      }
+    ],
+    "color_label": {
+      "ar": "اللون",
+      "en": "Color"
+    },
+    "price": {
+      "ar": "259.00 $",
+      "en": "$259.00"
+    },
+    "cta_label": {
+      "ar": "أضف إلى السلة",
+      "en": "ADD TO CART"
+    },
+    "quantity_label": {
+      "ar": "الكمية",
+      "en": "Quantity"
+    },
+    "preview_message": {
+      "ar": "اختر منتجًا من سلة في إعدادات هذا القسم لتفعيل الشراء.",
+      "en": "Choose a Salla product in this section’s settings to enable purchases."
+    },
+    "loading_message": {
+      "ar": "جارٍ تحميل المنتج…",
+      "en": "Loading product…"
+    },
+    "error_message": {
+      "ar": "تعذّر تحميل المنتج. يرجى المحاولة مجددًا.",
+      "en": "The product could not be loaded. Please try again."
+    },
+    "product": [],
+    "variants": [
+      {
+        "name": {
+          "ar": "برتقالي",
+          "en": "Orange"
+        },
+        "color": "#e86a16",
+        "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435"
+      },
+      {
+        "name": {
+          "ar": "رمادي",
+          "en": "Gray"
+        },
+        "color": "#9e9e9e",
+        "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/grey_headphone.jpg?v=1763519436"
+      },
+      {
+        "name": {
+          "ar": "أسود",
+          "en": "Black"
+        },
+        "color": "#282828",
+        "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/black_headphone.jpg?v=1763519436"
+      }
+    ],
+    "details_title": {
+      "ar": "المواصفات",
+      "en": "Specs"
+    },
+    "close_label": {
+      "ar": "إغلاق",
+      "en": "Close"
+    },
+    "detailed_specs": [
+      {
+        "title": {
+          "ar": "التصميم",
+          "en": "Design"
+        },
+        "body": {
+          "ar": "أبعاد السماعة\nالارتفاع | 173.25 مم\nالعرض | 75.0 مم\nالعمق | 188.14 مم\n\nوزن السماعة\nالوزن | 312 جم\n\nوزن السماعة\nالوزن | 312 جم",
+          "en": "Headphones dimensions\nHeight | 173.25 MM\nWidth | 75.0 MM\nDepth | 188.14 MM\n\nHeadphones weight\nWeight | 312 G\n\nHeadphones weight\nWeight | 312 G"
+        }
+      },
+      {
+        "title": {
+          "ar": "الصوت",
+          "en": "Sound"
+        },
+        "body": {
+          "ar": "المشغّلات\n40 مم ديناميكي / 16 Ω\n\nنطاق التردد\n20 هرتز – 40 كيلوهرتز\n\nالغشاء\nPU",
+          "en": "Drivers\n40 MM DYNAMIC / 16 Ω\n\nRF\n20 HZ – 40 KHZ\n\nDiaphragm\nPU"
+        }
+      },
+      {
+        "title": {
+          "ar": "البطارية",
+          "en": "Battery"
+        },
+        "body": {
+          "ar": "نوع البطارية\nليثيوم أيون قابلة للشحن\n\nالسعة\n1200 مللي أمبير ساعة\n\nالشحن\nشحن سلكي TYPE-C، شحن كامل خلال 120 دقيقة",
+          "en": "Battery type\nRECHARGEABLE LITHIUM-ION\n\nCapacity\n1200 MAH\n\nCharging\nTYPE-C WIRED CHARGING-TO-FULL TIME 120 MINS"
+        }
+      },
+      {
+        "title": {
+          "ar": "إلغاء الضوضاء",
+          "en": "Noise Cancellation"
+        },
+        "body": {
+          "ar": "أبعاد السماعة\nإلغاء ضوضاء متكيف لحظيًا\n\nالعمق\nحتى 42 ديسيبل",
+          "en": "Headphones dimensions\nREAL-TIME ADAPTIVE ANC\n\nDepth\nUP TO 42 DB"
+        }
+      }
+    ],
+    "demo_message": {
+      "ar": "معاينة تطوير بمنتج وهمي؛ لم تتم إضافة إلى سلة متجر حقيقي.",
+      "en": "Development preview with a mock product; no item was added to a real store cart."
+    },
+    "sold_out_label": {
+      "ar": "نفدت الكمية",
+      "en": "Sold out"
+    }
+  }
+}

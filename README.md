@@ -1,220 +1,110 @@
-# Tarwadah
+# ترواده — Tarwadah
 
+حزمة سلة لصفحات هبوط **منتج واحد**. المرجع: [MORAE](https://morae-shopiframe.framer.website/). كل قسم عنصر مستقل مبني بـ TypeScript وLit، بنصوص وصور وفيديوهات المرجع كقيم افتراضية قابلة للتعديل. الحزمة ليست ثيم Twig كاملًا.
 
+## التشغيل على Windows
 
-This starter kit provides a foundation for building custom Twilight components for Salla's e-commerce platform. It includes a pre-configured build setup and development environment to help you get started quickly.
-
-## Getting Started
-
-1. Clone this repository
-2. Remove the example components in `src/components/` using:
-   ```
-   tw-delete-component
-   ```
-3. Create your own components using the component generator:
-   ```
-   tw-create-component <component-name>
-   ```
-4. Run `pnpm install` to install dependencies
-5. Run `pnpm run dev` to start the development server
-6. Run `pnpm run build` to build your components for production
-
-## Project Structure
-
-```
-src/
-  components/
-    your-component-name/
-      index.ts        # Main component file
-      styles.ts       # Component styles (optional)
-      types.ts        # Component types (optional)
+```powershell
+cd D:\my_work\tw-tarwadah
+pnpm.cmd install
+pnpm.cmd run dev
 ```
 
-## Built-in Plugins
+بعد ظهور عنوان الخادم (غالبًا `http://127.0.0.1:5173`):
 
-This starter kit includes three Vite plugins that handle the build process:
+- `/landing.html`: معاينة الصفحة الكاملة.
+- `/landing.html?template=compact`: المعاينة المختصرة.
+- `/editor.html`: محرر سلة لإعداد العناصر وترتيبها وحفظ القوالب.
 
-### 1. Transform Plugin (`sallaTransformPlugin`)
-- Transforms component files to ensure proper naming and registration
-- Matches components in `src/components/*/index.ts`
-- To disable: Remove from `vite.config.ts` plugins array
+ابدأ بمعاينة `/landing.html` ومرّر الصفحة لرؤية الحركة. في المحرر اختر **ترواده — الصفحة الكاملة** أو **ترواده — الصفحة المختصرة** من القائمة العلوية، واضغط الترس بجانب القسم لتعديل بياناته. «إلكترونيات» تصنيف القالب في سلة فقط. القالب الافتراضي يعرض بيانات المرجع حتى بدون حفظ إعدادات، والتعديلات المحفوظة تظل لها الأولوية.
 
-### 2. Build Plugin (`sallaBuildPlugin`)
-- Handles component bundling and output
-- Creates individual files for each component in `dist/`
-- Configures external dependencies (lit libraries)
-- To customize: Remove from plugins array and configure your own build settings:
-  ```typescript
-  {
-    build: {
-      lib: {
-        entry: {/* your entries */},
-        formats: ['es'],
-        fileName: (format, entryName) => `${entryName}.js`
-      },
-      rollupOptions: {
-        external: [/^lit/],
-        output: {/* your output config */}
-      }
-    }
-  }
-  ```
+لو المنفذ مشغول، استخدم العنوان الذي يطبعه Vite. لإيقاف الخادم: `Ctrl+C`.
 
-### 3. Demo Plugin (`sallaDemoPlugin`)
-- Provides a development environment for testing components
-- Creates a demo page with your components
-- Configures hot module reloading
-- To disable: Remove from plugins array and set up your own dev server
+الهيدر والفوتر المحليان للمعاينة فقط؛ سلة تمنع Global Components ضمن الحزم، والمتجر يستخدم هيدر وفوتر ثيمه.
 
-### Demo Plugin Options
+## العناصر المستقلة
 
-The `sallaDemoPlugin` accepts the following configuration options:
+| العنصر | قسم المرجع |
+| --- | --- |
+| `tarwadah-hero` | البانر وفيديو المنتج المرتبط بالتمرير |
+| `tarwadah-product-strip` | شريط المنتج المختصر |
+| `tarwadah-highlights` | كروت تفاصيل التصميم |
+| `tarwadah-sound` | نص تجربة الصوت |
+| `tarwadah-gallery` | معرض الصور |
+| `tarwadah-features` | الصورة الافتتاحية والمميزات الخمس |
+| `tarwadah-video` | فيديو Moments That Matter |
+| `tarwadah-testimonials` | آراء العملاء |
+| `tarwadah-buy-now` | بطاقة المنتج والشراء |
 
-```typescript
-{
-  // Optional: Show only specific components
-  components?: string[];
+كل عنصر داخل `src/components/<name>/index.ts`. القالب `templates/tarwadah-morae.json` يجمع كل الأقسام بترتيب المرجع، و`templates/tarwadah-compact.json` نسخة أقصر من نفس العناصر. SDK سلة الحالي يشترط **قالبين إلى أربعة** عند تفعيل `landing-page-templates`.
 
-  // Optional: Customize the demo grid layout
-  grid?: {
-    // CSS grid-template-columns value
-    columns?: string;     // default: 'repeat(auto-fill, minmax(300px, 1fr))'
-    
-    // Gap between components
-    gap?: string;        // default: '1rem'
-    
-    // Responsive breakpoint
-    minWidth?: string;   // default: '300px'
-  };
+## ربط منتج سلة
 
-  // Optional: Add custom CSS
-  css?: string;
+1. افتح محرر إعدادات الحزمة.
+2. اختر نفس المنتج في حقل **المنتج من المتجر** في شريط المنتج وقسم الشراء.
+3. عدّل المواصفات والنصوص والصور التسويقية للمنتج الفعلي.
+4. احفظ القالب واختبره على متجر سلة تجريبي.
 
-  // Optional: Add custom JavaScript
-  js?: string;
-}
+بدون منتج مختار، تظهر بيانات MORAE التجريبية؛ زر السلة يعرض رسالة ولا ينشئ عملية شراء وهمية. مع منتج مختار، يجلب العنصر الاسم والصورة والسعر والمخزون والخيارات من Storefront SDK، ويستخدم `salla-product-options` و`salla-quantity-input` و`salla-add-product-button` ونموذج `salla.form.onSubmit('cart.addItem', event)`. الألوان التجريبية تختفي عند الربط.
+
+عناصر نموذج الشراء في Light DOM حتى يعمل اكتشاف نموذج السلة وحقول سلة وتنسيقات الثيم. بقية الأقسام معزولة بـ Shadow DOM.
+
+## البناء والتحقق
+
+```powershell
+pnpm.cmd run check
+pnpm.cmd run build
 ```
 
-#### Example Configuration
+الفحص يشمل TypeScript، تعريفات العناصر والقوالب، وتطابق القيم الافتراضية. البناء يكتب العناصر وملفاتها المشتركة في `dist/`. **احتفظ بكل ملفات `dist/*.js` معًا**؛ Vite ينشئ ملفات مشتركة تستوردها العناصر.
 
-```typescript
-// vite.config.ts
-export default defineConfig({
-  plugins: [
-    // ... other plugins
-    sallaDemoPlugin({
-      // Show only specific components
-      components: ['product-card', 'scroll-top'],
-      
-      // Customize grid layout
-      grid: {
-        columns: 'repeat(3, 1fr)',
-        gap: '1.5rem',
-        minWidth: '768px'
-      },
+## المعاينة العامة والنشر
 
-      // Add custom styles
-      css: `
-        .component-card {
-          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          transition: transform 0.2s;
-        }
-        .component-card:hover {
-          transform: translateY(-2px);
-        }
-      `,
+بعد تسجيل الدخول إلى شركاء سلة عبر Salla CLI:
 
-      // Add custom JavaScript
-      js: `
-        console.log('Demo page loaded!');
-        // Add your custom JavaScript here
-      `
-    })
-  ]
-});
+```powershell
+pnpm.cmd run build
+pnpm.cmd run preview:public
 ```
 
-## Component Management
+`preview:public` ينفّذ `tw-preview` ويرفع نسخة عامة إلى خدمة معاينة سلة. `.salla-preview.json` يحفظ معلومات تحديث المعاينة وهو مستبعد من Git.
 
-### Creating New Components
+للنشر في السوق، افتح الحزمة في بوابة الشركاء، أكمل الصور والبيانات والدعم وقدّم طلب النشر. المعاينة العامة لا تعني نشر الحزمة في السوق.
 
-This starter kit includes a component generator to help you create new components quickly. To use it, run:
+## ملفات المصدر
 
-```bash
-pnpm tw-create-component <component-name>
-```
+- `twilight-bundle.json`: أسماء العناصر وحقول التاجر والقيم الافتراضية وسجل القوالب.
+- `src/shared/defaults.json`: قيم المرجع الاحتياطية للعناصر بدون Config.
+- `src/shared/base.ts`: الخطوط والتنسيقات المشتركة والتسجيل.
+- `src/shared/motion.ts`: دورة تمرير مشتركة وإيقاف الفيديو خارج الشاشة.
+- `src/shared/product.ts`: جلب بيانات المنتج مرة واحدة لكل ID ومعالجة فشل التحميل.
+- `vite.config.ts` و`scripts/demo-plugin.ts`: إضافات سلة الرسمية، مع توليد صفحات المحرر عند الطلب لتصحيح مسارات Windows وإبقائها متاحة بعد البناء.
+- `src/preview.*`: الهيدر والفوتر والقائمة المحلية فقط.
 
-Or run without arguments for interactive mode:
+`scripts/create-manifest.mjs` لإنشاء المخطط والقالبين أول مرة. **لا تشغّله بعد تخصيص الإعدادات أو القوالب من المحرر**؛ يعيد كتابة الحزمة والقالبين بقيم المرجع الأصلية.
 
-```bash
-pnpm tw-create-component
-```
+تستخدم الصور والفيديوهات والخطوط روابط المرجع الأصلية. لم يُنسخ كود Framer أو نظام Shopify. الحركات أُعيد تنفيذها بدورة تمرير مشتركة: فيديو الهيرو مرتبط بالتمرير، صور المميزات تتبدل داخل مساحة ثابتة، الصور تتحرك بالتمرير، النص يظهر تدريجيًا، والآراء تتحرك بصفين. `src/shared/lens.ts` ينفّذ عدسة WebGL عند حركة المؤشر مع صورة احتياطية للأجهزة غير الداعمة. العدسة محاكاة وليست نفس Shader Framer؛ لا ندّعي تطابق التشوه حرفيًا. اتجاه محتوى القسم يتحدد من لغته، فيظل المرجع الإنجليزي LTR داخل المحرر العربي ويعمل المحتوى العربي RTL. تقليل الحركة يوقف الماركيه والتشغيل التلقائي. الآراء الافتراضية محتوى تجريبي من المرجع، وليست مراجعات موثقة للمنتج الفعلي.
 
-The generator will:
-1. Prompt you for a component name (in kebab-case format)
-2. Validate that the name is in kebab-case and doesn't already exist
-3. Create a new component folder with an `index.ts` file
-4. Add the component definition to `twilight-bundle.json`
+## مراجع سلة
 
-### Deleting Components
+- [حزم العناصر](https://docs.salla.dev/component-bundle/get-started)
+- [قوالب صفحات الهبوط](https://docs.salla.dev/2299448m0)
+- [متطلبات نشر الحزم](https://docs.salla.dev/1945741m0)
+- [خيارات المنتج](https://docs.salla.dev/422720m0)
+- [إضافة المنتج للسلة](https://docs.salla.dev/422692m0)
 
-To remove a component, use:
+المعاينة المحلية والبناء لا يثبتان نجاح الشراء في سلة؛ يجب اختبار منتج فعلي وخياراته والمخزون والسلة على متجر تجريبي قبل النشر.
 
-```bash
-pnpm tw-delete-component <component-name>
-```
+## اللغتان والحركة
 
-Or run without arguments to see a list of available components:
+كل النصوص الافتراضية محفوظة بالشكل `{ ar, en }` مع `multilanguage: true` في مخطط سلة، بما فيها حقول المجموعات. من إعدادات العنصر اضغط AR أو EN بجانب الحقل لتعديل كل لغة. لغة المتجر تحدد النص الظاهر، والصور والفيديوهات ومعرفات الأقسام مشتركة بين اللغتين. القوالب الموجودة احتفظت بتخصيصاتها أثناء ترقية المخطط.
 
-```bash
-pnpm tw-delete-component
-```
+في المعاينة استخدم `/landing.html?lang=ar` أو `/landing.html?lang=en`، أو زر اللغة داخل القائمة. Lenis 1.3.26 يعمل مرة واحدة لكل مساحة تمرير، ويشارك العناصر نفس النسخة؛ يتم تنظيفه عند إزالة آخر عنصر. يحافظ على تمرير النماذج والقوائم ويوقف التنعيم عند تفعيل تقليل الحركة. تعمل حركات دخول النصوص وكشف الكروت والفيديو وتبديل صور المميزات داخل Shadow DOM ومع محرر سلة، وتُعاد تهيئتها عند تعديل إعدادات العنصر.
 
-This will:
-1. Show a list of available components to select from
-2. Ask for confirmation before deletion
-3. Remove the component folder from `src/components/`
-4. Remove the component definition from `twilight-bundle.json`
+## مطابقة حركات المرجع
 
-## Component Requirements
+قيم السكرول مأخوذة من أهداف MORAE الأصلية في Framer. `src/shared/reference-motion.ts` يجمع نطاق الفيديو 710px، سرعات Highlights لكل مقاس، إزاحات وتكبير صور الجاليري، واتجاهي صفوف الآراء. `scripts/check-motion.mjs` يقارن الحسابات بقياسات DOM مسجلة من المرجع.
 
-Each component should:
-1. Be a class that extends `LitElement`
-2. Export the class as default
-3. Be placed in its own directory under `src/components/`
-4. Have an `index.ts` as the entry point
+تستخدم حركة السكرول إعدادات spring الأصلية عبر Motion، ويستخدم Lenis مدة ثانية واحدة مثل المرجع. تبديل صور المميزات يتم بكشف من أسفل لأعلى لمدة ثانية، ونص الصوت يتغير على ست نقاط انتقال؛ صفوف الآراء مرتبطة بالتمرير ولا تتحرك تلقائيًا. أزيلت مؤثرات blur وكشف الكروت التي لم تكن في المرجع. تم فحص نقاط مقارنة على 1440×1000 و390×844 ومعاينة محرر سلة؛ هذا ليس اختبارًا لكل بكسل في كل إطار.
 
-Example:
-```typescript
-import { css, html, LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
-
-export default class MyComponent extends LitElement {
-  @property({ type: Object })
-  config?: {
-    name: string;
-    //... other properties
-  };
-
-  static styles = css`/* your styles */`;
-
-  render() {
-    return html`<div>Hello ${this.config?.name || 'World'}!</div>`;
-  }
-}
-```
-
-## Building for Production
-
-Run `pnpm run build` to create production-ready bundles in the `dist/` directory. Each component will have its own file named after the component (e.g., `my-component.js`).
-
-## Development
-
-Run `pnpm run dev` to start the development server. This will:
-1. Create a demo page with all your components
-2. Enable hot module reloading
-3. Provide a development environment for testing
-
-## License
-
-MIT
+Navigation and product refinements: the local preview now uses the reference's expanding 390px header menu. A single leased orange pointer follows desktop input across independently mounted components. Product colors use an actual horizontal spring slider (including native product option images), and the mobile card uses the reference's 200px image and stacked purchase controls. The editable bilingual technical specifications dialog is included. Gallery scale overrides are 0.5 on mobile and 0.7 on tablet, independent of scroll progress. The mobile product bar sits 16px above the safe area with a centered transparent SVG arrow.

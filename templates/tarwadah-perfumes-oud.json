@@ -1,0 +1,1441 @@
+{
+  "id": "cc1833ee-fb29-4f48-a14c-d8bb24cffd45",
+  "components": [
+    {
+      "title": "ترواده — البانر الرئيسي",
+      "name": "tarwadah-hero",
+      "key": "e91ca814-9d83-4e87-a92f-ee794aba6f92",
+      "icon": "sicon-layout-grid",
+      "image": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "required": false,
+          "value": {
+            "ar": "الصمت أبلغ حين يترك التصميم أثره بلا شرح.",
+            "en": "Silence speaks louder when design refuses to explain itself."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "note",
+          "type": "string",
+          "format": "textarea",
+          "label": "النص العلوي",
+          "required": false,
+          "value": {
+            "ar": "صُممت لتشعر بالخفة — وهذا ما يجعلها حقيقية.",
+            "en": "Designed to feel nothing — and that’s what makes it real."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "accent_text",
+          "type": "string",
+          "format": "text",
+          "label": "النص المميز",
+          "required": false,
+          "value": {
+            "ar": "وضوح خارج المألوف",
+            "en": "Distortion in clarity"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "description",
+          "type": "string",
+          "format": "textarea",
+          "label": "الوصف",
+          "required": false,
+          "value": {
+            "ar": "في عالم يمتلئ بالضجيج، صار الهدوء اختيارًا.",
+            "en": "In a world full of noise, silence became a choice."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "cta_label",
+          "type": "string",
+          "format": "text",
+          "label": "نص زر الشراء",
+          "required": false,
+          "value": {
+            "ar": "اشترِ الآن",
+            "en": "Buy Now"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "cta_target",
+          "type": "string",
+          "format": "text",
+          "label": "معرف قسم الشراء",
+          "required": false,
+          "value": "buy-now"
+        },
+        {
+          "id": "scroll_label",
+          "type": "string",
+          "format": "text",
+          "label": "نص التمرير",
+          "required": false,
+          "value": {
+            "ar": "[مرّر للأسفل]",
+            "en": "[Scroll]"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "video",
+          "type": "string",
+          "format": "url",
+          "label": "رابط الفيديو",
+          "required": false,
+          "value": "https://framerusercontent.com/assets/iY1BCP5FyWY82MDYFCryWcgyBc.mp4"
+        },
+        {
+          "id": "poster",
+          "type": "string",
+          "format": "image",
+          "label": "صورة غلاف الفيديو",
+          "required": false,
+          "value": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780"
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        }
+      ]
+    },
+    {
+      "title": "ترواده — شريط المنتج",
+      "name": "tarwadah-product-strip",
+      "key": "4a1e1597-4dba-4c8c-a284-0f9bdd21bcca",
+      "icon": "sicon-layout-grid",
+      "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "required": false,
+          "value": {
+            "ar": "سماعة MORAE",
+            "en": "MORAE Headphone"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "detail_label",
+          "type": "string",
+          "format": "text",
+          "label": "نص عرض التفاصيل",
+          "required": false,
+          "value": {
+            "ar": "المزيد من التفاصيل",
+            "en": "More Details"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "cta_label",
+          "type": "string",
+          "format": "text",
+          "label": "نص زر الشراء",
+          "required": false,
+          "value": {
+            "ar": "أضف إلى السلة",
+            "en": "ADD TO CART"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "target",
+          "type": "string",
+          "format": "text",
+          "label": "معرف القسم المستهدف",
+          "required": false,
+          "value": "buy-now"
+        },
+        {
+          "id": "image",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة",
+          "required": false,
+          "value": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435"
+        },
+        {
+          "id": "price",
+          "type": "string",
+          "format": "text",
+          "label": "السعر التجريبي",
+          "required": false,
+          "value": {
+            "ar": "259.00 $",
+            "en": "$259.00"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "colors",
+          "type": "string",
+          "format": "text",
+          "label": "الألوان التجريبية",
+          "required": false,
+          "value": {
+            "ar": "برتقالي · رمادي · أسود",
+            "en": "Orange · Gray · Black"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "product",
+          "type": "items",
+          "format": "dropdown-list",
+          "label": "المنتج من المتجر",
+          "icon": "sicon-box",
+          "source": "products",
+          "searchable": true,
+          "multichoice": false,
+          "required": false,
+          "options": [],
+          "selected": [],
+          "value": [],
+          "description": "اختر نفس المنتج في شريط المنتج وقسم الشراء. بدون اختيار منتج يظهر محتوى المرجع للمعاينة فقط."
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        }
+      ]
+    },
+    {
+      "title": "ترواده — تفاصيل التصميم",
+      "name": "tarwadah-highlights",
+      "key": "cbb50120-bf92-4337-abf4-f40e8e53cce4",
+      "icon": "sicon-layout-grid",
+      "image": "https://framerusercontent.com/images/kFgORTWUAzRCUNIBJjiNILHS7s.jpg",
+      "fields": [
+        {
+          "id": "eyebrow",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان الصغير",
+          "required": false,
+          "value": {
+            "ar": "تفاصيل التصميم",
+            "en": "Highlights"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "required": false,
+          "value": {
+            "ar": "زجاج شفاف. لون جريء. تجربة نقية.",
+            "en": "Transparent glass. Bold color. Pure experience."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "description",
+          "type": "string",
+          "format": "textarea",
+          "label": "الوصف",
+          "required": false,
+          "value": {
+            "ar": "تفاصيل مدروسة تعكس دقة MORAE ووضوح خاماتها وتصميمها المتقن.",
+            "en": "Focused details that showcase MORAE’s precision, material clarity, and intentional design."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "caption",
+          "type": "string",
+          "format": "text",
+          "label": "النص الختامي",
+          "required": false,
+          "value": {
+            "ar": "® بلا حدود. نصل إلى العالم.",
+            "en": "® No office. Global reach."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "label": "العناصر",
+          "item_label": "العناصر",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 3,
+          "value": [
+            {
+              "title": {
+                "ar": "جمال الوضوح",
+                "en": "The Beauty of Clarity"
+              },
+              "image": "https://framerusercontent.com/images/kFgORTWUAzRCUNIBJjiNILHS7s.jpg"
+            },
+            {
+              "title": {
+                "ar": "هيكل صوتي شفاف",
+                "en": "Transparent Acoustic Shell"
+              },
+              "image": "https://framerusercontent.com/images/bQHk75CFuU7vzdqEYEPLLU8uZF4.png?width=1728&height=2304"
+            },
+            {
+              "title": {
+                "ar": "وسائد ذاكرة فائقة النعومة",
+                "en": "Ultra-Soft Memory Foam"
+              },
+              "image": "https://framerusercontent.com/images/mcKpc36B3h8aeq2KyDwvu86o.jpg?width=1024&height=1024"
+            }
+          ],
+          "fields": [
+            {
+              "id": "title",
+              "type": "string",
+              "format": "text",
+              "label": "العنوان",
+              "required": false,
+              "value": {
+                "ar": "جمال الوضوح",
+                "en": "The Beauty of Clarity"
+              },
+              "multilanguage": true
+            },
+            {
+              "id": "image",
+              "type": "string",
+              "format": "image",
+              "label": "الصورة",
+              "required": false,
+              "value": "https://framerusercontent.com/images/kFgORTWUAzRCUNIBJjiNILHS7s.jpg"
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        }
+      ]
+    },
+    {
+      "title": "ترواده — تجربة الصوت",
+      "name": "tarwadah-sound",
+      "key": "51fda7d5-7b44-4cdd-aa48-aadda39d5e73",
+      "icon": "sicon-layout-grid",
+      "image": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780",
+      "fields": [
+        {
+          "id": "eyebrow",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان الصغير",
+          "required": false,
+          "value": {
+            "ar": "صوت MORAE",
+            "en": "MORAE Sound"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "text",
+          "type": "string",
+          "format": "textarea",
+          "label": "النص",
+          "required": false,
+          "value": {
+            "ar": "الصوت لا يُسمع فقط — بل يسري داخلك.\nيتنفس، يتوهج، ويصبح جزءًا منك.",
+            "en": "Sound is not just heard — it moves through you.\nIt breathes, it glows, it becomes part of who you are."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        }
+      ]
+    },
+    {
+      "title": "ترواده — معرض الصور",
+      "name": "tarwadah-gallery",
+      "key": "f3ad8df6-a80c-4c5d-aabe-fe6767debcad",
+      "icon": "sicon-layout-grid",
+      "image": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780",
+      "fields": [
+        {
+          "id": "label",
+          "type": "string",
+          "format": "text",
+          "label": "وصف القسم",
+          "required": false,
+          "value": {
+            "ar": "تفاصيل MORAE",
+            "en": "MORAE in detail"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "images",
+          "type": "collection",
+          "format": "collection",
+          "label": "الصور",
+          "item_label": "الصور",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 3,
+          "value": [
+            {
+              "image": "https://framerusercontent.com/images/h9ZyECjIhhyZcA59c8A3K9x7A.jpg?width=1024&height=802",
+              "alt": {
+                "ar": "سماعة MORAE البرتقالية أثناء الاستخدام",
+                "en": "MORAE orange headphones in use"
+              }
+            },
+            {
+              "image": "https://framerusercontent.com/images/x2KHSYfCpMyTYFyni7NlmZazE.jpg",
+              "alt": {
+                "ar": "سماعة MORAE أثناء الاستخدام",
+                "en": "MORAE headphones in use"
+              }
+            },
+            {
+              "image": "https://framerusercontent.com/images/2kUSCbhbaJO8whXSrqk7sZ0tQ.png",
+              "alt": {
+                "ar": "التصميم الصوتي لسماعة MORAE",
+                "en": "MORAE acoustic design"
+              }
+            }
+          ],
+          "fields": [
+            {
+              "id": "image",
+              "type": "string",
+              "format": "image",
+              "label": "الصورة",
+              "required": false,
+              "value": "https://framerusercontent.com/images/bQHk75CFuU7vzdqEYEPLLU8uZF4.png"
+            },
+            {
+              "id": "alt",
+              "type": "string",
+              "format": "text",
+              "label": "وصف الصورة",
+              "required": false,
+              "value": {
+                "ar": "سماعة MORAE البرتقالية أثناء الاستخدام",
+                "en": "Transparent orange headphone detail"
+              },
+              "multilanguage": true
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        }
+      ]
+    },
+    {
+      "title": "ترواده — المميزات التقنية",
+      "name": "tarwadah-features",
+      "key": "77dbb5a2-4b1d-448f-a432-7c30ea180cf6",
+      "icon": "sicon-layout-grid",
+      "image": "https://framerusercontent.com/images/qXyUnAMXZ6gpVZyxlFzA79Ts7Fg.jpg",
+      "fields": [
+        {
+          "id": "label",
+          "type": "string",
+          "format": "text",
+          "label": "وصف القسم",
+          "required": false,
+          "value": {
+            "ar": "المميزات التقنية",
+            "en": "Technical features"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "intro_image",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة الافتتاحية",
+          "required": false,
+          "value": "https://framerusercontent.com/images/qXyUnAMXZ6gpVZyxlFzA79Ts7Fg.jpg"
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "label": "العناصر",
+          "item_label": "العناصر",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 15,
+          "value": [
+            {
+              "title": {
+                "ar": "إلغاء الضوضاء النشط الاحترافي",
+                "en": "Active Noise Cancellation Pro"
+              },
+              "description": {
+                "ar": "هدوء يتشكل بانسيابية. يحجب الفوضى ويبقي السكينة حيث تريدها.",
+                "en": "Silence shaped, not forced. Blocks chaos, keeps the calm exactly where it belongs."
+              },
+              "image": "https://framerusercontent.com/images/ysr5pLyAsJmusgUtVIPaoDYiU.png"
+            },
+            {
+              "title": {
+                "ar": "وضع الوعي بالمحيط",
+                "en": "Transparent Awareness Mode"
+              },
+              "description": {
+                "ar": "حين يحتاج الهدوء إلى انتباه. اسمع العالم يمتزج برفق مع صوتك.",
+                "en": "When silence needs awareness. Hear the world blend softly with your sound."
+              },
+              "image": "https://framerusercontent.com/images/ROVwzYkZf83wY75USKEtSQXEjw.png"
+            },
+            {
+              "title": {
+                "ar": "بطارية تدوم 40 ساعة",
+                "en": "40-Hour Extended Battery Life"
+              },
+              "description": {
+                "ar": "طاقة ترافقك طويلًا، حتى تنسى أنها تحتاج إلى شحن.",
+                "en": "Time bends quietly. Power that lasts long enough to forget it’s there."
+              },
+              "image": "https://framerusercontent.com/images/nuNEJifFnfrW8rI99vw7E5dgxk.png"
+            },
+            {
+              "title": {
+                "ar": "تحكم باللمس بكل سهولة",
+                "en": "Intuitive Touch Controls"
+              },
+              "description": {
+                "ar": "بلا أزرار. إيماءات طبيعية، سلسة ودقيقة.",
+                "en": "No buttons. Just gestures. Smooth, natural, and quietly precise."
+              },
+              "image": "https://framerusercontent.com/images/qs3ficn1Ew7erAlmaFD2ApqAlUw.png"
+            },
+            {
+              "title": {
+                "ar": "توازن صوتي ذكي متكيف",
+                "en": "Adaptive Smart Sound Balance"
+              },
+              "description": {
+                "ar": "لكل مكان نبرته. تتعلم السماعة وتتكيّف لتبقى على انسجام معك.",
+                "en": "Every space has a tone. It learns and adjusts — always in tune with you."
+              },
+              "image": "https://framerusercontent.com/images/fMOCySHVgrqpuBciWRpDtoiYwRY.jpg"
+            }
+          ],
+          "fields": [
+            {
+              "id": "title",
+              "type": "string",
+              "format": "text",
+              "label": "العنوان",
+              "required": false,
+              "value": {
+                "ar": "إلغاء الضوضاء النشط الاحترافي",
+                "en": "Active Noise Cancellation Pro"
+              },
+              "multilanguage": true
+            },
+            {
+              "id": "description",
+              "type": "string",
+              "format": "textarea",
+              "label": "الوصف",
+              "required": false,
+              "value": {
+                "ar": "هدوء يتشكل بانسيابية. يحجب الفوضى ويبقي السكينة حيث تريدها.",
+                "en": "Silence shaped, not forced. Blocks chaos, keeps the calm exactly where it belongs."
+              },
+              "multilanguage": true
+            },
+            {
+              "id": "image",
+              "type": "string",
+              "format": "image",
+              "label": "الصورة",
+              "required": false,
+              "value": "https://framerusercontent.com/images/ysr5pLyAsJmusgUtVIPaoDYiU.png"
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        }
+      ]
+    },
+    {
+      "title": "ترواده — فيديو المنتج",
+      "name": "tarwadah-video",
+      "key": "847bedfa-85c9-42a2-ac0f-fdd56e2b16f4",
+      "icon": "sicon-layout-grid",
+      "image": "https://framerusercontent.com/images/qXyUnAMXZ6gpVZyxlFzA79Ts7Fg.jpg",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "required": false,
+          "value": {
+            "ar": "لحظات تصنع الفرق",
+            "en": "Moments That Matter"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "video",
+          "type": "string",
+          "format": "url",
+          "label": "رابط الفيديو",
+          "required": false,
+          "value": "https://framerusercontent.com/assets/h3iJyoJz4JVnXDvfJto7HyGi68.mp4"
+        },
+        {
+          "id": "poster",
+          "type": "string",
+          "format": "image",
+          "label": "صورة غلاف الفيديو",
+          "required": false,
+          "value": "https://framerusercontent.com/images/qXyUnAMXZ6gpVZyxlFzA79Ts7Fg.jpg"
+        },
+        {
+          "id": "play_label",
+          "type": "string",
+          "format": "text",
+          "label": "نص تشغيل الفيديو",
+          "required": false,
+          "value": {
+            "ar": "تشغيل الفيديو",
+            "en": "Play film"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "pause_label",
+          "type": "string",
+          "format": "text",
+          "label": "نص إيقاف الفيديو",
+          "required": false,
+          "value": {
+            "ar": "إيقاف الفيديو",
+            "en": "Pause film"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        }
+      ]
+    },
+    {
+      "title": "ترواده — آراء العملاء",
+      "name": "tarwadah-testimonials",
+      "key": "f33d6355-b2a8-4c1f-add1-4a4d34dba6ac",
+      "icon": "sicon-layout-grid",
+      "image": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780",
+      "fields": [
+        {
+          "id": "eyebrow",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان الصغير",
+          "required": false,
+          "value": {
+            "ar": "آراء العملاء",
+            "en": "Testimonials"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "required": false,
+          "value": {
+            "ar": "اسمعها ممن ينصتون بعمق.",
+            "en": "Hear it from those who listen deeply."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "caption",
+          "type": "string",
+          "format": "text",
+          "label": "النص الختامي",
+          "required": false,
+          "value": {
+            "ar": "/ صُنعت بدقة. تُشحن حول العالم.",
+            "en": "/ Precision built. Ships globally."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "label": "العناصر",
+          "item_label": "العناصر",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 15,
+          "value": [
+            {
+              "quote": {
+                "ar": "كأن العالم تعلّم أخيرًا كيف يهمس.",
+                "en": "It feels like the world finally learned to whisper."
+              },
+              "author": {
+                "ar": "نواه باتيل",
+                "en": "Noah Patel"
+              }
+            },
+            {
+              "quote": {
+                "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
+                "en": "Every note sounds personal, like it knows who’s listening."
+              },
+              "author": {
+                "ar": "أميرة كولينز",
+                "en": "Amira Collins"
+              }
+            },
+            {
+              "quote": {
+                "ar": "توقفت عن تفقد البطارية. تبدو وكأنها لا تنفد.",
+                "en": "I stopped checking the battery. It just never seems to die."
+              },
+              "author": {
+                "ar": "لوكاس ماير",
+                "en": "Lucas Meyer"
+              }
+            },
+            {
+              "quote": {
+                "ar": "التحكم باللمس طبيعي، كأن السماعة تقرأ أفكارك.",
+                "en": "Touch feels natural — almost like the headphones read your mind."
+              },
+              "author": {
+                "ar": "إيلينا روسي",
+                "en": "Elena Rossi"
+              }
+            },
+            {
+              "quote": {
+                "ar": "إلغاء الضوضاء لطيف لدرجة أنك تنسى أنه يعمل.",
+                "en": "Noise cancellation so gentle, you forget it’s working."
+              },
+              "author": {
+                "ar": "ديفيد كيم",
+                "en": "David Kim"
+              }
+            },
+            {
+              "quote": {
+                "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
+                "en": "Every note sounds personal, like it knows who’s listening."
+              },
+              "author": {
+                "ar": "ديفيد كيم",
+                "en": "David Kim"
+              }
+            },
+            {
+              "quote": {
+                "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
+                "en": "Every note sounds personal, like it knows who’s listening."
+              },
+              "author": {
+                "ar": "ديفيد كيم",
+                "en": "David Kim"
+              }
+            },
+            {
+              "quote": {
+                "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
+                "en": "Every note sounds personal, like it knows who’s listening."
+              },
+              "author": {
+                "ar": "ديفيد كيم",
+                "en": "David Kim"
+              }
+            },
+            {
+              "quote": {
+                "ar": "لا تدرك كم من الضجيج تحمله حتى يختفي.",
+                "en": "You don’t realize how much chaos you carry until it takes it away."
+              },
+              "author": {
+                "ar": "نواه ألفاريز",
+                "en": "Noah Alvarez"
+              }
+            },
+            {
+              "quote": {
+                "ar": "كل لمسة وكل وقفة، كأنها تفهم كيف أتحرك وأستمع.",
+                "en": "Every touch, every pause — like it understands how I move and listen."
+              },
+              "author": {
+                "ar": "مارا ينسن",
+                "en": "Mara Jensen"
+              }
+            },
+            {
+              "quote": {
+                "ar": "التصميم لا يطلب الانتباه، لكنه يملك اللحظة بهدوء.",
+                "en": "The design doesn’t ask for attention, but it quietly owns the moment."
+              },
+              "author": {
+                "ar": "دانيال كروغر",
+                "en": "Daniel Krüger"
+              }
+            },
+            {
+              "quote": {
+                "ar": "ليس أعلى، بل أوضح. ذكّرني لماذا أحب الموسيقى.",
+                "en": "Not louder. Just clearer. It reminded me why I love music."
+              },
+              "author": {
+                "ar": "آيا ناكامورا",
+                "en": "Aya Nakamura"
+              }
+            },
+            {
+              "quote": {
+                "ar": "هناك جمال في أن تتوارى السماعة وتترك الصوت وحده حاضرًا.",
+                "en": "There’s something beautiful about how it disappears and lets the sound exist."
+              },
+              "author": {
+                "ar": "إيثان موراليس",
+                "en": "Ethan Morales"
+              }
+            },
+            {
+              "quote": {
+                "ar": "لكل صوت مساحة ليتنفس، كأن العالم يتوقف من أجل الموسيقى.",
+                "en": "Every sound has space to breathe — it’s like the world pauses just for the music."
+              },
+              "author": {
+                "ar": "لينا هوفمان",
+                "en": "Lena Hoffmann"
+              }
+            }
+          ],
+          "fields": [
+            {
+              "id": "quote",
+              "type": "string",
+              "format": "textarea",
+              "label": "الرأي",
+              "required": false,
+              "value": {
+                "ar": "كأن العالم تعلّم أخيرًا كيف يهمس.",
+                "en": "It feels like the world finally learned to whisper."
+              },
+              "multilanguage": true
+            },
+            {
+              "id": "author",
+              "type": "string",
+              "format": "text",
+              "label": "الاسم",
+              "required": false,
+              "value": {
+                "ar": "نواه باتيل",
+                "en": "Noah Patel"
+              },
+              "multilanguage": true
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        }
+      ]
+    },
+    {
+      "title": "ترواده — شراء المنتج",
+      "name": "tarwadah-buy-now",
+      "key": "4356cf1d-367c-4489-a3e0-f4c804b601d5",
+      "icon": "sicon-layout-grid",
+      "image": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "required": false,
+          "value": {
+            "ar": "سماعة MORAE",
+            "en": "MORAE Headphone"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "description",
+          "type": "string",
+          "format": "textarea",
+          "label": "الوصف",
+          "required": false,
+          "value": {
+            "ar": "هدوء لاسلكي بمعنى جديد.",
+            "en": "The wireless calm redefined."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "specs_label",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان المواصفات",
+          "required": false,
+          "value": {
+            "ar": "المواصفات التقنية",
+            "en": "Technical Specs"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "specs",
+          "type": "collection",
+          "format": "collection",
+          "label": "المواصفات",
+          "item_label": "المواصفات",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 10,
+          "value": [
+            {
+              "text": {
+                "ar": "بطارية تدوم 40 ساعة",
+                "en": "40-Hour Battery Life"
+              }
+            },
+            {
+              "text": {
+                "ar": "إلغاء الضوضاء النشط 2.0",
+                "en": "Active Noise Cancellation 2.0"
+              }
+            },
+            {
+              "text": {
+                "ar": "توازن صوتي متكيف",
+                "en": "Adaptive Sound Balance"
+              }
+            }
+          ],
+          "fields": [
+            {
+              "id": "text",
+              "type": "string",
+              "format": "textarea",
+              "label": "النص",
+              "required": false,
+              "value": {
+                "ar": "بطارية تدوم 40 ساعة",
+                "en": "40-Hour Battery Life"
+              },
+              "multilanguage": true
+            }
+          ]
+        },
+        {
+          "id": "color_label",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الألوان",
+          "required": false,
+          "value": {
+            "ar": "اللون",
+            "en": "Color"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "price",
+          "type": "string",
+          "format": "text",
+          "label": "السعر التجريبي",
+          "required": false,
+          "value": {
+            "ar": "259.00 $",
+            "en": "$259.00"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "cta_label",
+          "type": "string",
+          "format": "text",
+          "label": "نص زر الشراء",
+          "required": false,
+          "value": {
+            "ar": "أضف إلى السلة",
+            "en": "ADD TO CART"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "quantity_label",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الكمية",
+          "required": false,
+          "value": {
+            "ar": "الكمية",
+            "en": "Quantity"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "preview_message",
+          "type": "string",
+          "format": "textarea",
+          "label": "رسالة المعاينة",
+          "required": false,
+          "value": {
+            "ar": "اختر منتجًا من سلة في إعدادات هذا القسم لتفعيل الشراء.",
+            "en": "Choose a Salla product in this section’s settings to enable purchases."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "loading_message",
+          "type": "string",
+          "format": "text",
+          "label": "رسالة التحميل",
+          "required": false,
+          "value": {
+            "ar": "جارٍ تحميل المنتج…",
+            "en": "Loading product…"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "error_message",
+          "type": "string",
+          "format": "textarea",
+          "label": "رسالة الخطأ",
+          "required": false,
+          "value": {
+            "ar": "تعذّر تحميل المنتج. يرجى المحاولة مجددًا.",
+            "en": "The product could not be loaded. Please try again."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "product",
+          "type": "items",
+          "format": "dropdown-list",
+          "label": "المنتج من المتجر",
+          "icon": "sicon-box",
+          "source": "products",
+          "searchable": true,
+          "multichoice": false,
+          "required": false,
+          "options": [],
+          "selected": [],
+          "value": [],
+          "description": "اختر نفس المنتج في شريط المنتج وقسم الشراء. بدون اختيار منتج يظهر محتوى المرجع للمعاينة فقط."
+        },
+        {
+          "id": "variants",
+          "type": "collection",
+          "format": "collection",
+          "label": "الألوان والصور التجريبية",
+          "item_label": "الألوان والصور التجريبية",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 10,
+          "value": [
+            {
+              "name": {
+                "ar": "برتقالي",
+                "en": "Orange"
+              },
+              "color": "#e86a16",
+              "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435"
+            },
+            {
+              "name": {
+                "ar": "رمادي",
+                "en": "Gray"
+              },
+              "color": "#9e9e9e",
+              "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/grey_headphone.jpg?v=1763519436"
+            },
+            {
+              "name": {
+                "ar": "أسود",
+                "en": "Black"
+              },
+              "color": "#282828",
+              "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/black_headphone.jpg?v=1763519436"
+            }
+          ],
+          "fields": [
+            {
+              "id": "name",
+              "type": "string",
+              "format": "text",
+              "label": "الاسم",
+              "required": false,
+              "value": {
+                "ar": "برتقالي",
+                "en": "Orange"
+              },
+              "multilanguage": true
+            },
+            {
+              "id": "color",
+              "type": "string",
+              "format": "color",
+              "label": "اللون",
+              "required": false,
+              "value": "#e86a16"
+            },
+            {
+              "id": "image",
+              "type": "string",
+              "format": "image",
+              "label": "الصورة",
+              "required": false,
+              "value": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435"
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "type": "string",
+          "format": "color",
+          "label": "لون الخلفية",
+          "required": false,
+          "value": "#000000"
+        },
+        {
+          "id": "foreground",
+          "type": "string",
+          "format": "color",
+          "label": "لون النص",
+          "required": false,
+          "value": "#ffffff"
+        },
+        {
+          "id": "accent",
+          "type": "string",
+          "format": "color",
+          "label": "اللون المميز",
+          "required": false,
+          "value": "#fc721b"
+        },
+        {
+          "id": "details_title",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان نافذة المواصفات",
+          "required": false,
+          "value": {
+            "ar": "المواصفات",
+            "en": "Specs"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "close_label",
+          "type": "string",
+          "format": "text",
+          "label": "زر إغلاق المواصفات",
+          "required": false,
+          "value": {
+            "ar": "إغلاق",
+            "en": "Close"
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "detailed_specs",
+          "type": "collection",
+          "format": "collection",
+          "label": "المواصفات التفصيلية",
+          "item_label": "قسم مواصفات",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "value": [
+            {
+              "title": {
+                "ar": "التصميم",
+                "en": "Design"
+              },
+              "body": {
+                "ar": "أبعاد السماعة\nالارتفاع | 173.25 مم\nالعرض | 75.0 مم\nالعمق | 188.14 مم\n\nوزن السماعة\nالوزن | 312 جم\n\nوزن السماعة\nالوزن | 312 جم",
+                "en": "Headphones dimensions\nHeight | 173.25 MM\nWidth | 75.0 MM\nDepth | 188.14 MM\n\nHeadphones weight\nWeight | 312 G\n\nHeadphones weight\nWeight | 312 G"
+              }
+            },
+            {
+              "title": {
+                "ar": "الصوت",
+                "en": "Sound"
+              },
+              "body": {
+                "ar": "المشغّلات\n40 مم ديناميكي / 16 Ω\n\nنطاق التردد\n20 هرتز – 40 كيلوهرتز\n\nالغشاء\nPU",
+                "en": "Drivers\n40 MM DYNAMIC / 16 Ω\n\nRF\n20 HZ – 40 KHZ\n\nDiaphragm\nPU"
+              }
+            },
+            {
+              "title": {
+                "ar": "البطارية",
+                "en": "Battery"
+              },
+              "body": {
+                "ar": "نوع البطارية\nليثيوم أيون قابلة للشحن\n\nالسعة\n1200 مللي أمبير ساعة\n\nالشحن\nشحن سلكي TYPE-C، شحن كامل خلال 120 دقيقة",
+                "en": "Battery type\nRECHARGEABLE LITHIUM-ION\n\nCapacity\n1200 MAH\n\nCharging\nTYPE-C WIRED CHARGING-TO-FULL TIME 120 MINS"
+              }
+            },
+            {
+              "title": {
+                "ar": "إلغاء الضوضاء",
+                "en": "Noise Cancellation"
+              },
+              "body": {
+                "ar": "أبعاد السماعة\nإلغاء ضوضاء متكيف لحظيًا\n\nالعمق\nحتى 42 ديسيبل",
+                "en": "Headphones dimensions\nREAL-TIME ADAPTIVE ANC\n\nDepth\nUP TO 42 DB"
+              }
+            }
+          ],
+          "fields": [
+            {
+              "id": "title",
+              "type": "string",
+              "format": "text",
+              "label": "عنوان القسم",
+              "required": false,
+              "value": {
+                "ar": "التصميم",
+                "en": "Design"
+              },
+              "multilanguage": true
+            },
+            {
+              "id": "body",
+              "type": "string",
+              "format": "textarea",
+              "label": "المحتوى: الاسم | القيمة، وسطر فارغ بين المجموعات",
+              "required": false,
+              "value": {
+                "ar": "أبعاد السماعة\nالارتفاع | 173.25 مم\nالعرض | 75.0 مم\nالعمق | 188.14 مم\n\nوزن السماعة\nالوزن | 312 جم\n\nوزن السماعة\nالوزن | 312 جم",
+                "en": "Headphones dimensions\nHeight | 173.25 MM\nWidth | 75.0 MM\nDepth | 188.14 MM\n\nHeadphones weight\nWeight | 312 G\n\nHeadphones weight\nWeight | 312 G"
+              },
+              "multilanguage": true
+            }
+          ]
+        },
+        {
+          "id": "demo_message",
+          "type": "string",
+          "format": "textarea",
+          "label": "رسالة المنتج الوهمي",
+          "required": false,
+          "value": {
+            "ar": "معاينة تطوير بمنتج وهمي؛ لم تتم إضافة إلى سلة متجر حقيقي.",
+            "en": "Development preview with a mock product; no item was added to a real store cart."
+          },
+          "multilanguage": true
+        },
+        {
+          "id": "sold_out_label",
+          "type": "string",
+          "format": "text",
+          "label": "نص نفاد المخزون",
+          "required": false,
+          "value": {
+            "ar": "نفدت الكمية",
+            "en": "Sold out"
+          },
+          "multilanguage": true
+        }
+      ]
+    }
+  ]
+}
