@@ -50,3 +50,13 @@ export function smoothTo(element: HTMLElement) {
   if(lease&&!matchMedia('(prefers-reduced-motion: reduce)').matches)lease.lenis.scrollTo(element,{duration:1});
   else element.scrollIntoView({behavior:'instant'});
 }
+
+// Pause the component's scroll wrapper while a top-layer modal owns input.
+export function suspendSmoothScroll(element:HTMLElement){
+  const root=scrollRoot(element);const lease=instances.get(root);
+  const container=root===window?document.documentElement:root as HTMLElement;
+  const overflow=container.style.overflow;const wasStopped=lease?.lenis.isStopped;
+  lease?.lenis.stop();container.style.overflow='hidden';
+  let released=false;
+  return ()=>{if(released)return;released=true;container.style.overflow=overflow;if(lease&&!wasStopped)lease.lenis.start();};
+}

@@ -4,3 +4,5 @@ dist/
 .reference/
 artifacts/
 public/demo-uploads/
+.preview-store.json
+.preview-store.json.*.tmp

@@ -20,6 +20,13 @@ async function details(id: number) {
 }
 
 export class TarwadahProductElement extends TarwadahElement {
+  protected get settings():Config {
+    const settings=super.settings;
+    // Existing storefront instances used title before the dedicated name field.
+    if(!Object.hasOwn(this.config,'product_name')&&Object.hasOwn(this.config,'title'))settings.product_name=settings.title;
+    return settings;
+  }
+  protected get productName(){return !this.demoProduct&&this.productData?.name||this.settings.product_name||this.settings.title;}
   @state() protected productData?: StoreProduct;
   @state() protected productLoading=false;
   @state() protected productError=false;
@@ -28,8 +35,8 @@ export class TarwadahProductElement extends TarwadahElement {
   private requestedId=-1;
   private selectedChanged=()=>{if(this.requestedId!==this.productId){this.requestedId=this.productId;void this.loadProduct();}};
   connectedCallback(){super.connectedCallback();document.addEventListener('tarwadah:product-change',this.selectedChanged);if(this.isDemo)this.demoTimer=setInterval(()=>{if(!this.productId)void this.loadDemoProduct();},1500);}
-  private get isDemo(){return Boolean((window as any).customComponentsRaw||document.body.dataset.tarwadahPreview);}
-  private async loadDemoProduct(){if(!this.isDemo)return;try{const settings=await readDemoSettings();if(!settings)return;if(!this.isConnected||this.productId)return;const s=this.settings;const product=mockProduct(settings,s.title,s.image||s.variants?.[0]?.image);if(JSON.stringify(product)!==JSON.stringify(this.productData)){this.demoProduct=Boolean(product);this.productData=product;}}catch{/* Standalone public storefronts never use the local demo route. */}}
+  protected get isDemo(){return Boolean((window as any).customComponentsRaw||document.body.dataset.tarwadahPreview);}
+  private async loadDemoProduct(){if(!this.isDemo)return;try{const settings=await readDemoSettings();if(!settings)return;if(!this.isConnected||this.productId)return;const s=this.settings;const product=mockProduct(settings,s.product_name||s.title,s.image||s.variants?.[0]?.image);if(JSON.stringify(product)!==JSON.stringify(this.productData)){this.demoProduct=Boolean(product);this.productData=product;}}catch{/* Standalone public storefronts never use the local demo route. */}}
   protected get productUnavailable(){return this.productData?.status==='out'||this.productData?.status==='out-and-notify';}
   private generation=0;
   protected get productId() {

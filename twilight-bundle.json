@@ -12,7 +12,7 @@
     "repository": "https://github.com/Shien-SF/tw-tarwadah",
     "components": [
         {
-            "title": "ترواده — البانر الرئيسي",
+            "title": "ترواده — مقدمة المنتج",
             "name": "tarwadah-hero",
             "key": "e91ca814-9d83-4e87-a92f-ee794aba6f92",
             "icon": "sicon-layout-grid",
@@ -25,8 +25,8 @@
                     "label": "العنوان",
                     "required": false,
                     "value": {
-                        "ar": "الصمت أبلغ حين يترك التصميم أثره بلا شرح.",
-                        "en": "Silence speaks louder when design refuses to explain itself."
+                        "ar": "حضور يسبق الكلمات.",
+                        "en": "A presence before words."
                     },
                     "multilanguage": true
                 },
@@ -37,8 +37,8 @@
                     "label": "النص العلوي",
                     "required": false,
                     "value": {
-                        "ar": "صُممت لتشعر بالخفة — وهذا ما يجعلها حقيقية.",
-                        "en": "Designed to feel nothing — and that’s what makes it real."
+                        "ar": "توم فورد أود وود — توقيعك العطري.",
+                        "en": "TOM FORD Oud Wood — your scent signature."
                     },
                     "multilanguage": true
                 },
@@ -49,8 +49,8 @@
                     "label": "النص المميز",
                     "required": false,
                     "value": {
-                        "ar": "وضوح خارج المألوف",
-                        "en": "Distortion in clarity"
+                        "ar": "أثر لا يُنسى",
+                        "en": "An unforgettable impression"
                     },
                     "multilanguage": true
                 },
@@ -61,8 +61,8 @@
                     "label": "الوصف",
                     "required": false,
                     "value": {
-                        "ar": "في عالم يمتلئ بالضجيج، صار الهدوء اختيارًا.",
-                        "en": "In a world full of noise, silence became a choice."
+                        "ar": "اجعل للحظة توقيعًا، ولحضورك حكاية.",
+                        "en": "Give the moment a signature. Give your presence a story."
                     },
                     "multilanguage": true
                 },
@@ -73,8 +73,8 @@
                     "label": "نص زر الشراء",
                     "required": false,
                     "value": {
-                        "ar": "اشترِ الآن",
-                        "en": "Buy Now"
+                        "ar": "اكتشف أود وود",
+                        "en": "Discover Oud Wood"
                     },
                     "multilanguage": true
                 },
@@ -93,8 +93,8 @@
                     "label": "نص التمرير",
                     "required": false,
                     "value": {
-                        "ar": "[مرّر للأسفل]",
-                        "en": "[Scroll]"
+                        "ar": "[اكتشف المزيد]",
+                        "en": "[Explore more]"
                     },
                     "multilanguage": true
                 },
@@ -104,7 +104,7 @@
                     "format": "url",
                     "label": "رابط الفيديو",
                     "required": false,
-                    "value": "https://framerusercontent.com/assets/iY1BCP5FyWY82MDYFCryWcgyBc.mp4"
+                    "value": "https://e.top4top.io/m_3935jsezk1.mp4"
                 },
                 {
                     "id": "poster",
@@ -112,7 +112,7 @@
                     "format": "image",
                     "label": "صورة غلاف الفيديو",
                     "required": false,
-                    "value": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780"
+                    "value": "/demo-uploads/7939f541-c8d7-4ca8-a3b2-e42a01ad4451.png"
                 },
                 {
                     "id": "background",
@@ -136,28 +136,29 @@
                     "format": "color",
                     "label": "اللون المميز",
                     "required": false,
-                    "value": "#fc721b"
+                    "value": "#c3a468"
                 }
             ]
         },
         {
-            "title": "ترواده — شريط المنتج",
+            "title": "ترواده — شريط المنتج العائم",
             "name": "tarwadah-product-strip",
             "key": "4a1e1597-4dba-4c8c-a284-0f9bdd21bcca",
             "icon": "sicon-layout-grid",
             "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435",
             "fields": [
                 {
-                    "id": "title",
+                    "id": "product_name",
                     "type": "string",
                     "format": "text",
-                    "label": "العنوان",
+                    "label": "اسم المنتج للمعاينة",
                     "required": false,
                     "value": {
-                        "ar": "سماعة MORAE",
-                        "en": "MORAE Headphone"
+                        "ar": "توم فورد أود وود",
+                        "en": "TOM FORD Oud Wood"
                     },
-                    "multilanguage": true
+                    "multilanguage": true,
+                    "description": "يظهر عند عدم اختيار منتج من المتجر. عند اختيار منتج حقيقي يُستخدم اسمه من سلة تلقائيًا."
                 },
                 {
                     "id": "detail_label",
@@ -166,8 +167,8 @@
                     "label": "نص عرض التفاصيل",
                     "required": false,
                     "value": {
-                        "ar": "المزيد من التفاصيل",
-                        "en": "More Details"
+                        "ar": "اكتشف التفاصيل",
+                        "en": "Explore Details"
                     },
                     "multilanguage": true
                 },
@@ -197,7 +198,7 @@
                     "format": "image",
                     "label": "الصورة",
                     "required": false,
-                    "value": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435"
+                    "value": "/demo-uploads/6eb5ff53-91b4-4bda-aa50-6bde7b3cac8b.png"
                 },
                 {
                     "id": "price",
@@ -218,8 +219,8 @@
                     "label": "الألوان التجريبية",
                     "required": false,
                     "value": {
-                        "ar": "برتقالي · رمادي · أسود",
-                        "en": "Orange · Gray · Black"
+                        "ar": "50 مل · أو دو بارفان",
+                        "en": "50 ml · Eau de Parfumر"
                     },
                     "multilanguage": true
                 },
@@ -260,12 +261,12 @@
                     "format": "color",
                     "label": "اللون المميز",
                     "required": false,
-                    "value": "#fc721b"
+                    "value": "#c3a468"
                 }
             ]
         },
         {
-            "title": "ترواده — تفاصيل التصميم",
+            "title": "ترواده — أبرز تفاصيل المنتج",
             "name": "tarwadah-highlights",
             "key": "cbb50120-bf92-4337-abf4-f40e8e53cce4",
             "icon": "sicon-layout-grid",
@@ -278,7 +279,7 @@
                     "label": "العنوان الصغير",
                     "required": false,
                     "value": {
-                        "ar": "تفاصيل التصميم",
+                        "ar": "تفاصيل أود وود",
                         "en": "Highlights"
                     },
                     "multilanguage": true
@@ -302,7 +303,7 @@
                     "label": "الوصف",
                     "required": false,
                     "value": {
-                        "ar": "تفاصيل مدروسة تعكس دقة MORAE ووضوح خاماتها وتصميمها المتقن.",
+                        "ar": "من أول نظرة إلى آخر لمسة، تفاصيل تكمل حكاية العطر.",
                         "en": "Focused details that showcase MORAE’s precision, material clarity, and intentional design."
                     },
                     "multilanguage": true
@@ -314,8 +315,8 @@
                     "label": "النص الختامي",
                     "required": false,
                     "value": {
-                        "ar": "® بلا حدود. نصل إلى العالم.",
-                        "en": "® No office. Global reach."
+                        "ar": "® التفاصيل تصنع التوقيع.",
+                        "en": "® Details define the signature."
                     },
                     "multilanguage": true
                 },
@@ -331,24 +332,24 @@
                     "value": [
                         {
                             "title": {
-                                "ar": "جمال الوضوح",
-                                "en": "The Beauty of Clarity"
+                                "ar": "الزجاجة",
+                                "en": "The Bottle"
                             },
-                            "image": "https://framerusercontent.com/images/kFgORTWUAzRCUNIBJjiNILHS7s.jpg"
+                            "image": "/demo-uploads/642fc598-c8e6-4fff-9e42-ceb256a8aa5f.png"
                         },
                         {
                             "title": {
-                                "ar": "هيكل صوتي شفاف",
-                                "en": "Transparent Acoustic Shell"
+                                "ar": "تفاصيل الغطاء",
+                                "en": "The Cap Details"
                             },
-                            "image": "https://framerusercontent.com/images/bQHk75CFuU7vzdqEYEPLLU8uZF4.png?width=1728&height=2304"
+                            "image": "/demo-uploads/b6687bad-5847-44ef-857a-64e145a84bb6.png"
                         },
                         {
                             "title": {
-                                "ar": "وسائد ذاكرة فائقة النعومة",
-                                "en": "Ultra-Soft Memory Foam"
+                                "ar": "توقيع توم فورد",
+                                "en": "The TOM FORD Signature"
                             },
-                            "image": "https://framerusercontent.com/images/mcKpc36B3h8aeq2KyDwvu86o.jpg?width=1024&height=1024"
+                            "image": "/demo-uploads/ed1a2c68-e232-4a76-80c8-533248b397ab.png"
                         }
                     ],
                     "fields": [
@@ -396,12 +397,12 @@
                     "format": "color",
                     "label": "اللون المميز",
                     "required": false,
-                    "value": "#fc721b"
+                    "value": "#c3a468"
                 }
             ]
         },
         {
-            "title": "ترواده — تجربة الصوت",
+            "title": "ترواده — قصة المنتج",
             "name": "tarwadah-sound",
             "key": "51fda7d5-7b44-4cdd-aa48-aadda39d5e73",
             "icon": "sicon-layout-grid",
@@ -414,8 +415,8 @@
                     "label": "العنوان الصغير",
                     "required": false,
                     "value": {
-                        "ar": "صوت MORAE",
-                        "en": "MORAE Sound"
+                        "ar": "توقيعك العطري",
+                        "en": "Your Scent Signature"
                     },
                     "multilanguage": true
                 },
@@ -426,8 +427,8 @@
                     "label": "النص",
                     "required": false,
                     "value": {
-                        "ar": "الصوت لا يُسمع فقط — بل يسري داخلك.\nيتنفس، يتوهج، ويصبح جزءًا منك.",
-                        "en": "Sound is not just heard — it moves through you.\nIt breathes, it glows, it becomes part of who you are."
+                        "ar": "بعض اللحظات تبقى في الذاكرة.\nامنحها توقيعك الخاص.",
+                        "en": "Some moments stay with you.\nGive them your own signature."
                     },
                     "multilanguage": true
                 },
@@ -453,12 +454,12 @@
                     "format": "color",
                     "label": "اللون المميز",
                     "required": false,
-                    "value": "#fc721b"
+                    "value": "#c3a468"
                 }
             ]
         },
         {
-            "title": "ترواده — معرض الصور",
+            "title": "ترواده — معرض صور المنتج",
             "name": "tarwadah-gallery",
             "key": "f3ad8df6-a80c-4c5d-aabe-fe6767debcad",
             "icon": "sicon-layout-grid",
@@ -471,8 +472,8 @@
                     "label": "وصف القسم",
                     "required": false,
                     "value": {
-                        "ar": "تفاصيل MORAE",
-                        "en": "MORAE in detail"
+                        "ar": "أود وود من كل زاوية",
+                        "en": "Oud Wood From Every Angle"
                     },
                     "multilanguage": true
                 },
@@ -487,24 +488,24 @@
                     "maxLength": 3,
                     "value": [
                         {
-                            "image": "https://framerusercontent.com/images/h9ZyECjIhhyZcA59c8A3K9x7A.jpg?width=1024&height=802",
+                            "image": "/demo-uploads/84bbbbb3-d0bf-40fb-bf7a-d0af7787fa91.png",
                             "alt": {
-                                "ar": "سماعة MORAE البرتقالية أثناء الاستخدام",
-                                "en": "MORAE orange headphones in use"
+                                "ar": "زجاجة توم فورد أود وود من الأمام",
+                                "en": "Front view of the TOM FORD Oud Wood bottle"
                             }
                         },
                         {
-                            "image": "https://framerusercontent.com/images/x2KHSYfCpMyTYFyni7NlmZazE.jpg",
+                            "image": "/demo-uploads/5d0074f2-86f6-480d-9114-7a295751f5aa.png",
                             "alt": {
-                                "ar": "سماعة MORAE أثناء الاستخدام",
-                                "en": "MORAE headphones in use"
+                                "ar": "تفاصيل غطاء زجاجة توم فورد أود وود",
+                                "en": "Close-up of the TOM FORD Oud Wood bottle cap"
                             }
                         },
                         {
-                            "image": "https://framerusercontent.com/images/2kUSCbhbaJO8whXSrqk7sZ0tQ.png",
+                            "image": "/demo-uploads/8e9a359e-bf1c-43ec-8f9e-77e69a3ef873.png",
                             "alt": {
-                                "ar": "التصميم الصوتي لسماعة MORAE",
-                                "en": "MORAE acoustic design"
+                                "ar": "زجاجة توم فورد أود وود مع عبوتها",
+                                "en": "TOM FORD Oud Wood bottle with its packaging"
                             }
                         }
                     ],
@@ -553,12 +554,12 @@
                     "format": "color",
                     "label": "اللون المميز",
                     "required": false,
-                    "value": "#fc721b"
+                    "value": "#c3a468"
                 }
             ]
         },
         {
-            "title": "ترواده — المميزات التقنية",
+            "title": "ترواده — المميزات والفوائد",
             "name": "tarwadah-features",
             "key": "77dbb5a2-4b1d-448f-a432-7c30ea180cf6",
             "icon": "sicon-layout-grid",
@@ -571,7 +572,7 @@
                     "label": "وصف القسم",
                     "required": false,
                     "value": {
-                        "ar": "المميزات التقنية",
+                        "ar": "ملامح العطر",
                         "en": "Technical features"
                     },
                     "multilanguage": true
@@ -582,7 +583,7 @@
                     "format": "image",
                     "label": "الصورة الافتتاحية",
                     "required": false,
-                    "value": "https://framerusercontent.com/images/qXyUnAMXZ6gpVZyxlFzA79Ts7Fg.jpg"
+                    "value": "/demo-uploads/dc1c0642-07c9-44b4-af0b-7c1a9659a307.png"
                 },
                 {
                     "id": "items",
@@ -596,58 +597,58 @@
                     "value": [
                         {
                             "title": {
-                                "ar": "إلغاء الضوضاء النشط الاحترافي",
-                                "en": "Active Noise Cancellation Pro"
+                                "ar": "الهيل",
+                                "en": "Cardamom"
                             },
                             "description": {
-                                "ar": "هدوء يتشكل بانسيابية. يحجب الفوضى ويبقي السكينة حيث تريدها.",
-                                "en": "Silence shaped, not forced. Blocks chaos, keeps the calm exactly where it belongs."
+                                "ar": "لمسة من التوابل تفتح باب الحكاية.",
+                                "en": "A touch of spice sets the story in motion."
                             },
-                            "image": "https://framerusercontent.com/images/ysr5pLyAsJmusgUtVIPaoDYiU.png"
+                            "image": "/demo-uploads/9557a3ce-4d4e-4e57-b1f6-1f1420c6502e.png"
                         },
                         {
                             "title": {
-                                "ar": "وضع الوعي بالمحيط",
-                                "en": "Transparent Awareness Mode"
+                                "ar": "نوتات العود",
+                                "en": "Oud Notes"
                             },
                             "description": {
-                                "ar": "حين يحتاج الهدوء إلى انتباه. اسمع العالم يمتزج برفق مع صوتك.",
-                                "en": "When silence needs awareness. Hear the world blend softly with your sound."
+                                "ar": "الطابع الخشبي الذي يحمل اسم أود وود.",
+                                "en": "The woody character behind the Oud Wood name."
                             },
-                            "image": "https://framerusercontent.com/images/ROVwzYkZf83wY75USKEtSQXEjw.png"
+                            "image": "/demo-uploads/c5213d52-ebe9-4a94-8ebc-057501ca9ddb.png"
                         },
                         {
                             "title": {
-                                "ar": "بطارية تدوم 40 ساعة",
-                                "en": "40-Hour Extended Battery Life"
+                                "ar": "الباتشولي",
+                                "en": "Patchouli"
                             },
                             "description": {
-                                "ar": "طاقة ترافقك طويلًا، حتى تنسى أنها تحتاج إلى شحن.",
-                                "en": "Time bends quietly. Power that lasts long enough to forget it’s there."
+                                "ar": "بعد آخر في تركيبة تستحق الاكتشاف.",
+                                "en": "Another dimension in a composition worth discovering."
                             },
-                            "image": "https://framerusercontent.com/images/nuNEJifFnfrW8rI99vw7E5dgxk.png"
+                            "image": "/demo-uploads/5b95f644-d4df-442b-80dc-ab7841e0146a.png"
                         },
                         {
                             "title": {
-                                "ar": "تحكم باللمس بكل سهولة",
-                                "en": "Intuitive Touch Controls"
+                                "ar": "العنبر",
+                                "en": "Amber"
                             },
                             "description": {
-                                "ar": "بلا أزرار. إيماءات طبيعية، سلسة ودقيقة.",
-                                "en": "No buttons. Just gestures. Smooth, natural, and quietly precise."
+                                "ar": "دفء يكمل ملامح التجربة.",
+                                "en": "Warmth that completes the experience."
                             },
-                            "image": "https://framerusercontent.com/images/qs3ficn1Ew7erAlmaFD2ApqAlUw.png"
+                            "image": "/demo-uploads/0f43dc27-adf0-429d-a6d8-18b49c1bbc92.png"
                         },
                         {
                             "title": {
-                                "ar": "توازن صوتي ذكي متكيف",
-                                "en": "Adaptive Smart Sound Balance"
+                                "ar": "حبوب التونكا",
+                                "en": "Tonka Bean"
                             },
                             "description": {
-                                "ar": "لكل مكان نبرته. تتعلم السماعة وتتكيّف لتبقى على انسجام معك.",
-                                "en": "Every space has a tone. It learns and adjusts — always in tune with you."
+                                "ar": "تفصيلة أخيرة في توقيع أود وود.",
+                                "en": "A final detail in the Oud Wood signature."
                             },
-                            "image": "https://framerusercontent.com/images/fMOCySHVgrqpuBciWRpDtoiYwRY.jpg"
+                            "image": "/demo-uploads/1376e40c-820c-4021-894d-65f0bd945a82.png"
                         }
                     ],
                     "fields": [
@@ -707,7 +708,7 @@
                     "format": "color",
                     "label": "اللون المميز",
                     "required": false,
-                    "value": "#fc721b"
+                    "value": "#a78d5b"
                 }
             ]
         },
@@ -725,7 +726,7 @@
                     "label": "العنوان",
                     "required": false,
                     "value": {
-                        "ar": "لحظات تصنع الفرق",
+                        "ar": "شاهد التفاصيل عن قرب",
                         "en": "Moments That Matter"
                     },
                     "multilanguage": true
@@ -736,7 +737,7 @@
                     "format": "url",
                     "label": "رابط الفيديو",
                     "required": false,
-                    "value": "https://framerusercontent.com/assets/h3iJyoJz4JVnXDvfJto7HyGi68.mp4"
+                    "value": "https://h.top4top.io/m_3935a93zl1.mp4"
                 },
                 {
                     "id": "poster",
@@ -744,7 +745,7 @@
                     "format": "image",
                     "label": "صورة غلاف الفيديو",
                     "required": false,
-                    "value": "https://framerusercontent.com/images/qXyUnAMXZ6gpVZyxlFzA79Ts7Fg.jpg"
+                    "value": "/demo-uploads/4469ce55-adb7-4a21-a684-d3e1f10c184b.png"
                 },
                 {
                     "id": "play_label",
@@ -792,7 +793,7 @@
                     "format": "color",
                     "label": "اللون المميز",
                     "required": false,
-                    "value": "#fc721b"
+                    "value": "#c3a468"
                 }
             ]
         },
@@ -1044,23 +1045,24 @@
             ]
         },
         {
-            "title": "ترواده — شراء المنتج",
+            "title": "ترواده — تفاصيل المنتج والشراء",
             "name": "tarwadah-buy-now",
             "key": "4356cf1d-367c-4489-a3e0-f4c804b601d5",
             "icon": "sicon-layout-grid",
             "image": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780",
             "fields": [
                 {
-                    "id": "title",
+                    "id": "product_name",
                     "type": "string",
                     "format": "text",
-                    "label": "العنوان",
+                    "label": "اسم المنتج للمعاينة",
                     "required": false,
                     "value": {
-                        "ar": "سماعة MORAE",
-                        "en": "MORAE Headphone"
+                        "ar": "توم فورد أود وود",
+                        "en": "TOM FORD Oud Wood"
                     },
-                    "multilanguage": true
+                    "multilanguage": true,
+                    "description": "يظهر عند عدم اختيار منتج من المتجر. عند اختيار منتج حقيقي يُستخدم اسمه من سلة تلقائيًا."
                 },
                 {
                     "id": "description",
@@ -1069,8 +1071,8 @@
                     "label": "الوصف",
                     "required": false,
                     "value": {
-                        "ar": "هدوء لاسلكي بمعنى جديد.",
-                        "en": "The wireless calm redefined."
+                        "ar": "أو دو بارفان · 50 مل",
+                        "en": "Eau de Parfum · 50 ml"
                     },
                     "multilanguage": true
                 },
@@ -1081,8 +1083,8 @@
                     "label": "عنوان المواصفات",
                     "required": false,
                     "value": {
-                        "ar": "المواصفات التقنية",
-                        "en": "Technical Specs"
+                        "ar": "تفاصيل العطر",
+                        "en": "Fragrance Details"
                     },
                     "multilanguage": true
                 },
@@ -1098,20 +1100,20 @@
                     "value": [
                         {
                             "text": {
-                                "ar": "بطارية تدوم 40 ساعة",
-                                "en": "40-Hour Battery Life"
+                                "ar": "توم فورد أود وود",
+                                "en": "TOM FORD Oud Wood"
                             }
                         },
                         {
                             "text": {
-                                "ar": "إلغاء الضوضاء النشط 2.0",
-                                "en": "Active Noise Cancellation 2.0"
+                                "ar": "أو دو بارفان",
+                                "en": "Eau de Parfum"
                             }
                         },
                         {
                             "text": {
-                                "ar": "توازن صوتي متكيف",
-                                "en": "Adaptive Sound Balance"
+                                "ar": "الحجم: 50 ملر",
+                                "en": "Size: 50 ml"
                             }
                         }
                     ],
@@ -1137,8 +1139,8 @@
                     "label": "عنوان الألوان",
                     "required": false,
                     "value": {
-                        "ar": "اللون",
-                        "en": "Color"
+                        "ar": "الحجم",
+                        "en": "Size"
                     },
                     "multilanguage": true
                 },
@@ -1185,8 +1187,8 @@
                     "label": "رسالة المعاينة",
                     "required": false,
                     "value": {
-                        "ar": "اختر منتجًا من سلة في إعدادات هذا القسم لتفعيل الشراء.",
-                        "en": "Choose a Salla product in this section’s settings to enable purchases."
+                        "ar": "اختر منتج العطر من سلة لتفعيل الشراء.",
+                        "en": "Select the fragrance product from Salla to enable purchases."
                     },
                     "multilanguage": true
                 },
@@ -1197,8 +1199,8 @@
                     "label": "رسالة التحميل",
                     "required": false,
                     "value": {
-                        "ar": "جارٍ تحميل المنتج…",
-                        "en": "Loading product…"
+                        "ar": "جارٍ تحميل العطر…",
+                        "en": "Loading fragrance…"
                     },
                     "multilanguage": true
                 },
@@ -1209,8 +1211,8 @@
                     "label": "رسالة الخطأ",
                     "required": false,
                     "value": {
-                        "ar": "تعذّر تحميل المنتج. يرجى المحاولة مجددًا.",
-                        "en": "The product could not be loaded. Please try again."
+                        "ar": "تعذّر تحميل العطر. يرجى المحاولة مجددًا.",
+                        "en": "Unable to load the fragrance. Please try again."
                     },
                     "multilanguage": true
                 },
@@ -1241,27 +1243,27 @@
                     "value": [
                         {
                             "name": {
-                                "ar": "برتقالي",
-                                "en": "Orange"
+                                "ar": "30 مل",
+                                "en": "30 ml"
                             },
-                            "color": "#e86a16",
-                            "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435"
+                            "color": "#c3a468",
+                            "image": "/demo-uploads/71108eb8-529a-4519-8257-2c33b9b5ca8a.png"
                         },
                         {
                             "name": {
-                                "ar": "رمادي",
-                                "en": "Gray"
+                                "ar": "50 مل",
+                                "en": "50 ml"
                             },
                             "color": "#9e9e9e",
-                            "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/grey_headphone.jpg?v=1763519436"
+                            "image": "/demo-uploads/121ba416-79ee-4c42-8947-5c593bbf5ec2.png"
                         },
                         {
                             "name": {
-                                "ar": "أسود",
-                                "en": "Black"
+                                "ar": "100 مل",
+                                "en": "100 ml"
                             },
                             "color": "#282828",
-                            "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/black_headphone.jpg?v=1763519436"
+                            "image": "/demo-uploads/c1ecd4dd-909f-4aab-a906-6ca92cec37c0.png"
                         }
                     ],
                     "fields": [
@@ -1317,7 +1319,7 @@
                     "format": "color",
                     "label": "اللون المميز",
                     "required": false,
-                    "value": "#fc721b"
+                    "value": "#c3a468"
                 },
                 {
                     "id": "details_title",
@@ -1326,8 +1328,8 @@
                     "label": "عنوان نافذة المواصفات",
                     "required": false,
                     "value": {
-                        "ar": "المواصفات",
-                        "en": "Specs"
+                        "ar": "تفاصيل أود وود",
+                        "en": "Oud Wood Details"
                     },
                     "multilanguage": true
                 },
@@ -1355,42 +1357,42 @@
                     "value": [
                         {
                             "title": {
-                                "ar": "التصميم",
-                                "en": "Design"
+                                "ar": "بيانات العطر",
+                                "en": "Fragrance Information"
                             },
                             "body": {
-                                "ar": "أبعاد السماعة\nالارتفاع | 173.25 مم\nالعرض | 75.0 مم\nالعمق | 188.14 مم\n\nوزن السماعة\nالوزن | 312 جم\n\nوزن السماعة\nالوزن | 312 جم",
-                                "en": "Headphones dimensions\nHeight | 173.25 MM\nWidth | 75.0 MM\nDepth | 188.14 MM\n\nHeadphones weight\nWeight | 312 G\n\nHeadphones weight\nWeight | 312 G"
+                                "ar": "العلامة التجارية | توم فورد\nاسم العطر | أود وود\nالتركيز | أو دو بارفان\nالحجم | 50 مل",
+                                "en": "Brand | TOM FORD\nFragrance | Oud Wood\nConcentration | Eau de Parfum\nSize | 50 ml"
                             }
                         },
                         {
                             "title": {
-                                "ar": "الصوت",
-                                "en": "Sound"
+                                "ar": "النوتات العطرية",
+                                "en": "Fragrance Notes"
                             },
                             "body": {
-                                "ar": "المشغّلات\n40 مم ديناميكي / 16 Ω\n\nنطاق التردد\n20 هرتز – 40 كيلوهرتز\n\nالغشاء\nPU",
-                                "en": "Drivers\n40 MM DYNAMIC / 16 Ω\n\nRF\n20 HZ – 40 KHZ\n\nDiaphragm\nPU"
+                                "ar": "النوتات المعلنة\nالهيل، الفلفل الوردي، الباتشولي، العنبر، نوتات العود، حبوب التونكا.",
+                                "en": "Listed Notes\nCardamom, pink pepper, patchouli, amber, oud notes, tonka bean.Listed Notes\nCardamom, pink pepper, patchouli, amber, oud notes, tonka bean."
                             }
                         },
                         {
                             "title": {
-                                "ar": "البطارية",
-                                "en": "Battery"
+                                "ar": "طريقة الاستخدام",
+                                "en": "How to Use"
                             },
                             "body": {
-                                "ar": "نوع البطارية\nليثيوم أيون قابلة للشحن\n\nالسعة\n1200 مللي أمبير ساعة\n\nالشحن\nشحن سلكي TYPE-C، شحن كامل خلال 120 دقيقة",
-                                "en": "Battery type\nRECHARGEABLE LITHIUM-ION\n\nCapacity\n1200 MAH\n\nCharging\nTYPE-C WIRED CHARGING-TO-FULL TIME 120 MINS"
+                                "ar": "الاستخدام\nرش مرة أو مرتين على بشرة نظيفة في المواضع المرغوبة.\n\nبعد الاستخدام\nلا تفرك العطر على البشرة.",
+                                "en": "Application\nApply one or two sprays to clean skin on the desired areas.\n\nAfter Application\nAvoid rubbing the fragrance into the skin."
                             }
                         },
                         {
                             "title": {
-                                "ar": "إلغاء الضوضاء",
-                                "en": "Noise Cancellation"
+                                "ar": "معلومات الشراء",
+                                "en": "Purchase Information"
                             },
                             "body": {
                                 "ar": "أبعاد السماعة\nإلغاء ضوضاء متكيف لحظيًا\n\nالعمق\nحتى 42 ديسيبل",
-                                "en": "Headphones dimensions\nREAL-TIME ADAPTIVE ANC\n\nDepth\nUP TO 42 DB"
+                                "en": "Price and Availability\nCurrent details are provided by the linked store product.\n\nShipping and Returns\nThe store policies shown before checkout apply."
                             }
                         }
                     ],
@@ -1428,8 +1430,8 @@
                     "label": "رسالة المنتج الوهمي",
                     "required": false,
                     "value": {
-                        "ar": "معاينة تطوير بمنتج وهمي؛ لم تتم إضافة إلى سلة متجر حقيقي.",
-                        "en": "Development preview with a mock product; no item was added to a real store cart."
+                        "ar": "معاينة تطوير بمنتج وهمي؛ لم تتم إضافة منتج إلى سلة متجر حقيقي.",
+                        "en": "Development preview with a mock product; nothing was added to a real store cart."
                     },
                     "multilanguage": true
                 },
@@ -1448,9 +1450,6 @@
             ]
         }
     ],
-    "features": [
-        "landing-page-templates"
-    ],
     "templates": [
         {
             "id": "cc8ecbc9-5235-4e74-b06c-b9ef2ec0eace",
@@ -1466,7 +1465,7 @@
             "category_id": "915304371",
             "primary_color": "",
             "thumbnail": "templates-thumbs/tarwadah-perfumes-oud.png",
-            "is_default": false
+            "is_default": true
         },
         {
             "id": "7ba81d02-a700-4cf7-903e-6bd240b3ce94",
@@ -1474,7 +1473,7 @@
             "category_id": "1939592358",
             "primary_color": "",
             "thumbnail": "templates-thumbs/tarwadah-electronics.png",
-            "is_default": true
+            "is_default": false
         }
     ],
     "demo_settings": {
@@ -1485,5 +1484,8 @@
             "regularPrice": 150,
             "isOnSale": true
         }
-    }
+    },
+    "features": [
+        "landing-page-templates"
+    ]
 }

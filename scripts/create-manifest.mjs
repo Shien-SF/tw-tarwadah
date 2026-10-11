@@ -4,17 +4,23 @@ import { createHash } from 'node:crypto';
 const defaults = JSON.parse(readFileSync(new URL('../src/shared/defaults.json', import.meta.url)));
 const bundleFile = new URL('../twilight-bundle.json', import.meta.url);
 const bundle = JSON.parse(readFileSync(bundleFile));
+// This bootstrap generator rebuilds templates from generic defaults. Running it
+// on an edited bundle would replace the merchant's template registrations.
+if (bundle.templates?.length) {
+  throw new Error('Bundle already has templates. Refusing to regenerate and overwrite saved template data. Use pnpm sync:defaults instead.');
+}
 const labels = {
   title:'العنوان',note:'النص العلوي',accent_text:'النص المميز',description:'الوصف',cta_label:'نص زر الشراء',cta_target:'معرف قسم الشراء',scroll_label:'نص التمرير',video:'رابط الفيديو',poster:'صورة غلاف الفيديو',detail_label:'نص عرض التفاصيل',target:'معرف القسم المستهدف',image:'الصورة',price:'السعر التجريبي',colors:'الألوان التجريبية',eyebrow:'العنوان الصغير',caption:'النص الختامي',items:'العناصر',text:'النص',label:'وصف القسم',images:'الصور',alt:'وصف الصورة',intro_image:'الصورة الافتتاحية',play_label:'نص تشغيل الفيديو',pause_label:'نص إيقاف الفيديو',quote:'الرأي',author:'الاسم',specs_label:'عنوان المواصفات',specs:'المواصفات',color_label:'عنوان الألوان',quantity_label:'عنوان الكمية',preview_message:'رسالة المعاينة',loading_message:'رسالة التحميل',error_message:'رسالة الخطأ',variants:'الألوان والصور التجريبية',name:'الاسم',color:'اللون',background:'لون الخلفية',foreground:'لون النص',accent:'اللون المميز',product:'المنتج من المتجر'
 };
-const titles={hero:'ترواده — البانر الرئيسي', 'product-strip':'ترواده — شريط المنتج', highlights:'ترواده — تفاصيل التصميم',sound:'ترواده — تجربة الصوت',gallery:'ترواده — معرض الصور',features:'ترواده — المميزات التقنية',video:'ترواده — فيديو المنتج',testimonials:'ترواده — آراء العملاء','buy-now':'ترواده — شراء المنتج'};
+const titles={hero:'ترواده — مقدمة المنتج', 'product-strip':'ترواده — شريط المنتج العائم', highlights:'ترواده — أبرز تفاصيل المنتج',sound:'ترواده — قصة المنتج',gallery:'ترواده — معرض صور المنتج',features:'ترواده — المميزات والفوائد',video:'ترواده — فيديو المنتج',testimonials:'ترواده — آراء العملاء','buy-now':'ترواده — تفاصيل المنتج والشراء'};
 function uuid(name){const h=createHash('sha256').update(`tarwadah:${name}`).digest('hex');return `${h.slice(0,8)}-${h.slice(8,12)}-4${h.slice(13,16)}-a${h.slice(17,20)}-${h.slice(20,32)}`;}
 function field(id,value,section){
   if(value&&typeof value==='object'&&!Array.isArray(value)&&'ar' in value)return {...field(id,value.en,section),value,multilanguage:true};
   if(id==='product')return {id,type:'items',format:'dropdown-list',label:labels[id],icon:'sicon-box',source:'products',searchable:true,multichoice:false,required:false,options:[],selected:[],value:[],description:'اختر نفس المنتج في شريط المنتج وقسم الشراء. بدون اختيار منتج يظهر محتوى المرجع للمعاينة فقط.'};
   if(Array.isArray(value))return {id,type:'collection',format:'collection',label:labels[id]||id,item_label:labels[id]||id,required:false,minLength:0,maxLength:['highlights','gallery'].includes(section)?3:id==='items'?15:10,value,fields:Object.entries(value[0]||{}).map(([key,val])=>field(key,val,section))};
   const format = ['image','poster','intro_image'].includes(id)?'image':['video'].includes(id)?'url':['background','foreground','accent','color'].includes(id)?'color':['description','text','quote','note','preview_message','error_message'].includes(id)?'textarea':'text';
-  return {id,type:'string',format,label:labels[id]||id,required:false,value};
+  const productTitle=['title','product_name'].includes(id)&&['buy-now','product-strip'].includes(section);
+  return {id,type:'string',format,label:productTitle?'اسم المنتج للمعاينة':labels[id]||id,required:false,value,...(productTitle?{description:'يظهر عند عدم اختيار منتج من المتجر. عند اختيار منتج حقيقي يُستخدم اسمه من سلة تلقائيًا.'}:{})};
 }
 bundle.name={en:'Tarwadah',ar:'ترواده'};
 bundle.description={en:'Independent single-product landing sections inspired by MORAE.',ar:'عناصر مستقلة لصفحات هبوط منتج واحد مستوحاة من MORAE.'};

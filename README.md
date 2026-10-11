@@ -13,30 +13,32 @@ pnpm.cmd run dev
 بعد ظهور عنوان الخادم (غالبًا `http://127.0.0.1:5173`):
 
 - `/landing.html`: معاينة الصفحة الكاملة.
-- `/landing.html?template=compact`: المعاينة المختصرة.
+- `/landing.html?template=compact`: معاينة مختصرة أثناء التطوير.
 - `/editor.html`: محرر سلة لإعداد العناصر وترتيبها وحفظ القوالب.
 
-ابدأ بمعاينة `/landing.html` ومرّر الصفحة لرؤية الحركة. في المحرر اختر **ترواده — الصفحة الكاملة** أو **ترواده — الصفحة المختصرة** من القائمة العلوية، واضغط الترس بجانب القسم لتعديل بياناته. «إلكترونيات» تصنيف القالب في سلة فقط. القالب الافتراضي يعرض بيانات المرجع حتى بدون حفظ إعدادات، والتعديلات المحفوظة تظل لها الأولوية.
+ابدأ بمعاينة `/landing.html` ومرّر الصفحة لرؤية الحركة. في المحرر اختر قالب الإلكترونيات أو التجميل والعناية أو العطور والعود من القائمة العلوية، واضغط الترس بجانب القسم لتعديل بياناته. «إلكترونيات» تصنيف القالب في سلة فقط. القالب الافتراضي يعرض بيانات المرجع حتى بدون حفظ إعدادات، والتعديلات المحفوظة تظل لها الأولوية.
 
 لو المنفذ مشغول، استخدم العنوان الذي يطبعه Vite. لإيقاف الخادم: `Ctrl+C`.
 
 الهيدر والفوتر المحليان للمعاينة فقط؛ سلة تمنع Global Components ضمن الحزم، والمتجر يستخدم هيدر وفوتر ثيمه.
 
+في `/landing.html` افتح «إعدادات المتجر للمعاينة» أسفل الصفحة لتعديل اسم المتجر بالعربي والإنجليزي، ورفع شعار الهيدر والفوتر أو إدخال روابطهما، وتعديل نصوص وأقسام روابط القائمة. بدون إعداد اسم أو شعار لا يظهر براند افتراضي. تُحفظ إعدادات الهوية في `.preview-store.json`، مع نسخ سابقة في `artifacts/store-backups/`، وتظل مستقلة عن بيانات قوالب المنتجات.
+
 ## العناصر المستقلة
 
-| العنصر | قسم المرجع |
+| العنصر | الاسم الوظيفي في المحرر |
 | --- | --- |
-| `tarwadah-hero` | البانر وفيديو المنتج المرتبط بالتمرير |
-| `tarwadah-product-strip` | شريط المنتج المختصر |
-| `tarwadah-highlights` | كروت تفاصيل التصميم |
-| `tarwadah-sound` | نص تجربة الصوت |
-| `tarwadah-gallery` | معرض الصور |
-| `tarwadah-features` | الصورة الافتتاحية والمميزات الخمس |
-| `tarwadah-video` | فيديو Moments That Matter |
+| `tarwadah-hero` | مقدمة المنتج |
+| `tarwadah-product-strip` | شريط المنتج العائم |
+| `tarwadah-highlights` | أبرز تفاصيل المنتج |
+| `tarwadah-sound` | قصة المنتج |
+| `tarwadah-gallery` | معرض صور المنتج |
+| `tarwadah-features` | المميزات والفوائد |
+| `tarwadah-video` | فيديو المنتج |
 | `tarwadah-testimonials` | آراء العملاء |
-| `tarwadah-buy-now` | بطاقة المنتج والشراء |
+| `tarwadah-buy-now` | تفاصيل المنتج والشراء |
 
-كل عنصر داخل `src/components/<name>/index.ts`. القالب `templates/tarwadah-morae.json` يجمع كل الأقسام بترتيب المرجع، و`templates/tarwadah-compact.json` نسخة أقصر من نفس العناصر. SDK سلة الحالي يشترط **قالبين إلى أربعة** عند تفعيل `landing-page-templates`.
+كل عنصر داخل `src/components/<name>/index.ts`. القوالب الثلاثة المسجلة هي `templates/tarwadah-electronics.json` و`templates/tarwadah-beauty-care.json` و`templates/tarwadah-perfumes-oud.json`. أسماء العناصر وظيفية ومعرفاتها ثابتة للحفاظ على إعدادات التاجر. SDK سلة الحالي يشترط **قالبين إلى أربعة** عند تفعيل `landing-page-templates`.
 
 ## ربط منتج سلة
 
@@ -45,7 +47,7 @@ pnpm.cmd run dev
 3. عدّل المواصفات والنصوص والصور التسويقية للمنتج الفعلي.
 4. احفظ القالب واختبره على متجر سلة تجريبي.
 
-بدون منتج مختار، تظهر بيانات MORAE التجريبية؛ زر السلة يعرض رسالة ولا ينشئ عملية شراء وهمية. مع منتج مختار، يجلب العنصر الاسم والصورة والسعر والمخزون والخيارات من Storefront SDK، ويستخدم `salla-product-options` و`salla-quantity-input` و`salla-add-product-button` ونموذج `salla.form.onSubmit('cart.addItem', event)`. الألوان التجريبية تختفي عند الربط.
+بدون منتج مختار، تظهر بيانات MORAE التجريبية. على المتجر الفعلي زر الشراء معطل مع رسالة توضح ضرورة اختيار المنتج؛ في المعاينة المحلية فقط يعمل كسلة تجريبية. مع منتج مختار، يجلب العنصر الاسم والصورة والسعر والمخزون والخيارات من Storefront SDK، ويستخدم `salla-product-options` و`salla-quantity-input` و`salla-add-product-button` ونموذج `salla.form.onSubmit('cart.addItem', event)`. الألوان التجريبية تختفي عند الربط.
 
 عناصر نموذج الشراء في Light DOM حتى يعمل اكتشاف نموذج السلة وحقول سلة وتنسيقات الثيم. بقية الأقسام معزولة بـ Shadow DOM.
 
@@ -108,3 +110,15 @@ pnpm.cmd run preview:public
 تستخدم حركة السكرول إعدادات spring الأصلية عبر Motion، ويستخدم Lenis مدة ثانية واحدة مثل المرجع. تبديل صور المميزات يتم بكشف من أسفل لأعلى لمدة ثانية، ونص الصوت يتغير على ست نقاط انتقال؛ صفوف الآراء مرتبطة بالتمرير ولا تتحرك تلقائيًا. أزيلت مؤثرات blur وكشف الكروت التي لم تكن في المرجع. تم فحص نقاط مقارنة على 1440×1000 و390×844 ومعاينة محرر سلة؛ هذا ليس اختبارًا لكل بكسل في كل إطار.
 
 Navigation and product refinements: the local preview now uses the reference's expanding 390px header menu. A single leased orange pointer follows desktop input across independently mounted components. Product colors use an actual horizontal spring slider (including native product option images), and the mobile card uses the reference's 200px image and stacked purchase controls. The editable bilingual technical specifications dialog is included. Gallery scale overrides are 0.5 on mobile and 0.7 on tablet, independent of scroll progress. The mobile product bar sits 16px above the safe area with a centered transparent SVG arrow.
+
+## القيم الافتراضية لكل قالب
+
+ملفات `templates/*.json` هي مصدر القيم المحفوظة. بعد الضغط على «تحديث القالب»، شغّل `pnpm.cmd run sync:defaults` لنقل القيم إلى `src/shared/template-defaults.json`، وتحديث `src/shared/defaults.json` وتعريفات الحزمة بقيم القالب الافتراضي المسجل. الأمر لا يكتب داخل ملفات القوالب ولا يمس تخزين المحرر. فحص البناء يكشف أي اختلاف بين القوالب والقيم المنقولة.
+
+المعاينة العادية تستخدم قالب المحرر النشط وتعديلات جلسته. لعرض القيم المحفوظة لكل قالب بشكل مستقل استخدم `/landing.html?template=electronics` أو `/landing.html?template=beauty-care` أو `/landing.html?template=perfumes-oud`، وأضف `&lang=ar` أو `&lang=en` لاختيار اللغة. هذه الروابط لا تخلط تعديلات جلسة قالب آخر مع القالب المحدد. على المتجر، إعدادات التاجر التي ترسلها سلة تظل صاحبة الأولوية.
+
+## فحص جاهزية النشر
+
+شغّل `pnpm.cmd run check:release` قبل التسليم. يبني الحزمة ويفحص مسارات الصور والفيديو والقوالب؛ يفشل عند وجود `/demo-uploads/` أو عنوان محلي أو وسائط لا تستخدم HTTPS. ملفات رفع المحرر تبقى على جهازك ولا تُنسخ إلى حزمة الإنتاج. ارفع الصور عبر تخزين دائم مناسب للمتجر، ثم احفظ روابطها العامة في القوالب. لا تشغّل `scripts/create-manifest.mjs` على تخصيصات التاجر؛ هو مولّد تأسيسي قد يعيد إنشاء القوالب.
+
+نتيجة مراجعة الجاهزية الحالية وخطوات اختبار المتجر موضحة في [PRODUCTION-READINESS.md](PRODUCTION-READINESS.md). نجاح البناء وحده لا يعني قبول سلة أو اكتمال الشراء الفعلي.

@@ -2,7 +2,7 @@
   "id": "cc8ecbc9-5235-4e74-b06c-b9ef2ec0eace",
   "components": [
     {
-      "title": "ترواده — البانر الرئيسي",
+      "title": "ترواده — مقدمة المنتج",
       "name": "tarwadah-hero",
       "key": "e91ca814-9d83-4e87-a92f-ee794aba6f92",
       "icon": "sicon-layout-grid",
@@ -131,23 +131,24 @@
       ]
     },
     {
-      "title": "ترواده — شريط المنتج",
+      "title": "ترواده — شريط المنتج العائم",
       "name": "tarwadah-product-strip",
       "key": "4a1e1597-4dba-4c8c-a284-0f9bdd21bcca",
       "icon": "sicon-layout-grid",
       "image": "https://cdn.shopify.com/s/files/1/0833/9275/8095/files/orange_headphone.jpg?v=1763519435",
       "fields": [
         {
-          "id": "title",
+          "id": "product_name",
           "type": "string",
           "format": "text",
-          "label": "العنوان",
+          "label": "اسم المنتج للمعاينة",
           "required": false,
           "value": {
             "ar": "سماعة MORAE",
             "en": "MORAE Headphone"
           },
-          "multilanguage": true
+          "multilanguage": true,
+          "description": "يظهر عند عدم اختيار منتج من المتجر. عند اختيار منتج حقيقي يُستخدم اسمه من سلة تلقائيًا."
         },
         {
           "id": "detail_label",
@@ -255,7 +256,7 @@
       ]
     },
     {
-      "title": "ترواده — تفاصيل التصميم",
+      "title": "ترواده — أبرز تفاصيل المنتج",
       "name": "tarwadah-highlights",
       "key": "cbb50120-bf92-4337-abf4-f40e8e53cce4",
       "icon": "sicon-layout-grid",
@@ -391,7 +392,7 @@
       ]
     },
     {
-      "title": "ترواده — تجربة الصوت",
+      "title": "ترواده — قصة المنتج",
       "name": "tarwadah-sound",
       "key": "51fda7d5-7b44-4cdd-aa48-aadda39d5e73",
       "icon": "sicon-layout-grid",
@@ -448,7 +449,7 @@
       ]
     },
     {
-      "title": "ترواده — معرض الصور",
+      "title": "ترواده — معرض صور المنتج",
       "name": "tarwadah-gallery",
       "key": "f3ad8df6-a80c-4c5d-aabe-fe6767debcad",
       "icon": "sicon-layout-grid",
@@ -548,7 +549,7 @@
       ]
     },
     {
-      "title": "ترواده — المميزات التقنية",
+      "title": "ترواده — المميزات والفوائد",
       "name": "tarwadah-features",
       "key": "77dbb5a2-4b1d-448f-a432-7c30ea180cf6",
       "icon": "sicon-layout-grid",
@@ -1034,23 +1035,24 @@
       ]
     },
     {
-      "title": "ترواده — شراء المنتج",
+      "title": "ترواده — تفاصيل المنتج والشراء",
       "name": "tarwadah-buy-now",
       "key": "4356cf1d-367c-4489-a3e0-f4c804b601d5",
       "icon": "sicon-layout-grid",
       "image": "https://framerusercontent.com/images/mfDP7ms7UDYTKfFZVLEqUhsuY.png?width=1378&height=780",
       "fields": [
         {
-          "id": "title",
+          "id": "product_name",
           "type": "string",
           "format": "text",
-          "label": "العنوان",
+          "label": "اسم المنتج للمعاينة",
           "required": false,
           "value": {
             "ar": "سماعة MORAE",
             "en": "MORAE Headphone"
           },
-          "multilanguage": true
+          "multilanguage": true,
+          "description": "يظهر عند عدم اختيار منتج من المتجر. عند اختيار منتج حقيقي يُستخدم اسمه من سلة تلقائيًا."
         },
         {
           "id": "description",

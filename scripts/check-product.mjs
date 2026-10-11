@@ -15,9 +15,26 @@ assert.equal(demo.price,100);assert.equal(demo.regular_price,150);assert.equal(d
 assert.equal(api.mockProduct({enabled:true,status:'out',price:0},'Preview').status,'out');
 assert.equal(api.mockProduct({enabled:false},'Preview'),undefined);
 const preview=moduleAt('src/shared/preview-config.ts');
+const identity=moduleAt('src/shared/preview-store-config.ts');
+assert.throws(()=>identity.imageUrl('javascript:alert(1)'));
+assert.throws(()=>identity.imageUrl('//foreign.example/logo.png'));
+assert.throws(()=>identity.imageUrl('https://user:password@example.com/logo.png'));
+assert.equal(identity.imageUrl('/demo-uploads/logo.png'),'/demo-uploads/logo.png');
+assert.throws(()=>identity.validatePreviewStore({name:{ar:'اسم',en:'Name'},logo:'',footer_logo:'',navigation:[{target:'https://example.com',label:{ar:'رابط',en:'Link'}}]}));
 const saved=preview.mergePreviewConfig({price:259,title:'Reference'},JSON.stringify({price:100,items:[{'items.title':{ar:'تعديل',en:'Edited'}}]}));
 assert.equal(saved.price,100);assert.equal(saved.title,'Reference');assert.equal(saved.items[0].title.ar,'تعديل');
 assert.equal(preview.mergePreviewConfig({price:259},'{invalid').price,259);
+const catalog={defaultTemplate:'tarwadah-electronics',templates:{
+  'tarwadah-electronics':{id:'electronics-id'},'tarwadah-beauty-care':{id:'beauty-id'},'tarwadah-perfumes-oud':{id:'perfumes-id'}
+}};
+assert.equal(preview.resolvePreviewTemplate(catalog,null,null).name,'tarwadah-electronics');
+assert.equal(preview.resolvePreviewTemplate(catalog,null,'beauty-id').name,'tarwadah-beauty-care');
+assert.equal(preview.resolvePreviewTemplate(catalog,'perfumes-oud','beauty-id').name,'tarwadah-perfumes-oud');
+assert.equal(preview.resolvePreviewTemplate(catalog,'beauty-care',null).useSession,false,'Explicit template preview must not inherit a different template session');
+assert.equal(preview.resolvePreviewTemplate(catalog,'perfumes-oud','perfumes-id').useSession,true,'A direct link to the active template must preserve its editor overrides');
+assert.equal(preview.resolvePreviewTemplate(catalog,'perfumes-oud','beauty-id').useSession,false,'A perfume preview must not inherit beauty editor values');
+assert.equal(preview.resolvePreviewTemplate(catalog,null,'beauty-id').useSession,true,'Active editor preview preserves merchant overrides');
+assert.equal(preview.resolvePreviewTemplate(catalog,'unknown',null).name,'tarwadah-electronics');
 const source=readFileSync('src/preview.ts','utf8');
 assert(!/href=["']https?:/i.test(source),'Preview visitor links must stay within the landing page');
 console.log('Product checked: official SDK contract, saved merchant values, mock price/stock, zero prices, and no outbound visitor links.');

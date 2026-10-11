@@ -4,6 +4,7 @@ import ts from 'typescript';
 import {runInNewContext} from 'node:vm';
 const defaults=JSON.parse(fs.readFileSync('src/shared/defaults.json'));
 const bundle=JSON.parse(fs.readFileSync('twilight-bundle.json'));
+const templates=JSON.parse(fs.readFileSync('src/shared/template-defaults.json'));
 const exports={};
 runInNewContext(ts.transpileModule(fs.readFileSync('src/shared/locale.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{exports,document:{documentElement:{lang:'ar'}}});
 for(const lang of ['ar','en']){
@@ -16,6 +17,12 @@ for(const lang of ['ar','en']){
   assert.equal(exports.localize({title:'Merchant customization'},lang).title,'Merchant customization');
   const check=(value)=>{if(Array.isArray(value))value.forEach(check);else if(value&&typeof value==='object'){assert.ok(!('ar' in value&&'en' in value),'No locale objects reach the renderer');Object.values(value).forEach(check);}};
   check(values);
+  for(const [name,template]of Object.entries(templates.templates)){
+    const localized=exports.localize(template.sections,lang);
+    check(localized);
+    assert.equal(typeof localized.hero.title,'string',`${name} title renders in ${lang}`);
+    assert.equal(localized.hero.poster,template.sections.hero.poster,`${name} keeps its saved media`);
+  }
 }
 let count=0;
 function schema(fields){

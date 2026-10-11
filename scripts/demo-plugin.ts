@@ -1,9 +1,10 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, cpSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, rename } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { createDemoHTML } from '@salla.sa/twilight-bundles/vite-plugins/demo';
+import { previewStoreDefaults, validatePreviewStore } from '../src/shared/preview-store-config';
 
 // Keep the official SDK editor, but generate its two HTML entry points on demand.
 // This avoids its malformed Windows /@fs paths and closeBundle() deleting the
@@ -12,8 +13,47 @@ export function tarwadahDemoPages(): Plugin {
   return {
     name: 'tarwadah-sdk-demo-pages',
     configureServer(server) {
+      // Run before the SDK's template writer, including rename/delete/default
+      // actions. A failed backup must stop the write, not silently lose history.
+      server.middlewares.stack.unshift({ route: '', handle(req: any, res: any, next: any) {
+        const pathname=req.url?.split('?')[0];
+        if (!pathname?.startsWith('/__salla_demo/templates') || !['POST','PUT','PATCH','DELETE'].includes(req.method || '')) return next();
+        try {
+          const directory=resolve(server.config.root,'artifacts/template-backups',`${Date.now()}-${randomUUID()}`);
+          mkdirSync(directory,{recursive:true});
+          cpSync(resolve(server.config.root,'twilight-bundle.json'),resolve(directory,'twilight-bundle.json'));
+          const templates=resolve(server.config.root,'templates');
+          if(existsSync(templates))cpSync(templates,resolve(directory,'templates'),{recursive:true});
+          const thumbnails=resolve(server.config.root,'templates-thumbs');
+          if(existsSync(thumbnails))cpSync(thumbnails,resolve(directory,'templates-thumbs'),{recursive:true});
+          return next();
+        } catch(error) {
+          server.config.logger.error(`Template backup failed: ${error}`);
+          res.statusCode=500;res.setHeader('Content-Type','application/json; charset=utf-8');
+          return res.end(JSON.stringify({error:'backup_failed',message:'تعذّر حفظ نسخة احتياطية؛ لم يتم تعديل القالب.'}));
+        }
+      }});
       server.middlewares.use(async (req, res, next) => {
         const pathname = req.url?.split('?')[0];
+        if(pathname==='/__tarwadah/store-settings'){
+          res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store');
+          const file=resolve(server.config.root,'.preview-store.json');
+          try{
+            if(req.method==='GET')return res.end(JSON.stringify(existsSync(file)?validatePreviewStore(JSON.parse(await readFile(file,'utf8'))):previewStoreDefaults));
+            if(req.method!=='PUT'){res.statusCode=405;return res.end(JSON.stringify({error:'method_not_allowed'}));}
+            if(req.headers.origin&&new URL(req.headers.origin).host!==req.headers.host){res.statusCode=403;return res.end(JSON.stringify({error:'origin_not_allowed'}));}
+            if(!req.headers['content-type']?.startsWith('application/json')){res.statusCode=415;return res.end(JSON.stringify({error:'json_required'}));}
+            const chunks:Buffer[]=[];let size=0;
+            for await(const chunk of req){const bytes=Buffer.from(chunk);size+=bytes.length;if(size>32768){res.statusCode=413;return res.end(JSON.stringify({error:'settings_too_large'}));}chunks.push(bytes);}
+            const settings=validatePreviewStore(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+            if(existsSync(file)){
+              const backup=resolve(server.config.root,'artifacts/store-backups');await mkdir(backup,{recursive:true});
+              await writeFile(resolve(backup,`${Date.now()}-${randomUUID()}.json`),await readFile(file),{flag:'wx'});
+            }
+            const temporary=`${file}.${randomUUID()}.tmp`;await writeFile(temporary,JSON.stringify(settings,null,2)+'\n',{flag:'wx'});await rename(temporary,file);
+            return res.end(JSON.stringify({success:true}));
+          }catch{res.statusCode=400;return res.end(JSON.stringify({error:'invalid_store_settings'}));}
+        }
         if(pathname?.startsWith('/demo-uploads/')){
           const name=pathname.slice('/demo-uploads/'.length);
           if(!/^[a-f0-9-]{36}\.(png|jpg|gif|webp)$/.test(name)){res.statusCode=404;return res.end();}
@@ -66,6 +106,21 @@ export function tarwadahDemoPages(): Plugin {
           res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
           const labels = JSON.stringify({ 'tarwadah-morae': 'ترواده — الصفحة الكاملة', 'tarwadah-compact': 'ترواده — الصفحة المختصرة' });
           const adapted = source.replace(original, replacement).replace('src="./preview.html"', 'src="/node_modules/.salla-temp/preview.html"')
+            // Old editor sessions retain their schema labels. Refresh only this
+            // field's metadata, preserving every stored value and language.
+            .replace('return t ? this.htmlSafeString(n) : n;', `let schema=n;
+    if (e === 'tarwadah-buy-now' || e === 'tarwadah-product-strip') {
+      try {
+        const fields=JSON.parse(n);
+        const title=window.customComponentsRaw?.[e]?.fields?.find(field=>field.id==='product_name');
+        if (title && Array.isArray(fields)) {
+          const legacy=fields.find(field=>field.id==='title');
+          if (!fields.some(field=>field.id==='product_name')) fields.unshift({...title,...(legacy?{value:legacy.value}:{})});
+          schema=JSON.stringify(fields.filter(field=>field.id!=='title').map(field=>field.id==='product_name'?{...field,label:title.label,description:title.description}:field));
+        }
+      } catch {}
+    }
+    return t ? this.htmlSafeString(schema) : schema;`)
             .replace('upload-url="${window.formBuilderMockUrl}/uploader"', 'upload-url="/__tarwadah/uploads"')
             .replace('<span class="visibility-item-name">${t.name}</span>', '<span class="visibility-item-name">${t.rawComponent?.title || window.customComponentsRaw?.[t.name]?.title || t.name}</span>')
             .replace('`${(n = window.customComponentsRaw[e]) == null ? void 0 : n.title} - ${e}`', '`${(n = window.customComponentsRaw[e]) == null ? void 0 : n.title}`')

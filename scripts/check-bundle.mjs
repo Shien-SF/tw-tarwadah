@@ -21,6 +21,7 @@ for(const registered of bundle.templates){
     const definition=bundle.components.find(c=>c.name===component.name);
     assert(definition,`Unregistered component: ${component.name}`);
     assert.equal(component.key,definition.key);
+    assert.equal(component.title,definition.title,`Component title drift: ${file} / ${component.name}`);
     assert(Array.isArray(component.fields),`Missing saved fields: ${component.name}`);
   }
 }
