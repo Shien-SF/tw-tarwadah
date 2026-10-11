@@ -1,11 +1,11 @@
 {
     "name": {
-        "en": "Tarwadah",
-        "ar": "ترواده"
+        "ar": "طرواده",
+        "en": "Tarwadah"
     },
     "description": {
-        "en": "Independent single-product landing sections inspired by MORAE.",
-        "ar": "عناصر مستقلة لصفحات هبوط منتج واحد مستوحاة من MORAE."
+        "ar": null,
+        "en": null
     },
     "author_email": "shaheenagain@gmail.com",
     "support_url": "https://mohamed-shahien.online",
