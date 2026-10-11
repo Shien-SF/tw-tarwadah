@@ -1,5 +1,5 @@
 node_modules/
-dist/
+# Twilight releases the committed dist/ output; keep it in Git.
 .salla-preview.json
 .reference/
 artifacts/

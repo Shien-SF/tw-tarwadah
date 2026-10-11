@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "pnpm run check && vite build",
+        "build": "pnpm run check && vite build && node scripts/check-build-output.mjs",
+        "check:dist": "node scripts/check-build-output.mjs HEAD",
         "check": "tsc --noEmit && node scripts/sync-template-defaults.mjs --check && node scripts/check-bundle.mjs && node scripts/check-locales.mjs && node scripts/check-motion.mjs && node scripts/check-product.mjs",
         "sync:defaults": "node scripts/sync-template-defaults.mjs",
         "check:preview": "node scripts/check-preview.mjs",
