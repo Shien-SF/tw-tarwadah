@@ -1,3 +1,4 @@
+import { localizedString } from '../../shared/locale';
 import { css, html } from 'lit';
 import { TarwadahElement, sharedStyles } from '../../shared/base';
 import { watchScene, springChannel } from '../../shared/motion';
@@ -17,5 +18,5 @@ export default class TarwadahGallery extends TarwadahElement {
   protected startMotion(){this.stop?.();this.channels.forEach(c=>c.destroy());this.channels=[];this.lenses.forEach(stop=>stop());this.lenses=[];const figures=this.renderRoot.querySelectorAll<HTMLElement>('.image');figures.forEach((figure,i)=>{this.lenses.push(imageLens(figure,figure.querySelector('img')!,[.8,.5,.6][i]));this.channels.push(springChannel(0,p=>{const f=galleryFrame(p,innerWidth)[i];const mobile=matchMedia('(max-width:809px)').matches;const tablet=!mobile&&matchMedia('(max-width:1199px)').matches;const scale=f.scale;figure.style.transform=(mobile&&i===0||tablet&&i===1?'translateX(-50%) ':'')+'translate('+f.x+'px,'+f.y+'px) scale('+scale+')';},165,80));});this.stop=watchScene(this,()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const box=this.getBoundingClientRect();const progress=reduced?1:targetProgress(box.top,box.height,innerHeight);this.channels.forEach(c=>c.set(progress));this.dataset.motionProgress=progress.toFixed(3);});}
 
   disconnectedCallback(){this.stop?.();this.channels.forEach(c=>c.destroy());this.lenses.forEach(stop=>stop());super.disconnectedCallback();}
-  render(){const s=this.settings;return html`<section class="gallery" aria-label=${s.label}><div class="images">${s.images.map((item:any)=>html`<figure class="image"><img src=${item.image} alt=${item.alt} loading="lazy"></figure>`)}</div></section>`;}
+  render(){const s=this.settings;return html`<section class="gallery" aria-label=${localizedString(s.label)}><div class="images">${s.images.map((item:any)=>html`<figure class="image"><img src=${item.image} alt=${localizedString(item.alt)} loading="lazy"></figure>`)}</div></section>`;}
 }

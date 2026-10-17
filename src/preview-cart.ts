@@ -1,6 +1,6 @@
 import { html, render } from 'lit';
 import { animate } from 'motion';
-import { language, watchLanguage } from './shared/locale';
+import { language, localizedString, watchLanguage } from './shared/locale';
 import emptyCartImage from './assets/empty-cart.png';
 
 type PreviewItem={key:string;name:string;variant:string;image:string;quantity:number;price:number;currency:string};
@@ -33,10 +33,10 @@ export function initPreviewCart(navbar:HTMLElement,closeMenu:()=>void){
     bag.setAttribute('aria-label',l.open);close.setAttribute('aria-label',l.close);close.hidden=!open;title.setAttribute('aria-hidden',String(!open));
     render(html`<div class=${`preview-cart-items ${items.length?'':'preview-cart-empty-state'}`}>${items.length?items.map(item=>html`
       <article class="preview-cart-item">
-        <img src=${item.image} alt=${item.name}>
-        <div class="preview-cart-item-info"><div class="preview-cart-item-heading"><h2>${item.name}</h2><span>${money(item.price,item.currency)}</span></div>
-          <p class="preview-cart-variant">${item.variant}</p>
-          <div class="preview-cart-item-actions"><div class="preview-cart-quantity"><button aria-label=${l.decrease} ?disabled=${item.quantity<=1} @click=${()=>change(item,-1)}>−</button><output>${item.quantity}</output><button aria-label=${l.increase} ?disabled=${item.quantity>=99} @click=${()=>change(item,1)}>+</button></div><button class="preview-cart-remove" aria-label=${`${l.remove}: ${item.name}`} @click=${()=>{items=items.filter(row=>row!==item);checkoutNotice=false;update();(panel.querySelector<HTMLButtonElement>('.preview-cart-continue')||close).focus();}}>×</button></div>
+        <img src=${item.image} alt=${localizedString(item.name)}>
+        <div class="preview-cart-item-info"><div class="preview-cart-item-heading"><h2>${localizedString(item.name)}</h2><span>${money(item.price,item.currency)}</span></div>
+          <p class="preview-cart-variant">${localizedString(item.variant)}</p>
+          <div class="preview-cart-item-actions"><div class="preview-cart-quantity"><button aria-label=${l.decrease} ?disabled=${item.quantity<=1} @click=${()=>change(item,-1)}>−</button><output>${item.quantity}</output><button aria-label=${l.increase} ?disabled=${item.quantity>=99} @click=${()=>change(item,1)}>+</button></div><button class="preview-cart-remove" aria-label=${`${l.remove}: ${localizedString(item.name)}`} @click=${()=>{items=items.filter(row=>row!==item);checkoutNotice=false;update();(panel.querySelector<HTMLButtonElement>('.preview-cart-continue')||close).focus();}}>×</button></div>
         </div>
       </article>`):html`<img class="preview-cart-empty-image" src=${emptyCartImage} width="210" height="210" alt=""><p class="preview-cart-empty" role="status">${l.empty}</p><button type="button" class="preview-cart-continue" @click=${()=>setOpen(false)}>${l.continueShopping}</button>`}</div>
       ${items.length?html`<div class="preview-cart-summary"><div class="preview-cart-subtotal"><span>${l.subtotal}</span><output aria-live="polite">${money(items.reduce((sum,item)=>sum+item.price*item.quantity,0),items[0].currency)}</output></div>

@@ -1,5 +1,5 @@
 import {html,render} from 'lit';
-import {language} from './shared/locale';
+import {language,localizedString} from './shared/locale';
 import {suspendSmoothScroll} from './shared/smooth-scroll';
 import {previewStoreDefaults,previewTargets,validatePreviewStore,type PreviewStore} from './shared/preview-store-config';
 
@@ -15,7 +15,7 @@ export function initPreviewStore(closeMenu:()=>void){
   const footerBrand=document.querySelector<HTMLElement>('.footer-brand')!;
   function apply(){
     closeMenu();
-    const name=settings.name[language()]||settings.name.ar||settings.name.en;
+    const name=localizedString(settings.name);
     render(settings.logo?html`<img src=${settings.logo} alt=${name}>`:html`${name}`,brand);brand.hidden=!name&&!settings.logo;brand.setAttribute('aria-label',name);
     const footerLogo=settings.footer_logo||settings.logo;
     render(footerLogo?html`<img src=${footerLogo} alt=${name} loading="lazy">`:html`${name}`,footerBrand);footerBrand.hidden=!name&&!footerLogo;
@@ -25,7 +25,7 @@ export function initPreviewStore(closeMenu:()=>void){
     for(const nav of document.querySelectorAll<HTMLElement>('.preview-menu,.footer-row nav')){
       nav.replaceChildren();for(const item of settings.navigation){
         if(!document.getElementById(item.target))continue;
-        const link=document.createElement('a');link.href=`#${item.target}`;link.textContent=item.label[language()]||item.label.ar||item.label.en;
+        const link=document.createElement('a');link.href=`#${item.target}`;link.textContent=localizedString(item.label);
         if(link.textContent)nav.append(link);
       }
     }
@@ -37,10 +37,10 @@ export function initPreviewStore(closeMenu:()=>void){
     render(html`<form method="dialog" @submit=${save}>
       <div class="store-settings-heading"><h2 id="preview-store-heading">إعدادات المتجر للمعاينة</h2><button type="button" aria-label="إغلاق" @click=${()=>dialog.close()}>×</button></div>
       <p>هذه إعدادات المعاينة المحلية. المتجر الحقيقي يستخدم شعار واسم المتجر من إعدادات سلة.</p>
-      <div class="store-settings-grid"><label>اسم المتجر بالعربي${input('name-ar',settings.name.ar,'rtl')}</label><label>Store name in English${input('name-en',settings.name.en,'ltr')}</label></div>
+      <div class="store-settings-grid"><label>اسم المتجر بالعربي${input('name-ar',localizedString(settings.name,'ar'),'rtl')}</label><label>Store name in English${input('name-en',localizedString(settings.name,'en'),'ltr')}</label></div>
       ${(['logo','footer_logo'] as const).map(key=>html`<label>${key==='logo'?'شعار الهيدر':'شعار الفوتر (اختياري)'}<input name=${key} value=${settings[key]} dir="ltr" maxlength="2048" placeholder="https://… أو /demo-uploads/…"></label><label>رفع صورة<input type="file" accept="image/png,image/jpeg,image/gif,image/webp" @change=${(e:Event)=>upload(e,key)}></label>`)}
       <h3>روابط القائمة والفوتر</h3>
-      ${settings.navigation.map((item,i)=>html`<fieldset><legend>الرابط ${i+1}</legend><label>القسم<select name=${`target-${i}`}>${previewTargets.map(target=>html`<option value=${target} ?selected=${target===item.target}>${({hero:'مقدمة المنتج',highlights:'أبرز التفاصيل',sound:'قصة المنتج',gallery:'معرض الصور',features:'المميزات والفوائد',video:'فيديو المنتج',testimonials:'آراء العملاء','buy-now':'تفاصيل المنتج والشراء'})[target]}</option>`)}</select></label><div class="store-settings-grid"><label>النص بالعربي${input(`ar-${i}`,item.label.ar,'rtl')}</label><label>English label${input(`en-${i}`,item.label.en,'ltr')}</label></div><p>اترك النص فارغًا باللغتين لإخفاء الرابط.</p></fieldset>`)}
+      ${settings.navigation.map((item,i)=>html`<fieldset><legend>الرابط ${i+1}</legend><label>القسم<select name=${`target-${i}`}>${previewTargets.map(target=>html`<option value=${target} ?selected=${target===item.target}>${({hero:'مقدمة المنتج',highlights:'أبرز التفاصيل',sound:'قصة المنتج',gallery:'معرض الصور',features:'المميزات والفوائد',video:'فيديو المنتج',testimonials:'آراء العملاء','buy-now':'تفاصيل المنتج والشراء'})[target]}</option>`)}</select></label><div class="store-settings-grid"><label>النص بالعربي${input(`ar-${i}`,localizedString(item.label,'ar'),'rtl')}</label><label>English label${input(`en-${i}`,localizedString(item.label,'en'),'ltr')}</label></div><p>اترك النص فارغًا باللغتين لإخفاء الرابط.</p></fieldset>`)}
       <p class="store-settings-status" role="status"></p><button class="store-settings-save" type="submit">حفظ إعدادات المتجر</button>
     </form>`,dialog);
   }

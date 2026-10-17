@@ -1,3 +1,4 @@
+import { localizedString } from '../../shared/locale';
 import { css, html } from 'lit';
 import { TarwadahElement, sharedStyles } from '../../shared/base';
 import { imageLens } from '../../shared/lens';
@@ -15,5 +16,5 @@ export default class TarwadahHighlights extends TarwadahElement {
   protected startMotion(){this.cleanup.forEach(stop=>stop());this.cleanup=[];this.renderRoot.querySelectorAll<HTMLElement>('.card').forEach(card=>this.cleanup.push(imageLens(card,card.querySelector('img')!)));this.cleanup.push(watchScene(this,()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const scroll=scrollPosition(this);const offsets=highlightTravel(scroll,matchMedia('(max-width:809px)').matches);this.renderRoot.querySelector<HTMLElement>('.caption')!.style.transform='translateY('+(reduced?0:-scroll*.07)+'px)';this.renderRoot.querySelectorAll<HTMLElement>('.card').forEach((card,i)=>card.style.setProperty('--offset',(reduced?0:offsets[i])+'px'));}));}
 
   disconnectedCallback(){this.cleanup.forEach(stop=>stop());super.disconnectedCallback();}
-  render(){const s=this.settings;return html`<section class="section wrap" aria-label=${s.eyebrow}><header class="heading"><p class="eyebrow">${s.eyebrow}</p><h2>${s.title}</h2><p class="mono">${s.description}</p></header><div class="cards">${s.items.map((item:any)=>html`<figure class="card"><img src=${item.image} alt=${item.title} loading="lazy"><p>${item.title}</p></figure>`)}<p class="caption mono">${s.caption}</p></div></section>`;}
+  render(){const s=this.settings;return html`<section class="section wrap" aria-label=${localizedString(s.eyebrow)}><header class="heading"><p class="eyebrow">${localizedString(s.eyebrow)}</p><h2>${localizedString(s.title)}</h2><p class="mono">${localizedString(s.description)}</p></header><div class="cards">${s.items.map((item:any)=>html`<figure class="card"><img src=${item.image} alt=${localizedString(item.title)} loading="lazy"><p>${localizedString(item.title)}</p></figure>`)}<p class="caption mono">${localizedString(s.caption)}</p></div></section>`;}
 }

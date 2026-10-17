@@ -5,6 +5,7 @@ import { randomUUID } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { createDemoHTML } from '@salla.sa/twilight-bundles/vite-plugins/demo';
 import { previewStoreDefaults, validatePreviewStore } from '../src/shared/preview-store-config';
+import { localizedString } from '../src/shared/locale';
 
 // Keep the official SDK editor, but generate its two HTML entry points on demand.
 // This avoids its malformed Windows /@fs paths and closeBundle() deleting the
@@ -105,7 +106,7 @@ export function tarwadahDemoPages(): Plugin {
           if (!source.includes(original)) return next(new Error('The SDK default-data adapter needs updating for this SDK version.'));
           res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
           const labels = JSON.stringify({ 'tarwadah-morae': 'ترواده — الصفحة الكاملة', 'tarwadah-compact': 'ترواده — الصفحة المختصرة' });
-          const adapted = source.replace(original, replacement).replace('src="./preview.html"', 'src="/node_modules/.salla-temp/preview.html"')
+          const adapted = `import { localizedString as tarwadahLocalizedString } from '/src/shared/locale.ts';\n` + source.replace(original, replacement).replace('src="./preview.html"', 'src="/node_modules/.salla-temp/preview.html"')
             // Old editor sessions retain their schema labels. Refresh only this
             // field's metadata, preserving every stored value and language.
             .replace('return t ? this.htmlSafeString(n) : n;', `let schema=n;
@@ -122,11 +123,11 @@ export function tarwadahDemoPages(): Plugin {
     }
     return t ? this.htmlSafeString(schema) : schema;`)
             .replace('upload-url="${window.formBuilderMockUrl}/uploader"', 'upload-url="/__tarwadah/uploads"')
-            .replace('<span class="visibility-item-name">${t.name}</span>', '<span class="visibility-item-name">${t.rawComponent?.title || window.customComponentsRaw?.[t.name]?.title || t.name}</span>')
-            .replace('`${(n = window.customComponentsRaw[e]) == null ? void 0 : n.title} - ${e}`', '`${(n = window.customComponentsRaw[e]) == null ? void 0 : n.title}`')
+            .replace('<span class="visibility-item-name">${t.name}</span>', '<span class="visibility-item-name">${tarwadahLocalizedString(t.rawComponent?.title || window.customComponentsRaw?.[t.name]?.title || t.name)}</span>')
+            .replace('`${(n = window.customComponentsRaw[e]) == null ? void 0 : n.title} - ${e}`', '`${tarwadahLocalizedString((n = window.customComponentsRaw[e]) == null ? void 0 : n.title)}`')
             .replace('buildSwitcherContent(e, t, a) {', `buildSwitcherContent(e, t, a) {
     if (a !== undefined) { const category=t; t=(${labels})[a] || a; a=category; }`)
-            .replace('a.textContent = h ? h.name : r || s.templateSwitcherPlaceholder;', `a.textContent = (${labels})[r] || r || s.templateSwitcherPlaceholder;`);
+            .replace('a.textContent = h ? h.name : r || s.templateSwitcherPlaceholder;', `a.textContent = tarwadahLocalizedString((${labels})[r] || r || s.templateSwitcherPlaceholder);`);
           return res.end(adapted);
         }
         if (pathname !== '/editor.html' && pathname !== '/node_modules/.salla-temp/index.html' && pathname !== '/node_modules/.salla-temp/preview.html') return next();
@@ -148,7 +149,8 @@ export function tarwadahDemoPages(): Plugin {
           }, pathname === '/editor.html' || pathname.endsWith('/index.html') ? 'shell' : 'preview');
           if (pathname === '/editor.html') html = html.replace(/src="preview\.html/g, 'src="/node_modules/.salla-temp/preview.html');
           for (const component of bundle.components) {
-            html = html.replaceAll(`<span class="visibility-item-name">${component.name}</span>`, `<span class="visibility-item-name">${component.title}</span>`);
+            const title = localizedString(component.title, 'ar').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]!));
+            html = html.replaceAll(`<span class="visibility-item-name">${component.name}</span>`, `<span class="visibility-item-name">${title}</span>`);
           }
           res.statusCode = 200;
           res.setHeader('Content-Type', 'text/html; charset=utf-8');

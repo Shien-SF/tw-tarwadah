@@ -1,3 +1,4 @@
+import { localizedString } from './locale';
 import { state } from 'lit/decorators.js';
 import { TarwadahElement, type Config } from './base';
 import { selectedProductId, fetchStoreProduct, mockProduct } from './product-api';
@@ -26,7 +27,7 @@ export class TarwadahProductElement extends TarwadahElement {
     if(!Object.hasOwn(this.config,'product_name')&&Object.hasOwn(this.config,'title'))settings.product_name=settings.title;
     return settings;
   }
-  protected get productName(){return !this.demoProduct&&this.productData?.name||this.settings.product_name||this.settings.title;}
+  protected get productName(){return localizedString(!this.demoProduct&&this.productData?.name||this.settings.product_name||this.settings.title);}
   @state() protected productData?: StoreProduct;
   @state() protected productLoading=false;
   @state() protected productError=false;
@@ -63,7 +64,7 @@ export class TarwadahProductElement extends TarwadahElement {
   }
   protected get formattedPrice(){
     const product=this.productData;
-    if(!product)return this.productId?'':this.settings.price;
+    if(!product)return this.productId?'':localizedString(this.settings.price);
     const value=product.sale_price??(typeof product.price==='object'?product.price.amount:product.price)??0;
     const sdk=storefront();
     if(sdk?.money?.format)return sdk.money.format(value);

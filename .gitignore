@@ -3,6 +3,7 @@ node_modules/
 .salla-preview.json
 .reference/
 artifacts/
+.playwright-cli/
 public/demo-uploads/
 .preview-store.json
 .preview-store.json.*.tmp

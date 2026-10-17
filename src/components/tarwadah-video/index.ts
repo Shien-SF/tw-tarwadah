@@ -1,3 +1,4 @@
+import { localizedString } from '../../shared/locale';
 import { css, html } from 'lit';
 import { state } from 'lit/decorators.js';
 import { targetProgress } from '../../shared/reference-motion';
@@ -18,5 +19,5 @@ export default class TarwadahVideo extends TarwadahElement {
 
   disconnectedCallback(){this.stop?.();this.stopScene?.();this.shutter?.destroy();super.disconnectedCallback();}
   private toggle(){const video=this.renderRoot.querySelector('video')!;if(video.paused)video.play().catch(()=>{});else video.pause();}
-  render(){const s=this.settings;return html`<section class="film" aria-label=${s.title}><video src=${s.video} poster=${s.poster} muted playsinline loop preload="none" @play=${()=>this.playing=true} @pause=${()=>this.playing=false}></video><div class="overlay"></div><div class="shutter top"></div><div class="shutter bottom"></div><h2 class="caption">${s.title}</h2><button class="play mono" @click=${this.toggle} aria-pressed=${this.playing}>${this.playing?s.pause_label:s.play_label}</button></section>`;}
+  render(){const s=this.settings;return html`<section class="film" aria-label=${localizedString(s.title)}><video src=${s.video} poster=${s.poster} muted playsinline loop preload="none" @play=${()=>this.playing=true} @pause=${()=>this.playing=false}></video><div class="overlay"></div><div class="shutter top"></div><div class="shutter bottom"></div><h2 class="caption">${localizedString(s.title)}</h2><button class="play mono" @click=${this.toggle} aria-pressed=${this.playing}>${this.playing?localizedString(s.pause_label):localizedString(s.play_label)}</button></section>`;}
 }

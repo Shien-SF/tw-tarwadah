@@ -47,16 +47,22 @@ export function springChannel(initial:number, write:(value:number)=>void, stiffn
 }
 
 export function scrambleText(element:HTMLElement){
-  const text=element.textContent||'';
+  // Preserve Lit's part markers and its text node across language updates.
+  const node=Array.from(element.childNodes).find(node=>node.nodeType===Node.TEXT_NODE) as Text|undefined;
+  if(!node)return ()=>{};
+  const text=node.data;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return ()=>{};
   const alphabet=/[\u0600-\u06ff]/.test(text)?'ابتثجحخدذرزسشصضطظعغفقكلمنهوي':'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}|;:,.<>?~';
   const random=document.createElement('span'),future=document.createElement('span');future.style.opacity='0';
+  let written=text;
+  const restore=()=>{random.remove();future.remove();if(node.data===written)node.data=text;};
   const animation=animate(0,1,{delay:1,duration:(text.length+10)*.032,ease:'linear',onUpdate:p=>{
+    if(node.data!==written){random.remove();future.remove();return;}
     const end=Math.min(text.length,Math.floor(p*(text.length+10))),done=Math.max(0,end-10);
     random.textContent=Array.from(text.slice(done,end)).map((_,i)=>alphabet[(Math.floor(p*997)+i*17)%alphabet.length]).join('');
-    future.textContent=text.slice(end);element.replaceChildren(document.createTextNode(text.slice(0,done)),random,future);
-  },onComplete:()=>{element.textContent=text;}});
-  return ()=>{animation.stop();element.textContent=text;};
+    future.textContent=text.slice(end);written=text.slice(0,done);node.data=written;node.after(random,future);
+  },onComplete:restore});
+  return ()=>{animation.stop();restore();};
 }
 
 // Match each authored entry target; generic blur/wipe effects are not in MORAE.

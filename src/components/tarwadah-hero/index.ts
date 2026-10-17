@@ -1,3 +1,4 @@
+import { localizedString } from '../../shared/locale';
 import { css, html } from 'lit';
 import { animate } from 'motion';
 import { heroFrame, heroScale } from '../../shared/reference-motion';
@@ -42,10 +43,10 @@ export default class TarwadahHero extends TarwadahElement {
   disconnectedCallback() { this.stop?.();this.mediaEvents?.abort();this.scaleSpring?.destroy();this.noteAnimations.forEach(a=>a.stop());this.scrambles.forEach(stop=>stop()); super.disconnectedCallback(); }
   render() {
     const s = this.settings;
-    return html`<section class="hero" aria-label=${s.title}><div class="scene fallback">
+    return html`<section class="hero" aria-label=${localizedString(s.title)}><div class="scene fallback">
       <video class="film" src=${s.video} poster=${s.poster} muted playsinline preload="auto" aria-hidden="true"></video>
       <div class="content">
-      <div class="bottom"><h1 class="display">${s.title}</h1><button class="mono scroll" @click=${() => this.jump('highlights')}>${s.scroll_label}</button><div class="action"><p class="mono">${s.description}</p><button class="button" @click=${() => this.jump(s.cta_target)}>${s.cta_label}</button></div></div></div>
-    </div><div class="float"><p class="mono note">${s.note}</p><p class="mono accent">${s.accent_text}</p></div></section>`;
+      <div class="bottom"><h1 class="display">${localizedString(s.title)}</h1><button class="mono scroll" @click=${() => this.jump('highlights')}>${localizedString(s.scroll_label)}</button><div class="action"><p class="mono">${localizedString(s.description)}</p><button class="button" @click=${() => this.jump(s.cta_target)}>${localizedString(s.cta_label)}</button></div></div></div>
+    </div><div class="float"><p class="mono note">${localizedString(s.note)}</p><p class="mono accent">${localizedString(s.accent_text)}</p></div></section>`;
   }
 }
