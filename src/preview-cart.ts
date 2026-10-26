@@ -26,7 +26,8 @@ export function initPreviewCart(navbar:HTMLElement,closeMenu:()=>void){
   }:{title:'Cart',open:'Open cart',close:'Close cart',empty:'Your cart is empty',continueShopping:'Continue Shopping',subtotal:'Subtotal',
     shipping:'Shipping, taxes, and discount codes calculated at checkout.',checkout:'Checkout',
     decrease:'Decrease quantity',increase:'Increase quantity',remove:'Remove item',demo:'Preview cart only; checkout is available in the real store.'};
-  const money=(value:number,currency:string)=>new Intl.NumberFormat(language(),{style:'currency',currency}).format(value);
+  // Resolve multilingual text before currency formatting; totals stay numeric.
+  const money=(value:string,currency:string)=>new Intl.NumberFormat(language(),{style:'currency',currency}).format(Number(value));
   function update(){
     const l=labels();const count=items.reduce((sum,item)=>sum+item.quantity,0);
     badge.textContent=String(count);badge.hidden=!count;openCount.textContent=String(count);openCount.hidden=!open||!count;title.textContent=l.title;
@@ -34,12 +35,12 @@ export function initPreviewCart(navbar:HTMLElement,closeMenu:()=>void){
     render(html`<div class=${`preview-cart-items ${items.length?'':'preview-cart-empty-state'}`}>${items.length?items.map(item=>html`
       <article class="preview-cart-item">
         <img src=${item.image} alt=${localizedString(item.name)}>
-        <div class="preview-cart-item-info"><div class="preview-cart-item-heading"><h2>${localizedString(item.name)}</h2><span>${money(item.price,item.currency)}</span></div>
+        <div class="preview-cart-item-info"><div class="preview-cart-item-heading"><h2>${localizedString(item.name)}</h2><span>${money(localizedString(item.price),item.currency)}</span></div>
           <p class="preview-cart-variant">${localizedString(item.variant)}</p>
           <div class="preview-cart-item-actions"><div class="preview-cart-quantity"><button aria-label=${l.decrease} ?disabled=${item.quantity<=1} @click=${()=>change(item,-1)}>−</button><output>${item.quantity}</output><button aria-label=${l.increase} ?disabled=${item.quantity>=99} @click=${()=>change(item,1)}>+</button></div><button class="preview-cart-remove" aria-label=${`${l.remove}: ${localizedString(item.name)}`} @click=${()=>{items=items.filter(row=>row!==item);checkoutNotice=false;update();(panel.querySelector<HTMLButtonElement>('.preview-cart-continue')||close).focus();}}>×</button></div>
         </div>
       </article>`):html`<img class="preview-cart-empty-image" src=${emptyCartImage} width="210" height="210" alt=""><p class="preview-cart-empty" role="status">${l.empty}</p><button type="button" class="preview-cart-continue" @click=${()=>setOpen(false)}>${l.continueShopping}</button>`}</div>
-      ${items.length?html`<div class="preview-cart-summary"><div class="preview-cart-subtotal"><span>${l.subtotal}</span><output aria-live="polite">${money(items.reduce((sum,item)=>sum+item.price*item.quantity,0),items[0].currency)}</output></div>
+      ${items.length?html`<div class="preview-cart-summary"><div class="preview-cart-subtotal"><span>${l.subtotal}</span><output aria-live="polite">${money(localizedString(items.reduce((sum,item)=>sum+Number(localizedString(item.price))*item.quantity,0)),items[0].currency)}</output></div>
         <p>${l.shipping}</p><button class="preview-cart-checkout" ?disabled=${!items.length} @click=${()=>{checkoutNotice=true;update();}}>${l.checkout}</button>
         ${checkoutNotice?html`<p class="preview-cart-notice" role="status">${l.demo}</p>`:''}
       </div>`:''}`,panel);
