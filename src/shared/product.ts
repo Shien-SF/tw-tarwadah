@@ -40,14 +40,7 @@ export class TarwadahProductElement extends TarwadahElement {
   private async loadDemoProduct(){if(!this.isDemo)return;try{const settings=await readDemoSettings();if(!settings)return;if(!this.isConnected||this.productId)return;const s=this.settings;const product=mockProduct(settings,s.product_name||s.title,s.image||s.variants?.[0]?.image);if(JSON.stringify(product)!==JSON.stringify(this.productData)){this.demoProduct=Boolean(product);this.productData=product;}}catch{/* Standalone public storefronts never use the local demo route. */}}
   protected get productUnavailable(){return this.productData?.status==='out'||this.productData?.status==='out-and-notify';}
   private generation=0;
-  protected get productId() {
-    const own=selectedProductId(this.settings.product);
-    if(own)return own;
-    for(const element of document.querySelectorAll<TarwadahProductElement>('[data-section="buy-now"],[data-section="product-strip"]')){
-      if(element!==this){const id=selectedProductId(element.config.product);if(id)return id;}
-    }
-    return 0;
-  }
+  protected get productId() { return selectedProductId(this.settings.product); }
 
   protected updated(changed:PropertyValues){
     super.updated(changed);

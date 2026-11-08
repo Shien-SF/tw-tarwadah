@@ -18,21 +18,11 @@ export function tarwadahDemoPages(): Plugin {
       // actions. A failed backup must stop the write, not silently lose history.
       server.middlewares.stack.unshift({ route: '', handle(req: any, res: any, next: any) {
         const pathname=req.url?.split('?')[0];
+        if (pathname === '/landing.html') { res.statusCode=404; return res.end('Landing templates have been archived. Open / to preview independent components.'); }
         if (!pathname?.startsWith('/__salla_demo/templates') || !['POST','PUT','PATCH','DELETE'].includes(req.method || '')) return next();
-        try {
-          const directory=resolve(server.config.root,'artifacts/template-backups',`${Date.now()}-${randomUUID()}`);
-          mkdirSync(directory,{recursive:true});
-          cpSync(resolve(server.config.root,'twilight-bundle.json'),resolve(directory,'twilight-bundle.json'));
-          const templates=resolve(server.config.root,'templates');
-          if(existsSync(templates))cpSync(templates,resolve(directory,'templates'),{recursive:true});
-          const thumbnails=resolve(server.config.root,'templates-thumbs');
-          if(existsSync(thumbnails))cpSync(thumbnails,resolve(directory,'templates-thumbs'),{recursive:true});
-          return next();
-        } catch(error) {
-          server.config.logger.error(`Template backup failed: ${error}`);
-          res.statusCode=500;res.setHeader('Content-Type','application/json; charset=utf-8');
-          return res.end(JSON.stringify({error:'backup_failed',message:'تعذّر حفظ نسخة احتياطية؛ لم يتم تعديل القالب.'}));
-        }
+        res.statusCode=403;res.setHeader('Content-Type','application/json; charset=utf-8');
+        return res.end(JSON.stringify({error:'standalone_bundle',message:'هذه مجموعة عناصر مستقلة؛ قوالب الهبوط محفوظة خارج نسخة التقديم.'}));
+
       }});
       server.middlewares.use(async (req, res, next) => {
         const pathname = req.url?.split('?')[0];

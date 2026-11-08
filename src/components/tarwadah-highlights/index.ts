@@ -12,6 +12,20 @@ export default class TarwadahHighlights extends TarwadahElement {
     @media(min-width:810px) and (max-width:1199px){.cards{max-width:calc(100% - 100px)}.card{width:220px;height:314px}.card:nth-child(2){inset-inline-start:calc(50% - 110px)}h2{font-size:28px}}
     @media(max-width:809px){.section{height:1187px;padding-top:130px;overflow:hidden}.heading{max-width:264px}h2{font-size:28px}.cards{max-width:390px}.card:nth-child(1){inset-inline-start:-41px;top:571px}.card:nth-child(2){inset-inline-start:calc(50% - 127px);top:140.984px}.card:nth-child(3){inset-inline-end:-41px;top:694px}.caption{inset-inline-end:20px;top:1053.203px}.card p{font-size:19px}}
     @media(max-width:809px){:host([dir="rtl"]) .section{height:1242px}:host([dir="rtl"]) .card:nth-child(1){top:626px}:host([dir="rtl"]) .card:nth-child(2){top:195.984px}:host([dir="rtl"]) .card:nth-child(3){top:749px}:host([dir="rtl"]) .caption{top:1108.203px}}
+    @media(min-width:810px){
+      .section{height:auto;padding-block:80px}
+      .heading{max-width:620px}
+      .cards{position:relative;inset:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;gap:32px;max-width:1040px;margin-top:64px;padding-block:40px 64px}
+      .cards .card:nth-child(n){position:relative;inset:auto;width:100%;height:auto;aspect-ratio:254/362}
+      .caption{position:static;inset:auto;grid-column:1/-1;transform:none!important;text-align:end}
+    }
+    @media(max-width:809px){
+      :host .section,:host([dir="rtl"]) .section{height:auto;padding-block:64px}
+      .heading{max-width:100%}.heading h2{overflow-wrap:anywhere}
+      .cards{position:relative;inset:auto;display:grid;gap:24px;max-width:100%;margin-top:32px;pointer-events:auto}
+      .cards .card:nth-child(n),:host([dir="rtl"]) .cards .card:nth-child(n){position:relative;inset:auto;width:100%;height:auto;aspect-ratio:4/5;transform:none}
+      .caption,:host([dir="rtl"]) .caption{position:static;inset:auto;transform:none!important;margin-top:8px}
+    }
   `];
   protected startMotion(){this.cleanup.forEach(stop=>stop());this.cleanup=[];this.renderRoot.querySelectorAll<HTMLElement>('.card').forEach(card=>this.cleanup.push(imageLens(card,card.querySelector('img')!)));this.cleanup.push(watchScene(this,()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const scroll=scrollPosition(this);const offsets=highlightTravel(scroll,matchMedia('(max-width:809px)').matches);this.renderRoot.querySelector<HTMLElement>('.caption')!.style.transform='translateY('+(reduced?0:-scroll*.07)+'px)';this.renderRoot.querySelectorAll<HTMLElement>('.card').forEach((card,i)=>card.style.setProperty('--offset',(reduced?0:offsets[i])+'px'));}));}
 

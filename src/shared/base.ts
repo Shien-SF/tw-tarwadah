@@ -2,9 +2,10 @@ import { LitElement, css, type PropertyValues } from 'lit';
 import { property } from 'lit/decorators.js';
 import defaults from './defaults.json';
 import { language, localize, watchLanguage } from './locale';
-import { useSmoothScroll, smoothTo } from './smooth-scroll';
+import { smoothTo } from './smooth-scroll';
 import { useReferenceCursor } from './cursor';
 import { revealContent } from './motion';
+import { actionUrl } from './navigation';
 
 export type SectionName = keyof typeof defaults;
 export type Config = Record<string, any>;
@@ -32,10 +33,10 @@ export class TarwadahElement extends LitElement {
     super.connectedCallback();
     const connection=++this.connection;
     this.dataset.section = this.section;
-    this.stopCursor=useReferenceCursor();
+    // Components keep the host theme cursor and scrolling behavior.
     this.updateDirection();
     this.stopLanguage=watchLanguage(()=>{this.requestUpdate();this.updateComplete.then(()=>{if(this.isConnected)this.restartMotion();});});
-    this.updateComplete.then(() => { if (this.isConnected&&connection===this.connection) {this.stopScroll=useSmoothScroll(this);this.restartMotion();} });
+    this.updateComplete.then(() => { if (this.isConnected&&connection===this.connection) {this.restartMotion();} });
     if (!document.getElementById('tarwadah-fonts')) {
       const style = document.createElement('style');
       style.id = 'tarwadah-fonts';
@@ -70,10 +71,22 @@ export class TarwadahElement extends LitElement {
     this.dir = /[\u0600-\u06ff]/.test(text) ? 'rtl' : 'ltr';
   }
 
-  protected jump(target: string) {
-    const id = target.replace(/^#/, '');
-    const element = document.getElementById(id) || Array.from(document.querySelectorAll<TarwadahElement>('[data-section]')).find(e => e.dataset.section === id);
-    if(element)smoothTo(element);
+  protected targetElement(target: unknown) {
+    if (typeof target !== 'string' || !target.trim()) return undefined;
+    const id = target.trim().replace(/^#/, '');
+    return document.getElementById(id) || Array.from(document.querySelectorAll<TarwadahElement>('[data-section]')).find(e => e.dataset.section === id);
+  }
+
+  protected actionHref(target: unknown, fallback: unknown = '') {
+    const element = this.targetElement(target);
+    // SDK instances can have generated IDs; a hash still provides a native link.
+    if (element) { if (!element.id) element.id = `malmah-${crypto.randomUUID()}`; return `#${element.id}`; }
+    return actionUrl(fallback);
+  }
+
+  protected followAction(event: Event, target: unknown) {
+    const element = this.targetElement(target);
+    if (element) { event.preventDefault(); smoothTo(element); }
   }
 }
 

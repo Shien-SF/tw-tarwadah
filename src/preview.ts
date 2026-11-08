@@ -7,75 +7,44 @@ import './components/tarwadah-features';
 import './components/tarwadah-video';
 import './components/tarwadah-testimonials';
 import './components/tarwadah-buy-now';
-import templateDefaults from './shared/template-defaults.json';
-import './preview.css';
-import { mergePreviewConfig, resolvePreviewTemplate } from './shared/preview-config';
-import { animate } from 'motion';
-import { language, watchLanguage } from './shared/locale';
-import { smoothTo } from './shared/smooth-scroll';
-import { initPreviewCart } from './preview-cart';
-import { initPreviewStore } from './preview-store';
+import defaults from './shared/defaults.json';
+import catalog from '../docs/components.json';
+import { mergePreviewConfig } from './shared/preview-config';
 
-document.body.dataset.tarwadahPreview='true';
-const previewLanguage=new URLSearchParams(location.search).get('lang');
-if(previewLanguage==='ar'||previewLanguage==='en'){document.documentElement.lang=previewLanguage;document.documentElement.dir=previewLanguage==='ar'?'rtl':'ltr';}
-
-// Only the local full-page preview owns navigation/footer. The publishable
-// component bundle leaves those global areas to the merchant's Salla theme.
-document.body.insertAdjacentHTML('afterbegin',`<header class="preview-nav"><div class="nav-head"><button aria-label="Open menu" aria-expanded="false" aria-controls="preview-menu" class="menu-button"><span></span><span></span></button><a href="#hero" class="brand"></a><span class="menu-title" aria-hidden="true">Menu</span><button type="button" aria-label="Open cart" aria-expanded="false" aria-controls="preview-cart" class="bag"><svg width="22" height="24" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 9h16l-2 14H6L4 9Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg><span class="cart-count" hidden></span></button></div><nav id="preview-menu" class="preview-menu" aria-label="Main navigation" inert></nav></header><main id="landing"></main>`);
-const container=document.getElementById('landing')!;
-const requestedTemplate=new URLSearchParams(location.search).get('template');
-const compact=requestedTemplate==='compact';
-function refreshPreview(){
-  const selected=resolvePreviewTemplate(templateDefaults,requestedTemplate,localStorage.getItem('salla_demo_active_template_id'));
-  const sections=selected.template.sections as Record<string,Record<string,any>>;
-  const names=selected.template.order.filter(name=>!compact||['hero','product-strip','highlights','features','testimonials','buy-now'].includes(name));
-  const next=new Set(names);
-  for(const child of Array.from(container.children))if(!next.has((child as HTMLElement).dataset.section!))child.remove();
-  for(const [index,name] of names.entries()){
-    const element=container.querySelector<HTMLElement>(`[data-section="${name}"]`)||document.createElement(`salla-tarwadah-${name}`);
-    element.id=name;element.dataset.section=name;
-    (element as any).config=mergePreviewConfig(sections[name],selected.useSession?localStorage.getItem(`form-builder::data_tarwadah-${name}`):null);
-    if(container.children[index]!==element)container.insertBefore(element,container.children[index]||null);
+document.body.dataset.tarwadahPreview = 'true';
+const query = new URLSearchParams(location.search);
+const lang = query.get('lang') === 'en' ? 'en' : 'ar';
+document.documentElement.lang = lang;
+document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+const style = document.createElement('style');
+style.textContent = `body{margin:0;background:#101010;color:#fff;font:16px/1.7 Tahoma,Arial,sans-serif}*{box-sizing:border-box}a{color:inherit}header{padding:24px max(20px,calc((100vw - 1200px)/2));border-bottom:1px solid #333}h1{margin:0;font-size:30px}.catalog{max-width:1200px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}.card{display:block;border:1px solid #444;padding:24px;text-decoration:none;border-radius:8px}.card:hover{border-color:#fc721b}.card h2{font-size:20px}.card p{color:#ccc}.stage{background:#000;overflow:clip;min-height:120px}a:focus-visible{outline:3px solid #fc721b;outline-offset:4px}.preview-note{margin:0;color:#bbb;font-size:13px}.toolbar{display:flex;gap:20px;flex-wrap:wrap}body[data-capture] header{display:none}`;
+document.head.append(style);
+const header = document.createElement('header');
+const heading = document.createElement('h1');
+heading.textContent = lang === 'ar' ? 'ملمح — العناصر المستقلة' : 'Malmah — standalone components';
+header.append(heading);
+const toolbar = document.createElement('nav'); toolbar.className = 'toolbar'; toolbar.setAttribute('aria-label', lang === 'ar' ? 'روابط المعاينة' : 'Preview navigation');
+for (const [href, title] of [['/', 'جميع العناصر'], ['/editor.html', 'محرر الإعدادات'], ['/docs/merchant-guide.html', 'دليل الاستخدام'], [`?${new URLSearchParams({...Object.fromEntries(query), lang: lang === 'ar' ? 'en' : 'ar'})}`, lang === 'ar' ? 'English' : 'العربية']]) {
+  const link = document.createElement('a'); link.href = href; link.textContent = title; toolbar.append(link);
+}
+header.append(toolbar); document.body.append(header);
+const selected = catalog.find(item => item.name === query.get('component'));
+if (selected) {
+  document.title = `ملمح — ${selected.title}`;
+  const note = document.createElement('p'); note.className = 'preview-note'; note.textContent = lang === 'ar' ? `${selected.title}: ${selected.description} — معاينة تجريبية لعنصر واحد؛ لا تمثل متجرًا فعليًا.` : `${selected.title_en}: ${selected.description_en} — isolated demo; not a live store.`; header.append(note);
+  const stage = document.createElement('main'); stage.className = 'stage';
+  const element = document.createElement(`salla-${selected.name}`);
+  const section = selected.name.replace('tarwadah-', '') as keyof typeof defaults;
+  (element as any).config = query.get('draft') === '1' ? mergePreviewConfig(defaults[section], localStorage.getItem(`form-builder::data_${selected.name}`)) : defaults[section];
+  stage.append(element); document.body.append(stage);
+} else {
+  const main = document.createElement('main'); main.className = 'catalog';
+  for (const item of catalog) {
+    const link = document.createElement('a'); link.className = 'card'; link.href = `/?component=${item.name}&lang=${lang}`;
+    const title = document.createElement('h2'); title.textContent = lang === 'ar' ? item.title : item.title_en;
+    const text = document.createElement('p'); text.textContent = lang === 'ar' ? item.description : item.description_en;
+    link.append(title, text); main.append(link);
   }
-  container.dataset.template=selected.name;
+  document.body.append(main);
 }
-refreshPreview();
-window.addEventListener('storage',event=>{if(event.key?.startsWith('form-builder::data_')||event.key==='salla_demo_active_template_id')refreshPreview();});
-
-document.body.insertAdjacentHTML('beforeend',`<footer class="preview-footer"><div class="footer-brand"></div><div class="footer-row"><nav aria-label="Footer"></nav></div><div class="preview-tools"><a class="editor-link" href="/editor.html">إعداد عناصر ترواده</a><button type="button" class="store-settings"></button><button class="direction">العربية / AR</button></div></footer>`);
-const menu=document.querySelector<HTMLElement>('.preview-menu')!;
-const navbar=document.querySelector<HTMLElement>('.preview-nav')!;
-const toggle=document.querySelector<HTMLButtonElement>('.menu-button')!;
-const cart=initPreviewCart(navbar,()=>setMenu(false));
-let menuAnimation:ReturnType<typeof animate>|undefined;
-let linkAnimations:Array<ReturnType<typeof animate>>=[];
-function setMenu(open:boolean){
-  if(open)cart.setOpen(false);
-  if((toggle.getAttribute('aria-expanded')==='true')===open)return;
-  document.querySelector('.menu-title')!.setAttribute('aria-hidden',String(!open));
-  (document.querySelector('.brand') as HTMLElement).inert=open;
-  (document.querySelector('.bag') as HTMLElement).inert=open;
-  menuAnimation?.stop();linkAnimations.forEach(a=>a.stop());
-  navbar.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));menu.inert=!open;
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  menuAnimation=animate(menu,{height:open?422.03:0},{type:'spring',bounce:.2,duration:reduced?0:.3});
-  linkAnimations=Array.from(menu.querySelectorAll('a')).map((link,i)=>animate(link,{opacity:open?1:0},{type:'spring',bounce:.2,duration:reduced?0:.8,delay:open?i*.04:0}));
-  toggle.setAttribute('aria-label',language()==='ar'?(open?'إغلاق القائمة':'فتح القائمة'):(open?'Close menu':'Open menu'));
-}
-toggle.onclick=()=>setMenu(toggle.getAttribute('aria-expanded')!=='true');
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){setMenu(false);toggle.focus();}});
-document.addEventListener('pointerdown',event=>{if(!navbar.contains(event.target as Node))setMenu(false);});
-menu.addEventListener('click',event=>{if((event.target as Element).closest('a'))setMenu(false);});
-function translatePreview(){
-  const ar=language()==='ar';
-  document.querySelector('.menu-title')!.textContent=ar?'القائمة':'Menu';
-  document.querySelector<HTMLButtonElement>('.direction')!.textContent=ar?'English / EN':'العربية / AR';
-  toggle.setAttribute('aria-label',ar?'فتح القائمة':'Open menu');
-  cart.translate();
-  store.translate();
-}
-const store=initPreviewStore(()=>setMenu(false));
-translatePreview();watchLanguage(()=>{refreshPreview();translatePreview();});
-document.querySelector<HTMLButtonElement>('.direction')!.onclick=()=>{const ar=language()!=='ar';document.documentElement.dir=ar?'rtl':'ltr';document.documentElement.lang=ar?'ar':'en';};
-document.addEventListener('click',event=>{const a=(event.target as Element).closest<HTMLAnchorElement>('a[href^="#"]');if(!a)return;const target=document.getElementById(a.hash.slice(1));if(target){event.preventDefault();smoothTo(target);}});
+if (query.get('capture') === '1') document.body.dataset.capture = 'true';

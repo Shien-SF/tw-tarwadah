@@ -10,6 +10,14 @@ export default class TarwadahTestimonials extends TarwadahElement {
   static styles=[sharedStyles,css`
     .section{position:relative;padding-block:180px 160px;overflow:hidden}.heading{max-width:516px;margin:auto;text-align:center}.eyebrow{font-family:'TW Instrument',serif;font-size:20px;line-height:24px;letter-spacing:-.02em;margin-bottom:4px;color:#bfbfbf}h2{font-size:48px;letter-spacing:-.06em;line-height:1;font-weight:500}.rows{margin-block:32px;position:relative;height:568px}.viewport{position:absolute;top:33px;inset-inline:0;height:240px;overflow:hidden;direction:ltr;mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent)}.track{display:flex;width:max-content;gap:24px;will-change:transform}.viewport.reverse{top:297px;display:flex;justify-content:flex-end}.reverse .track{margin-right:-27px}.quote{width:409px;height:240px;border:1px solid #ffffff20;border-radius:2px;padding:40px;display:flex;flex-direction:column;background:#000}.quote-icon{display:block;width:20px;height:14px;flex:none;margin-bottom:28px;color:var(--tw-accent)}.quote blockquote{font-family:'TW Roboto Mono',monospace;font-size:18px;letter-spacing:-.02em;line-height:1.4;color:#bfbfbf}.quote figcaption{font-family:'TW Instrument',serif;font-size:20px;line-height:24px;letter-spacing:-.02em;color:#bfbfbf;margin-top:32px}.caption{text-align:end;padding-inline:56px;color:#bbb;font-family:'TW Roboto Mono',monospace;font-size:14px}
     @media(max-width:809px){.section{padding-block:180px 168px}.heading{padding-inline:20px;max-width:390px}h2{font-size:32px}.caption{padding-inline:20px}}
+    @media(prefers-reduced-motion:reduce){
+      .section{padding-block:64px}.rows{height:auto;padding-inline:20px;max-width:1200px;margin-inline:auto;display:grid;gap:24px}
+      .viewport,.viewport.reverse{position:static;display:block;height:auto;overflow:visible;mask-image:none}
+      .track,.reverse .track{width:100%;margin:0;transform:none!important}
+      .track>div{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))}
+      .quote{width:100%;height:auto;min-height:220px}.quote blockquote{overflow-wrap:anywhere}
+    }
+    @media(prefers-reduced-motion:reduce) and (max-width:809px){.track>div{grid-template-columns:1fr}.quote{padding:28px}}
   `];
   protected startMotion(){this.stop?.();this.channels.forEach(c=>c.destroy());this.channels=[];this.renderRoot.querySelectorAll<HTMLElement>('.track').forEach((track,i)=>this.channels.push(springChannel(0,p=>track.style.transform='translateX('+reviewTravel(p)[i]+'px)',160,60)));this.stop=watchScene(this,()=>{const box=this.getBoundingClientRect();const p=matchMedia('(prefers-reduced-motion: reduce)').matches?0:targetProgress(box.top,box.height,innerHeight);this.channels.forEach(c=>c.set(p));this.dataset.motionProgress=p.toFixed(3);});}
   disconnectedCallback(){this.stop?.();this.channels.forEach(c=>c.destroy());super.disconnectedCallback();}

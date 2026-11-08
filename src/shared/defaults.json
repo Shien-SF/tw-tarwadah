@@ -21,6 +21,7 @@
       "en": "Discover Oud Wood"
     },
     "cta_target": "buy-now",
+    "cta_url": "",
     "scroll_label": {
       "ar": "[اكتشف المزيد]",
       "en": "[Explore more]"
@@ -45,6 +46,7 @@
       "en": "ADD TO CART"
     },
     "target": "buy-now",
+    "product_url": "",
     "image": "/demo-uploads/6eb5ff53-91b4-4bda-aa50-6bde7b3cac8b.png",
     "price": {
       "ar": "259.00 $",
@@ -240,152 +242,72 @@
       "en": "Testimonials"
     },
     "title": {
-      "ar": "اسمعها ممن ينصتون بعمق.",
-      "en": "Hear it from those who listen deeply."
+      "ar": "مساحة لآراء عملائك.",
+      "en": "A place for your customer stories."
     },
     "caption": {
-      "ar": "/ صُنعت بدقة. تُشحن حول العالم.",
-      "en": "/ Precision built. Ships globally."
+      "ar": "آراء توضيحية فقط — استبدلها بآراء حقيقية قبل النشر.",
+      "en": "Illustrative examples only — replace with real customer testimonials before publishing."
     },
     "items": [
       {
         "quote": {
-          "ar": "كأن العالم تعلّم أخيرًا كيف يهمس.",
-          "en": "It feels like the world finally learned to whisper."
+          "ar": "مثال: الصور وضّحت لي تفاصيل المنتج.",
+          "en": "Example: The photos helped me understand the product details."
         },
         "author": {
-          "ar": "نواه باتيل",
-          "en": "Noah Patel"
+          "ar": "عميل تجريبي 1",
+          "en": "Sample customer 1"
         }
       },
       {
         "quote": {
-          "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
-          "en": "Every note sounds personal, like it knows who’s listening."
+          "ar": "مثال: تجربة الطلب كانت سهلة.",
+          "en": "Example: Ordering was straightforward."
         },
         "author": {
-          "ar": "أميرة كولينز",
-          "en": "Amira Collins"
+          "ar": "عميل تجريبي 2",
+          "en": "Sample customer 2"
         }
       },
       {
         "quote": {
-          "ar": "توقفت عن تفقد البطارية. تبدو وكأنها لا تنفد.",
-          "en": "I stopped checking the battery. It just never seems to die."
+          "ar": "مثال: وصل المنتج بتغليف مرتب.",
+          "en": "Example: The product arrived neatly packaged."
         },
         "author": {
-          "ar": "لوكاس ماير",
-          "en": "Lucas Meyer"
+          "ar": "عميل تجريبي 3",
+          "en": "Sample customer 3"
         }
       },
       {
         "quote": {
-          "ar": "التحكم باللمس طبيعي، كأن السماعة تقرأ أفكارك.",
-          "en": "Touch feels natural — almost like the headphones read your mind."
+          "ar": "مثال: وجدت المواصفات التي أبحث عنها.",
+          "en": "Example: I found the specifications I needed."
         },
         "author": {
-          "ar": "إيلينا روسي",
-          "en": "Elena Rossi"
+          "ar": "عميل تجريبي 4",
+          "en": "Sample customer 4"
         }
       },
       {
         "quote": {
-          "ar": "إلغاء الضوضاء لطيف لدرجة أنك تنسى أنه يعمل.",
-          "en": "Noise cancellation so gentle, you forget it’s working."
+          "ar": "مثال: خدمة العملاء أجابت عن استفساري.",
+          "en": "Example: Customer support answered my question."
         },
         "author": {
-          "ar": "ديفيد كيم",
-          "en": "David Kim"
+          "ar": "عميل تجريبي 5",
+          "en": "Sample customer 5"
         }
       },
       {
         "quote": {
-          "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
-          "en": "Every note sounds personal, like it knows who’s listening."
+          "ar": "مثال: المنتج مناسب لاحتياجي.",
+          "en": "Example: The product suited my needs."
         },
         "author": {
-          "ar": "ديفيد كيم",
-          "en": "David Kim"
-        }
-      },
-      {
-        "quote": {
-          "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
-          "en": "Every note sounds personal, like it knows who’s listening."
-        },
-        "author": {
-          "ar": "ديفيد كيم",
-          "en": "David Kim"
-        }
-      },
-      {
-        "quote": {
-          "ar": "كل نغمة تبدو شخصية، كأنها تعرف من يستمع.",
-          "en": "Every note sounds personal, like it knows who’s listening."
-        },
-        "author": {
-          "ar": "ديفيد كيم",
-          "en": "David Kim"
-        }
-      },
-      {
-        "quote": {
-          "ar": "لا تدرك كم من الضجيج تحمله حتى يختفي.",
-          "en": "You don’t realize how much chaos you carry until it takes it away."
-        },
-        "author": {
-          "ar": "نواه ألفاريز",
-          "en": "Noah Alvarez"
-        }
-      },
-      {
-        "quote": {
-          "ar": "كل لمسة وكل وقفة، كأنها تفهم كيف أتحرك وأستمع.",
-          "en": "Every touch, every pause — like it understands how I move and listen."
-        },
-        "author": {
-          "ar": "مارا ينسن",
-          "en": "Mara Jensen"
-        }
-      },
-      {
-        "quote": {
-          "ar": "التصميم لا يطلب الانتباه، لكنه يملك اللحظة بهدوء.",
-          "en": "The design doesn’t ask for attention, but it quietly owns the moment."
-        },
-        "author": {
-          "ar": "دانيال كروغر",
-          "en": "Daniel Krüger"
-        }
-      },
-      {
-        "quote": {
-          "ar": "ليس أعلى، بل أوضح. ذكّرني لماذا أحب الموسيقى.",
-          "en": "Not louder. Just clearer. It reminded me why I love music."
-        },
-        "author": {
-          "ar": "آيا ناكامورا",
-          "en": "Aya Nakamura"
-        }
-      },
-      {
-        "quote": {
-          "ar": "هناك جمال في أن تتوارى السماعة وتترك الصوت وحده حاضرًا.",
-          "en": "There’s something beautiful about how it disappears and lets the sound exist."
-        },
-        "author": {
-          "ar": "إيثان موراليس",
-          "en": "Ethan Morales"
-        }
-      },
-      {
-        "quote": {
-          "ar": "لكل صوت مساحة ليتنفس، كأن العالم يتوقف من أجل الموسيقى.",
-          "en": "Every sound has space to breathe — it’s like the world pauses just for the music."
-        },
-        "author": {
-          "ar": "لينا هوفمان",
-          "en": "Lena Hoffmann"
+          "ar": "عميل تجريبي 6",
+          "en": "Sample customer 6"
         }
       }
     ],
@@ -510,7 +432,7 @@
         },
         "body": {
           "ar": "النوتات المعلنة\nالهيل، الفلفل الوردي، الباتشولي، العنبر، نوتات العود، حبوب التونكا.",
-          "en": "Listed Notes\nCardamom, pink pepper, patchouli, amber, oud notes, tonka bean.Listed Notes\nCardamom, pink pepper, patchouli, amber, oud notes, tonka bean."
+          "en": "Listed Notes\nCardamom, pink pepper, patchouli, amber, oud notes, tonka bean."
         }
       },
       {
@@ -529,7 +451,7 @@
           "en": "Purchase Information"
         },
         "body": {
-          "ar": "أبعاد السماعة\nإلغاء ضوضاء متكيف لحظيًا\n\nالعمق\nحتى 42 ديسيبل",
+          "ar": "السعر والتوفر\nتُعرض البيانات الحالية من المنتج المرتبط في المتجر.\n\nالشحن والاسترجاع\nتسري سياسات المتجر المعروضة قبل إتمام الطلب.",
           "en": "Price and Availability\nCurrent details are provided by the linked store product.\n\nShipping and Returns\nThe store policies shown before checkout apply."
         }
       }

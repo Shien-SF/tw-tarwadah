@@ -18,8 +18,9 @@ const saved=runInNewContext(`(function(e){${method}\n})`,{
   window:{customComponentsRaw:{}},localStorage:{getItem:()=>JSON.stringify({title:'Merchant customization'})},console,
 });
 assert.deepEqual(JSON.parse(saved.call(helpers,'hero')),{title:'Merchant customization'});
-for(const path of ['/landing.html','/editor.html','/node_modules/.salla-temp/preview.html']){
+for(const path of ['/','/editor.html','/node_modules/.salla-temp/preview.html']){
   const page=await fetch(`${origin}${path}`);assert.equal(page.status,200,`${path} is available`);
   const html=await page.text();assert.ok(!html.includes('/@fsD:'),'No malformed Windows module URLs');
 }
+assert.equal((await fetch(`${origin}/landing.html`)).status,404,'Landing page removed');
 console.log('Preview checked: defaults render without saving, saved edits win, preview/editor routes work.');

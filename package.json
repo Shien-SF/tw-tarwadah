@@ -13,7 +13,10 @@
         "check:upload": "node scripts/check-upload.mjs",
         "check:release": "pnpm run build && node scripts/check-release.mjs",
         "preview": "vite --host 127.0.0.1",
-        "preview:public": "tw-preview"
+        "preview:public": "tw-preview",
+        "docs:build": "node scripts/build-guide.mjs && node scripts/build-screenshot-board.mjs",
+        "prepare:submission": "node scripts/build-guide.mjs && node scripts/prepare-media.mjs",
+        "check:ui": "playwright-cli -s=malmah run-code --filename=scripts/capture-components.cjs"
     },
     "devDependencies": {
         "@salla.sa/twilight-bundles": "0.1.63",
