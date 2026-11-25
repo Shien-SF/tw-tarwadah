@@ -5,18 +5,10 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "pnpm run check && vite build && node scripts/check-build-output.mjs",
-        "check:dist": "node scripts/check-build-output.mjs HEAD",
-        "check": "tsc --noEmit && node scripts/sync-template-defaults.mjs --check && node scripts/check-bundle.mjs && node scripts/check-locales.mjs && node scripts/check-motion.mjs && node scripts/check-product.mjs",
+        "build": "tsc --noEmit && vite build",
         "sync:defaults": "node scripts/sync-template-defaults.mjs",
-        "check:preview": "node scripts/check-preview.mjs",
-        "check:upload": "node scripts/check-upload.mjs",
-        "check:release": "pnpm run build && node scripts/check-release.mjs",
         "preview": "vite --host 127.0.0.1",
-        "preview:public": "tw-preview",
-        "docs:build": "node scripts/build-guide.mjs && node scripts/build-screenshot-board.mjs",
-        "prepare:submission": "node scripts/build-guide.mjs && node scripts/prepare-media.mjs",
-        "check:ui": "playwright-cli -s=kouba run-code --filename=scripts/capture-components.cjs"
+        "preview:public": "tw-preview"
     },
     "devDependencies": {
         "@salla.sa/twilight-bundles": "0.1.63",

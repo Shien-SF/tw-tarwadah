@@ -14,11 +14,38 @@ export function tarwadahDemoPages(): Plugin {
   return {
     name: 'tarwadah-sdk-demo-pages',
     configureServer(server) {
-      // Run before the SDK's template writer, including rename/delete/default
-      // actions. A failed backup must stop the write, not silently lose history.
-      server.middlewares.stack.unshift({ route: '', handle(req: any, res: any, next: any) {
+      // Run before the SDK's demo middleware and template writer so broken
+      // Windows /@fs paths in node_modules/.salla-temp/*.html are never served.
+      server.middlewares.stack.unshift({ route: '', handle: async (req: any, res: any, next: any) => {
         const pathname=req.url?.split('?')[0];
         if (pathname === '/landing.html') { res.statusCode=404; return res.end('Landing templates have been archived. Open / to preview independent components.'); }
+        if (pathname === '/editor.html' || pathname === '/node_modules/.salla-temp/index.html' || pathname === '/node_modules/.salla-temp/preview.html') {
+          try {
+            const bundle = JSON.parse(readFileSync(resolve(server.config.root, 'twilight-bundle.json'), 'utf8'));
+            const components = bundle.components.map((component: any, order: number) => ({
+              name: component.name,
+              path: resolve(server.config.root, 'src/components', component.name, 'index.ts'),
+              url: `/src/components/${component.name}/index.ts`,
+              rawComponent: component,
+              schema: JSON.stringify([...component.fields, { id: 'twilight-bundles-component-name', type: 'string', format: 'hidden', value: component.name }]),
+              order,
+            }));
+            let html = createDemoHTML(components, {
+              grid: { columns: 'repeat(1, 1fr)', gap: '0', minWidth: '300px' },
+              css: 'body{background:#000} .component-container{margin:0;padding:0} .components-grid{overflow:visible!important;gap:0!important;padding:0!important} salla-demo-component-card{display:block} .component-card{margin:0!important;padding:0!important}', js: '',
+              formbuilder: { languages: ['ar', 'en'], defaultLanguage: 'ar' },
+              twilightBundles: bundle,
+            }, pathname === '/editor.html' || pathname.endsWith('/index.html') ? 'shell' : 'preview');
+            html = html.replace(/src="preview\.html/g, 'src="/node_modules/.salla-temp/preview.html');
+            for (const component of bundle.components) {
+              const title = localizedString(component.title, 'ar').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]!));
+              html = html.replaceAll(`<span class="visibility-item-name">${component.name}</span>`, `<span class="visibility-item-name">${title}</span>`);
+            }
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/html; charset=utf-8');
+            return res.end(await server.transformIndexHtml(pathname, html));
+          } catch (error) { return next(error as Error); }
+        }
         if (!pathname?.startsWith('/__salla_demo/templates') || !['POST','PUT','PATCH','DELETE'].includes(req.method || '')) return next();
         res.statusCode=403;res.setHeader('Content-Type','application/json; charset=utf-8');
         return res.end(JSON.stringify({error:'standalone_bundle',message:'هذه مجموعة عناصر مستقلة؛ قوالب الهبوط محفوظة خارج نسخة التقديم.'}));
@@ -95,8 +122,9 @@ export function tarwadahDemoPages(): Plugin {
     let a;`;
           if (!source.includes(original)) return next(new Error('The SDK default-data adapter needs updating for this SDK version.'));
           res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
-          const labels = JSON.stringify({ 'tarwadah-morae': 'ترواده — الصفحة الكاملة', 'tarwadah-compact': 'ترواده — الصفحة المختصرة' });
-          const adapted = `import { localizedString as tarwadahLocalizedString } from '/src/shared/locale.ts';\n` + source.replace(original, replacement).replace('src="./preview.html"', 'src="/node_modules/.salla-temp/preview.html"')
+          const labels = JSON.stringify({ 'tarwadah-morae': 'كوبا — الصفحة الكاملة', 'tarwadah-compact': 'كوبا — الصفحة المختصرة' });
+          const helper = `function tarwadahLocalizedString(v){if(typeof v==='string')return v;if(typeof v==='number'&&Number.isFinite(v))return String(v);if(!v||typeof v!=='object'||Array.isArray(v))return '';const lang=(localStorage.getItem('salla_demo_lang')||document.documentElement.lang||'ar').toLowerCase().startsWith('ar')?'ar':'en';for(const k of [lang,'en','ar']){if(typeof v[k]==='string')return v[k];if(typeof v[k]==='number'&&Number.isFinite(v[k]))return String(v[k]);}return '';}\n`;
+          const adapted = helper + source.replace(original, replacement).replace('src="./preview.html"', 'src="/node_modules/.salla-temp/preview.html"')
             // Old editor sessions retain their schema labels. Refresh only this
             // field's metadata, preserving every stored value and language.
             .replace('return t ? this.htmlSafeString(n) : n;', `let schema=n;
@@ -120,32 +148,7 @@ export function tarwadahDemoPages(): Plugin {
             .replace('a.textContent = h ? h.name : r || s.templateSwitcherPlaceholder;', `a.textContent = tarwadahLocalizedString((${labels})[r] || r || s.templateSwitcherPlaceholder);`);
           return res.end(adapted);
         }
-        if (pathname !== '/editor.html' && pathname !== '/node_modules/.salla-temp/index.html' && pathname !== '/node_modules/.salla-temp/preview.html') return next();
-        try {
-          const bundle = JSON.parse(readFileSync(resolve(server.config.root, 'twilight-bundle.json'), 'utf8'));
-          const components = bundle.components.map((component: any, order: number) => ({
-            name: component.name,
-            path: resolve(server.config.root, 'src/components', component.name, 'index.ts'),
-            url: `/src/components/${component.name}/index.ts`,
-            rawComponent: component,
-            schema: JSON.stringify([...component.fields, { id: 'twilight-bundles-component-name', type: 'string', format: 'hidden', value: component.name }]),
-            order,
-          }));
-          let html = createDemoHTML(components, {
-            grid: { columns: 'repeat(1, 1fr)', gap: '0', minWidth: '300px' },
-            css: 'body{background:#000} .component-container{margin:0;padding:0} .components-grid{overflow:visible!important;gap:0!important;padding:0!important} salla-demo-component-card{display:block} .component-card{margin:0!important;padding:0!important}', js: '',
-            formbuilder: { languages: ['ar', 'en'], defaultLanguage: 'ar' },
-            twilightBundles: bundle,
-          }, pathname === '/editor.html' || pathname.endsWith('/index.html') ? 'shell' : 'preview');
-          if (pathname === '/editor.html') html = html.replace(/src="preview\.html/g, 'src="/node_modules/.salla-temp/preview.html');
-          for (const component of bundle.components) {
-            const title = localizedString(component.title, 'ar').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]!));
-            html = html.replaceAll(`<span class="visibility-item-name">${component.name}</span>`, `<span class="visibility-item-name">${title}</span>`);
-          }
-          res.statusCode = 200;
-          res.setHeader('Content-Type', 'text/html; charset=utf-8');
-          res.end(await server.transformIndexHtml(pathname, html));
-        } catch (error) { next(error as Error); }
+        next();
       });
     },
   };
