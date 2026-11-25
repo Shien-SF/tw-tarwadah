@@ -1,18 +1,18 @@
 {
     "name": {
-        "ar": "ملمح",
-        "en": "Malmah"
+        "ar": "رواسم",
+        "en": "Rawasim"
     },
     "description": {
         "ar": "مجموعة من تسعة عناصر قابلة للتخصيص لإبراز تفاصيل المنتجات، تشمل مقدمة المنتج ومعرض الصور والمميزات والفيديو وآراء العملاء وعناصر ربط المنتج والشراء، مع دعم العربية والإنجليزية.",
         "en": "Nine customizable components for presenting product details, including a product introduction, image gallery, features, video, customer testimonials, and product and purchase controls, with Arabic and English support."
     },
     "author_email": "shahienms30@gmail.com",
-    "support_url": "https://mohamed-shahien.online",
+    "support_url": "https://sora-app.tech/tarwadah#merchant-guide",
     "repository": "https://github.com/Shien-SF/tw-tarwadah",
     "components": [
         {
-            "title": "ملمح — مقدمة المنتج",
+            "title": "رواسم — مقدمة المنتج",
             "name": "tarwadah-hero",
             "key": "e91ca814-9d83-4e87-a92f-ee794aba6f92",
             "icon": "sicon-layout-grid",
@@ -154,7 +154,7 @@
             }
         },
         {
-            "title": "ملمح — شريط المنتج العائم",
+            "title": "رواسم — شريط المنتج العائم",
             "name": "tarwadah-product-strip",
             "key": "4a1e1597-4dba-4c8c-a284-0f9bdd21bcca",
             "icon": "sicon-layout-grid",
@@ -292,7 +292,7 @@
             }
         },
         {
-            "title": "ملمح — أبرز تفاصيل المنتج",
+            "title": "رواسم — أبرز تفاصيل المنتج",
             "name": "tarwadah-highlights",
             "key": "cbb50120-bf92-4337-abf4-f40e8e53cce4",
             "icon": "sicon-layout-grid",
@@ -432,7 +432,7 @@
             }
         },
         {
-            "title": "ملمح — قصة المنتج",
+            "title": "رواسم — قصة المنتج",
             "name": "tarwadah-sound",
             "key": "51fda7d5-7b44-4cdd-aa48-aadda39d5e73",
             "icon": "sicon-layout-grid",
@@ -493,7 +493,7 @@
             }
         },
         {
-            "title": "ملمح — معرض صور المنتج",
+            "title": "رواسم — معرض صور المنتج",
             "name": "tarwadah-gallery",
             "key": "f3ad8df6-a80c-4c5d-aabe-fe6767debcad",
             "icon": "sicon-layout-grid",
@@ -597,7 +597,7 @@
             }
         },
         {
-            "title": "ملمح — المميزات والفوائد",
+            "title": "رواسم — المميزات والفوائد",
             "name": "tarwadah-features",
             "key": "77dbb5a2-4b1d-448f-a432-7c30ea180cf6",
             "icon": "sicon-layout-grid",
@@ -755,7 +755,7 @@
             }
         },
         {
-            "title": "ملمح — فيديو المنتج",
+            "title": "رواسم — فيديو المنتج",
             "name": "tarwadah-video",
             "key": "847bedfa-85c9-42a2-ac0f-fdd56e2b16f4",
             "icon": "sicon-layout-grid",
@@ -844,7 +844,7 @@
             }
         },
         {
-            "title": "ملمح — آراء العملاء",
+            "title": "رواسم — آراء العملاء",
             "name": "tarwadah-testimonials",
             "key": "f33d6355-b2a8-4c1f-add1-4a4d34dba6ac",
             "icon": "sicon-layout-grid",
@@ -1015,7 +1015,7 @@
             }
         },
         {
-            "title": "ملمح — تفاصيل المنتج والشراء",
+            "title": "رواسم — تفاصيل المنتج والشراء",
             "name": "tarwadah-buy-now",
             "key": "4356cf1d-367c-4489-a3e0-f4c804b601d5",
             "icon": "sicon-layout-grid",
