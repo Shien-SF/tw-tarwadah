@@ -1,4 +1,4 @@
-# رواسم — Rawasim
+# كوبا — Kouba
 
 مجموعة سلة تضم تسعة عناصر مستقلة لعرض المنتجات داخل الثيم. لا تتضمن صفحة هبوط أو هيدرًا أو فوترًا.
 
@@ -11,7 +11,7 @@ pnpm.cmd run dev
 
 افتح `http://127.0.0.1:5173/` لقائمة العناصر. كل بطاقة تفتح عنصرًا واحدًا. يدعم الرابط `lang=ar` أو `lang=en`. المحرر الرسمي متاح في `/editor.html`. قوالب الهبوط القديمة غير متاحة في هذه النسخة.
 
-المعرّفات البرمجية `tarwadah-*` ومفاتيح العناصر محفوظة حتى لا تفقد إعدادات العناصر السابقة عند تحديث المجموعة. الاسم الظاهر للتاجر هو «رواسم».
+المعرّفات البرمجية `tarwadah-*` ومفاتيح العناصر محفوظة حتى لا تفقد إعدادات العناصر السابقة عند تحديث المجموعة. الاسم الظاهر للتاجر هو «كوبا».
 
 ## ملفات التقديم والمساعدة
 
@@ -42,9 +42,9 @@ pnpm.cmd run check:release
 
 ```powershell
 pnpm.cmd run docs:build
-playwright-cli -s=malmah open http://127.0.0.1:5173/
-playwright-cli -s=malmah run-code --filename=scripts/capture-components.cjs
-playwright-cli -s=malmah run-code --filename=scripts/capture-boards.cjs
+playwright-cli -s=kouba open http://127.0.0.1:5173/
+playwright-cli -s=kouba run-code --filename=scripts/capture-components.cjs
+playwright-cli -s=kouba run-code --filename=scripts/capture-boards.cjs
 pnpm.cmd run prepare:submission
 ```
 

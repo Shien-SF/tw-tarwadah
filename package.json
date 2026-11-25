@@ -16,7 +16,7 @@
         "preview:public": "tw-preview",
         "docs:build": "node scripts/build-guide.mjs && node scripts/build-screenshot-board.mjs",
         "prepare:submission": "node scripts/build-guide.mjs && node scripts/prepare-media.mjs",
-        "check:ui": "playwright-cli -s=malmah run-code --filename=scripts/capture-components.cjs"
+        "check:ui": "playwright-cli -s=kouba run-code --filename=scripts/capture-components.cjs"
     },
     "devDependencies": {
         "@salla.sa/twilight-bundles": "0.1.63",

@@ -21,7 +21,7 @@ style.textContent = `body{margin:0;background:#101010;color:#fff;font:16px/1.7 T
 document.head.append(style);
 const header = document.createElement('header');
 const heading = document.createElement('h1');
-heading.textContent = lang === 'ar' ? 'ملمح — العناصر المستقلة' : 'Malmah — standalone components';
+heading.textContent = lang === 'ar' ? 'كوبا — العناصر المستقلة' : 'Kouba — standalone components';
 header.append(heading);
 const toolbar = document.createElement('nav'); toolbar.className = 'toolbar'; toolbar.setAttribute('aria-label', lang === 'ar' ? 'روابط المعاينة' : 'Preview navigation');
 for (const [href, title] of [['/', 'جميع العناصر'], ['/editor.html', 'محرر الإعدادات'], ['/docs/merchant-guide.html', 'دليل الاستخدام'], [`?${new URLSearchParams({...Object.fromEntries(query), lang: lang === 'ar' ? 'en' : 'ar'})}`, lang === 'ar' ? 'English' : 'العربية']]) {
@@ -30,7 +30,7 @@ for (const [href, title] of [['/', 'جميع العناصر'], ['/editor.html', 
 header.append(toolbar); document.body.append(header);
 const selected = catalog.find(item => item.name === query.get('component'));
 if (selected) {
-  document.title = `ملمح — ${selected.title}`;
+  document.title = `كوبا — ${selected.title}`;
   const note = document.createElement('p'); note.className = 'preview-note'; note.textContent = lang === 'ar' ? `${selected.title}: ${selected.description} — معاينة تجريبية لعنصر واحد؛ لا تمثل متجرًا فعليًا.` : `${selected.title_en}: ${selected.description_en} — isolated demo; not a live store.`; header.append(note);
   const stage = document.createElement('main'); stage.className = 'stage';
   const element = document.createElement(`salla-${selected.name}`);

@@ -1,6 +1,6 @@
-import { s as c, w as d, l as n } from "./base-1e_lyEgl.js";
+import { s as c, w as d, l as n } from "./base-D2T_ty0B.js";
 import { css as f, html as a } from "lit";
-import { T as h } from "./product-C20esfHL.js";
+import { T as h } from "./product-DDB0Ceoh.js";
 const l = class l extends h {
   constructor() {
     super(...arguments), this.section = "product-strip";

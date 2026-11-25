@@ -80,7 +80,7 @@ export class TarwadahElement extends LitElement {
   protected actionHref(target: unknown, fallback: unknown = '') {
     const element = this.targetElement(target);
     // SDK instances can have generated IDs; a hash still provides a native link.
-    if (element) { if (!element.id) element.id = `malmah-${crypto.randomUUID()}`; return `#${element.id}`; }
+    if (element) { if (!element.id) element.id = `kouba-${crypto.randomUUID()}`; return `#${element.id}`; }
     return actionUrl(fallback);
   }
 

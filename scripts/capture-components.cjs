@@ -1,4 +1,4 @@
-// Run with: playwright-cli -s=malmah run-code --filename=scripts/capture-components.cjs
+// Run with: playwright-cli -s=kouba run-code --filename=scripts/capture-components.cjs
 async page => {
   const names = ['hero','product-strip','highlights','sound','gallery','features','video','testimonials','buy-now'];
   const report = [];
