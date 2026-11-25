@@ -1,11 +1,11 @@
 {
     "name": {
-        "ar": "رواسم",
-        "en": "Rawasim"
+        "ar": "كوبا",
+        "en": "Kouba"
     },
     "description": {
-        "ar": "مجموعة من تسعة عناصر قابلة للتخصيص لإبراز تفاصيل المنتجات، تشمل مقدمة المنتج ومعرض الصور والمميزات والفيديو وآراء العملاء وعناصر ربط المنتج والشراء، مع دعم العربية والإنجليزية.",
-        "en": "Nine customizable components for presenting product details, including a product introduction, image gallery, features, video, customer testimonials, and product and purchase controls, with Arabic and English support."
+        "ar": null,
+        "en": null
     },
     "author_email": "shahienms30@gmail.com",
     "support_url": "https://sora-app.tech/tarwadah#merchant-guide",
